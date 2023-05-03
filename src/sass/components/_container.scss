@@ -1,0 +1,18 @@
+.container {
+  width: $container-width-mobile;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  margin: 0 auto;
+
+  //medium screen
+  @include mq(tablet) {
+    width: $container-width-tablet;
+    padding-left: var(--container-padding-tablet);
+    padding-right: var(--container-padding-tablet);
+  }
+
+  //Large screen
+  @include mq(desktop) {
+    width: $container-width-desktop;
+  }
+}
