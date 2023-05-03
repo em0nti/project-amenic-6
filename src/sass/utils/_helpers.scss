@@ -1,0 +1,82 @@
+%link {
+  text-decoration: none;
+  color: currentColor;
+}
+
+%list {
+  margin: 0;
+  padding-left: 0;
+
+  list-style-type: none;
+}
+
+%button {
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/**
+  Міксін для медіазапитів.
+
+ $type == mobile: Медіазапит для мобільних пристроїв (екран не менше $container-width-mobile)
+ $type == mobile-only: Медіазапит лише для мобільних пристроїв (екран не більше $container-width-tablet)
+ $type == tablet: Медіазапит для планшетів (екран не менше $container-width-tablet)
+ $type == tablet-only: Медіазапит лише для планшетів (екран не менше $container-width-tablet і не більше $container-width-desktop)
+ $type == desktop: Медіазапит для настільних пристроїв (екран не менше $container-width-desktop)
+ $type == not-desktop: Медіазапит для пристроїв, що не є настільними (екран не більше $container-width-desktop)
+ $type == retina: Медіазапит для ретинових дисплеїв
+
+  Використання:
+    .my-element {
+        padding: 10px;
+        @include mq(tablet) {
+            padding: 20px;
+        }
+        @include mq(desktop) {
+             padding: 30px;
+        }
+    }
+
+ */
+
+@mixin mq($type) {
+  $sm: $container-width-mobile;
+  $md: $container-width-tablet;
+  $lg: $container-width-desktop;
+
+  @if $type == mobile {
+    @media screen and (min-width: $sm) {
+      @content;
+    }
+  } @else if $type == mobile-only {
+    @media screen and (max-width: #{$md - 0.02}) {
+      @content;
+    }
+  } @else if $type == tablet {
+    @media screen and (min-width: $md) {
+      @content;
+    }
+  } @else if $type == tablet-only {
+    @media screen and (min-width: $md) and (max-width: #{$lg - 0.02}) {
+      @content;
+    }
+  } @else if $type == desktop {
+    @media screen and (min-width: $lg) {
+      @content;
+    }
+  } @else if $type == not-desktop {
+    @media screen and (max-width: #{$lg - 0.02}) {
+      @content;
+    }
+  } @else if $type == retina {
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      @content;
+    }
+  } @else {
+    @error "Unknow type breakpoint #{$type}.";
+  }
+}

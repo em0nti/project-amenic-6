@@ -1,0 +1,24 @@
+:root {
+  // Layouts
+  //--section-padding-default: px;
+  //--section-padding-lg: px;
+  --container-padding: 20px;
+  --container-padding-tablet: 32px;
+
+  /* card-set */
+  --items: 1;
+  --indent: 30px;
+
+  // Colors
+  --color-white: #fff;
+  --color-black: #000;
+
+  /* transition */
+  --transition-duration: 250ms;
+  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+//Media Breakpoints
+$container-width-mobile: 320px;
+$container-width-tablet: 768px;
+$container-width-desktop: 1280px;
