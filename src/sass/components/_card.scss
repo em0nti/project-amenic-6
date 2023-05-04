@@ -2,14 +2,19 @@
     position: relative;
     width: 280px;
     height: auto;
+    @media screen and (min-width: $container-width-tablet) {
+    width: 224px;
+        }
+    @media screen and (min-width: $container-width-desktop) {
+        width: 395px;
+    }
 }
 .card__image {
     border-radius: 5px;
 }
 .card__footer {
     position: absolute;
-    background-color: rgba(0, 0, 0, .5);
-    background:linear-gradient(to bottom, rgb(0, 0, 0, .2), black);
+    background:linear-gradient(to bottom, rgb(0, 0, 0, .075), black);
     padding-left: 12px;
     padding-right: 12px;
     padding-bottom: 12px;
@@ -22,11 +27,20 @@
     border-radius: 5px;
 }
 .card__descr {
-
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.67;
+    @media screen and (min-width: $container-width-tablet) {
+    line-height: 1.5;
+    }
+    @media screen and (min-width: $container-width-desktop) {
+    font-size: 20px;
+    line-height: 1.2;
+    }
 }
 .card__name {
 color: white;
-text-transform: capitalize;    
+text-transform: uppercase;    
 }
 .card__details {
     color: #B7B7B7;
@@ -34,8 +48,12 @@ text-transform: capitalize;
 }
 
 .card__rate {
-
     width: 86px;
     height: auto;
-
+    @media screen and (min-width: $container-width-tablet) {
+        width: 66px;
+    }
+    @media screen and (min-width: $container-width-desktop) {
+        width: 106px;
+    }
 }
