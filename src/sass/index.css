@@ -1,0 +1,225 @@
+@charset "UTF-8";
+@import '../../node_modules/modern-normalize/modern-normalize.css';
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+:root {
+  --container-padding: 20px;
+  --container-padding-tablet: 32px;
+  /* card-set */
+  --items: 1;
+  --indent: 30px;
+  --color-white: #fff;
+  --color-black: #000;
+  /* transition */
+  --transition-duration: 250ms;
+  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.weekly-trends__link {
+  text-decoration: none;
+  color: currentColor;
+}
+
+.weekly-trends__movie-list {
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+/**
+  Міксін для медіазапитів.
+
+ $type == mobile: Медіазапит для мобільних пристроїв (екран не менше $container-width-mobile)
+ $type == mobile-only: Медіазапит лише для мобільних пристроїв (екран не більше $container-width-tablet)
+ $type == tablet: Медіазапит для планшетів (екран не менше $container-width-tablet)
+ $type == tablet-only: Медіазапит лише для планшетів (екран не менше $container-width-tablet і не більше $container-width-desktop)
+ $type == desktop: Медіазапит для настільних пристроїв (екран не менше $container-width-desktop)
+ $type == not-desktop: Медіазапит для пристроїв, що не є настільними (екран не більше $container-width-desktop)
+ $type == retina: Медіазапит для ретинових дисплеїв
+
+  Використання:
+    .my-element {
+        padding: 10px;
+        @include mq(tablet) {
+            padding: 20px;
+        }
+        @include mq(desktop) {
+             padding: 30px;
+        }
+    }
+
+ */
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto Medium"), local("Roboto-Medium"), url("../fonts/Roboto-Medium.woff2") format("woff2"), url("../fonts/Roboto-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/Roboto-Regular.woff2") format("woff2"), url("../fonts/Roboto-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/Roboto-Bold.woff2") format("woff2"), url("../fonts/Roboto-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+.page {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+/*----------  Card set  ----------*/
+.card-set {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--indent);
+}
+
+.card-set__item {
+  flex-basis: calc((100% - var(--indent) * (var(--items) - 1)) / var(--items));
+}
+
+.container {
+  width: 320px;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    padding-left: var(--container-padding-tablet);
+    padding-right: var(--container-padding-tablet);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+  }
+}
+
+.weekly-trends__heder {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 24px;
+}
+@media screen and (min-width: 768px) {
+  .weekly-trends__heder {
+    margin-top: 52px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .weekly-trends__heder {
+    margin-top: 80px;
+    margin-bottom: 28px;
+  }
+}
+
+.weekly-trends__title {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: black;
+}
+@media screen and (min-width: 768px) {
+  .weekly-trends__title {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .weekly-trends__title {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+}
+
+.weekly-trends__link {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #f87719;
+}
+@media screen and (min-width: 768px) {
+  .weekly-trends__link {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .weekly-trends__link {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+}
+.weekly-trends__link:hover {
+  color: rgb(206, 157, 97);
+}
+
+.weekly-trends__movie-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.weekly-trends__item {
+  width: 100%;
+  height: 406px;
+  background-color: aqua;
+  margin-bottom: 5px;
+}
+@media screen and (min-width: 768px) {
+  .weekly-trends__item {
+    width: calc((100% - 32px) / 3);
+    height: 325px;
+    margin-right: 16px;
+  }
+  .weekly-trends__item:nth-child(3n) {
+    margin-right: 0px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .weekly-trends__item {
+    margin-bottom: 0px;
+    height: 574px;
+  }
+}/*# sourceMappingURL=index.css.map */

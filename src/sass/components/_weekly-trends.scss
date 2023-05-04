@@ -1,0 +1,93 @@
+.weekly-trends__heder {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 40px;
+  margin-bottom: 24px;
+
+  @media screen and (min-width: $container-width-tablet) {
+    margin-top: 52px;
+  }
+  @media screen and (min-width: $container-width-desktop) {
+    margin-top: 80px;
+    margin-bottom: 28px;
+  }
+}
+
+.weekly-trends__title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+
+  text-transform: uppercase;
+
+  color: black;
+
+  @media screen and (min-width: $container-width-tablet) {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  @media screen and (min-width: $container-width-desktop) {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+}
+
+.weekly-trends__link {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+
+  @extend %link;
+
+  color: #f87719;
+
+  @media screen and (min-width: $container-width-tablet) {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  @media screen and (min-width: $container-width-desktop) {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  &:hover {
+    color: rgb(206, 157, 97);
+  }
+}
+
+.weekly-trends__movie-list {
+  @extend %list;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// .weekly-trends__item нужно редактировать по наявной карточке фильма
+
+.weekly-trends__item {
+  width: 100%;
+  height: 406px;
+  background-color: aqua;
+
+  margin-bottom: 5px;
+  // margin-bottom убрать когда будем рендерить (добавил для визуального ефекта при размере 320)
+  @media screen and (min-width: $container-width-tablet) {
+    width: calc((100% - 32px) / 3);
+    height: 325px;
+    margin-right: 16px;
+
+    &:nth-child(3n) {
+      margin-right: 0px;
+    }
+  }
+
+  @media screen and (min-width: $container-width-desktop) {
+    margin-bottom: 0px;
+    height: 574px;
+  }
+}
