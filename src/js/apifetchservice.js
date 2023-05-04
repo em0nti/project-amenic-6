@@ -1,42 +1,20 @@
-/// test
 import axios from 'axios';
 
 export default class ApiFetchService {
   constructor() {
     this.url = 'https://api.themoviedb.org/3/';
     this.key = '91ae85947dca7203ec2b4d7841a3c73b';
-    this.film = 'King';
+    // this.film = 'King';
     this.year = 2001;
     this.genre = 'Action';
     this.country = 'US';
-    this.page = 148;
+    this.page = 1;
     this.region = 'US';
     this.language = 'en-US';
     this.id = 157336;
-    this.query = 'cat';
-
-    // country or region ???
+    this.query = '';
+    this.trends_type = 'day';
   }
-
-  async fetchFilmList() {
-    try {
-      const url = `${this.url}search/movie?api_key=${this.key}&query=${this.film}&primary_release_year=${this.year}&page=${this.page}&region=${this.region}`;
-      let { data } = await axios.get(url);
-      return data.results;
-    } catch (error) {}
-  }
-
-  //   async fetchFilmDiscoverWithoutCountry() {
-  //     const url = `${this.url}discover/movie?api_key=${this.key}&language=${this.language}&with_genres=${this.genre}&primary_release_year=${this.year}`;
-  //     let { data } = await axios.get(url);
-  //     // let dataResults = data.results;
-  //     // // let dataFiltered = dataResults.filter(film => film.original_language === 'US');
-  //     // let dataFiltered = dataResults.map(filmId => filmId.id);
-
-  //     // console.log(dataFiltered);
-
-  //     return data.results;
-  //   }
 
   async fetchFilmDiscoverWithCountry() {
     const urlWithParams = `${this.url}discover/movie?api_key=${this.key}&language=${this.language}&with_genres=${this.genre}&primary_release_year=${this.year}`;
@@ -72,7 +50,6 @@ export default class ApiFetchService {
       console.log(error.message);
     }
   }
-
   async fetchFilmByID(filmID) {
     try {
       const urlByID = `${this.url}movie/${filmID}?api_key=${this.key}&language=${this.language}`;
@@ -89,21 +66,36 @@ export default class ApiFetchService {
     const urlByQuery = `${this.url}search/movie?api_key=${this.key}&language=${this.language}&query=${this.query}&page=${this.page}`;
     try {
       let { data } = await axios.get(urlByQuery);
-      // console.log(data.production_countries);
-      console.log(data);
+      console.log(data.results);
 
-      return data;
+      return data.results;
     } catch (error) {
       console.log(error.message);
     }
   }
+  async fetchFilmTrends() {
+    const urlTrends = `${this.url}trending/movie/${this.trends_type}?api_key=${this.key}&page=${this.page}`;
+    try {
+      let { data } = await axios.get(urlTrends);
+      // console.log(data.production_countries);
+      console.log(data);
 
-  get getFilm() {
-    return this.film;
+      return data.results;
+    } catch (error) {
+      console.log(error.message);
+    }
   }
+  async fetchFilmUpcoming() {
+    const urlUpcoming = `${this.url}movie/upcoming?api_key=${this.key}&language=${this.language}&page=${this.page}`;
+    try {
+      let { data } = await axios.get(urlUpcoming);
+      // console.log(data.production_countries);
+      console.log(data.results);
 
-  set setFilm(title) {
-    this.film = title;
+      return data.results;
+    } catch (error) {
+      console.log(error.message);
+    }
   }
 
   get getYear() {
@@ -114,11 +106,11 @@ export default class ApiFetchService {
     this.year = year;
   }
 
-  get getNumeOfPage() {
+  get getPage() {
     return this.page;
   }
 
-  set setNumOfPage(numpage) {
+  set setPage(numpage) {
     this.page = numpage;
   }
 
@@ -130,11 +122,43 @@ export default class ApiFetchService {
     this.genre = genre;
   }
 
-  get getRegion() {
-    return this.region;
+  get getCountry() {
+    return this.country;
   }
 
-  set setRegion(region) {
-    this.region = region;
+  set setCountry(country) {
+    this.country = country;
+  }
+
+  get getLang() {
+    return this.language;
+  }
+
+  set setLang(language) {
+    this.language = language;
+  }
+
+  get getID() {
+    return this.id;
+  }
+
+  set setID(id) {
+    this.id = id;
+  }
+
+  get getQuery() {
+    return this.query;
+  }
+
+  set setQuery(query) {
+    this.query = query;
+  }
+
+  get getTrendsType() {
+    return this.trends_type;
+  }
+
+  set setTrendsType(trends_type) {
+    this.trends_type = trends_type;
   }
 }
