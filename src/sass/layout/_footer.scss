@@ -1,24 +1,19 @@
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.footer {
-  background-color: #f5f5f5;
-  padding: 40px 0;
-  font-size: 16px;
-  text-align: center;
+p {
+  padding: 0;
+  margin: 0;
 }
 
-.icon {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  /* margin-left: 10px; */
-  margin-right: 10px;
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: #545454;
+}
+.icon-heart {
+  padding-left: 10px;
+  padding-right: 10px;
   animation: beat 1s infinite;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
 }
 
 @keyframes beat {
@@ -32,62 +27,72 @@
     transform: scale(1);
   }
 }
-.icon-heart {
-  width: 14px;
-  color: #f87719;
+@media screen and (min-width: 320px) {
+  .container {
+    width: 320px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
-.team-member {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.14;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  color: #b7b7b7;
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    padding-left: 75px;
+    padding-right: 75px;
+  }
 }
-@media screen and (min-width: 767px) {
-  .team-member {
+
+@media screen and (min-width: 1024px) {
+  .container {
+    width: 1024px;
+    padding-left: 71px;
+    padding-right: 71px;
+  }
+}
+
+footer {
+  background-color: rgb(247, 247, 247);
+}
+
+@media screen and (min-width: 320px) {
+  .copyright {
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    padding-top: 29px;
+    padding-bottom: 10px;
+  }
+
+  .developers {
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+  }
+  .page__footer {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .page__footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .copyright {
+    padding-top: 30px;
+    padding-bottom: 28px;
+  }
+  .developers {
+    padding-top: 30px;
+    padding-bottom: 28px;
+  }
+
+  .page__footer {
     font-size: 16px;
-    line-height: 1.12;
-  }
-}
-
-.team-member_text {
-  text-decoration: underline;
-}
-
-@media screen and (max-width: 767px) {
-  .footer {
-    padding: 80px 0;
-  }
-}
-
-/* декстоп */
-@media only screen and (min-width: 992px) {
-  .footer .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-
-/* таблет */
-@media only screen and (max-width: 991px) and (min-width: 768px) {
-  .footer .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-/* мобільні пристрої */
-@media only screen and (max-width: 767px) {
-  .footer .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-weight: 400;
   }
 }
