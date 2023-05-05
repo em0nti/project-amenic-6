@@ -1,0 +1,67 @@
+.modal {
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform var(--transition-duration)
+      var(--transition-timing-function),
+    opacity var(--transition-duration) var(--transition-timing-function);
+}
+
+.backdrop--hidden .modal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.3);
+
+  transition: transform var(--transition-duration)
+      var(--transition-timing-function),
+    opacity var(--transition-duration) var(--transition-timing-function);
+}
+
+.modal__cloze-button {
+  @extend %button;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 16px;
+  height: 16px;
+
+  background-color: inherit;
+  color: var(--color-light-grey-1);
+  border: none;
+
+  transition: color var(--transition-duration) var(--transition-timing-function);
+
+  &:hover,
+  &:focus {
+    color: var(--color-primary);
+  }
+
+  @include mq(tablet) {
+    top: 24px;
+    right: 24px;
+  }
+  @include mq(desktop) {
+    top: 28px;
+    right: 28px;
+  }
+}
+
+.modal__cloze-button--position-40 {
+  @include mq(desktop) {
+    top: 40px;
+    right: 40px;
+  }
+}
+
+.modal__cloze-icon {
+  fill: currentColor;
+  width: 7px;
+  height: 7px;
+  @include mq(tablet) {
+    width: 10px;
+    height: 10px;
+  }
+}
