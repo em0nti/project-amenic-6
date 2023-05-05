@@ -1,19 +1,21 @@
 <header class="header">
-  <a class="header__logo" href="#">
-    <img src="./images/cinema_logo.svg" alt="Cinemania  logo">
-  </a>
-  <button class="header__menu-toggle" aria-expanded="false" 
-  aria-controls="menu-container"  data-menu-btn>
-    Menu
-  </button>
   <div class="container">
+    <div class="wrapper">
+      <a class="header__logo" href="#">
+        <img  width="60" height="60" class="icon-cinema_logo" src="./images/cinema_logo.svg"/>
+        <h2 class="header__title">Cinemania</h2>
+      </a>
+      <a class="header__menu-toggle" href="">Menu</a>
+    </div>
     <nav class="navigation">
     <ul class="header__menu">
-      <li class="test"><a href="#" class="header__menu-link">HOME</a></li>
-      <li class="test"><a href="catalog.html" class="header__menu-link">CATALOG</a></li>
-      <li class="test"><a href="library.html" class="header__menu-link">MY LIBRARY</a></li>
+      <li class="header-menu__item"><a href="#" class="header__menu-link">HOME</a></li>
+      <li class="header-menu__item"><a href="catalog.html" class="header__menu-link">CATALOG</a></li>
+      <li class="header-menu__item"><a href="library.html" class="header__menu-link">MY LIBRARY</a></li>
     </ul>
-  </nav>
+   </nav>
   </div>
   <script src="./js/mobile-menu.js"></script>
 </header>
+
+
