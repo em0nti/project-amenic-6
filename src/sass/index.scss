@@ -10,8 +10,10 @@
 @import './layout/card-set';
 
 @import './components/container';
-@import './components/hero-start';
+@import './components/hero/hero-start';
+@import './components/hero/hero-home';
+@import './components/hero/hero-catalog';
+@import './components/hero/hero-library';
 
-@import './components/hero-library';
 @import './components/upcoming-this-mounth.scss';
 @import './components/card';
