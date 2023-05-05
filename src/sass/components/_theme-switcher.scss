@@ -1,0 +1,19 @@
+.button-switch {
+  position: relative;
+  padding: 0;
+  border: none;
+  border-radius: 30px;
+}
+.switch-night {
+  position: absolute;
+  top: 1px;
+}
+.switch-day {
+  border: none;
+}
+.switch-hidden {
+  display: none;
+}
+.color {
+  background-color: black;
+}
