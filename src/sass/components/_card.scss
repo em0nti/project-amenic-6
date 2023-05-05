@@ -57,3 +57,17 @@ text-transform: uppercase;
         width: 106px;
     }
 }
+.card__rate--list {
+    @extend %list;
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+}
+.card__rate--item {
+
+    margin-right: 5.5px;
+}
+.card__rate--img {
+    width: 15px;
+    height: 14px;
+}
