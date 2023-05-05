@@ -1,11 +1,34 @@
 /*----------  Card set  ----------*/
 
 .card-set {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--indent);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--indent);
+}
+
+.card-set__item {
+  flex-basis: calc((100% - var(--indent) * (var(--items) - 1)) / var(--items));
+}
+
+.movi-list-general-set {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movi-card-general-set {
+  margin-bottom: 32px;
+
+  @include mq(tablet) {
+    flex-basis: calc((100% - 32px) / 3);
+    margin-right: 16px;
+    margin-bottom: 28px;
+
+    &:nth-child(3n) {
+      margin-right: 0px;
+    }
   }
 
-  .card-set__item {
-    flex-basis: calc((100% - var(--indent) * (var(--items) - 1)) / var(--items));
+  @include mq(desktop) {
+    margin-bottom: 32px;
   }
+}
