@@ -1,0 +1,52 @@
+select {
+  // A reset of styles, including removing the default dropdown arrow
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+
+  // Stack above custom arrow
+  z-index: 1;
+
+  // Remove dropdown arrow in IE10 & IE11
+  // @link https://www.filamentgroup.com/lab/select-css.html
+  &::-ms-expand {
+    display: none;
+  }
+
+  // Remove focus outline, will add on alternate element
+  outline: none;
+}
+
+.select {
+  height: 40px;
+  padding: 12px 16px;
+
+  border: 1px solid var(--color-white);
+  border-radius: 8px;
+
+  color: inherit;
+}
+
+.select--size-year {
+  width: 95px;
+}
+.select--size-genre {
+  width: 173px;
+}
+.select--size-country {
+  width: 220px;
+}
+
+.select__option {
+  height: 44px;
+
+  color: inherit;
+  background-color: var(--color-dark-grey-3);
+}
