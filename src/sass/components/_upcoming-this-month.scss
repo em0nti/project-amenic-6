@@ -69,7 +69,7 @@
   font-size: 16px;
   line-height: 1.2;
 
-  color: #b7b7b7;
+  color: var(--color-grey-2);
 }
 
 .upcoming__item {
@@ -102,7 +102,7 @@
 }
 
 .upcoming__value--orange {
-  color: #f87719;
+  color: var(--color-primary);
 }
 
 .upcoming__about {
@@ -114,7 +114,7 @@
 
   text-transform: uppercase;
 
-  color: #b7b7b7;
+  color: var(--color-grey-2);
 }
 
 .upcoming__dcr {
@@ -124,7 +124,7 @@
   font-size: 14px;
   line-height: 20px;
 
-  color: #f8f8f8;
+  color: var(--color-light-grey-1);
 
   @include mq(tablet) {
     width: 625px;
