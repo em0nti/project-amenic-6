@@ -1,0 +1,67 @@
+.button-main {
+  @include font(12, 1.2, null);
+  border: none;
+
+  @include mq(tablet) {
+    @include font(14, 1.15, null);
+  }
+  @include mq(desktop) {
+    height: 48px;
+    @include font(16, 1.5, null);
+  }
+  background: var(--linear-gradient-1);
+
+  &:hover,
+  &:focus {
+    background: var(--linear-gradient-2);
+  }
+}
+
+// !кнопка Remind
+// ?в десктопі у цієї кнопки меньше розмір ніж у інших,
+// ?необхідно додати специфічний клас, button--remind
+.button-main--height-desktop-40 {
+  @include mq(desktop) {
+    height: 40px;
+    @include font(14, 1.15, null);
+  }
+}
+
+// !кнопки Load more/ Search movie
+// ?в десктопі у цієї кнопки більше розмір ніж у інших,
+// ?необхідно додати специфічний клас, button--load-more, button--search-movie
+
+.button-main--height-desktop-52 {
+  @include mq(desktop) {
+    height: 52px;
+    @include font(18, 1.56, null);
+  }
+}
+
+// .button--main.button--dark {
+//  background: var(--linear-gradient-1);
+// &:hover,
+//     &:focus {
+//         background: var(--linear-gradient-2);
+//     }
+// }
+
+.button-main--color-primary {
+  color: var(--color-primary);
+  border: 1px solid #0000;
+
+  background: linear-gradient(141.22deg, var(--color-white), var(--color-white))
+      padding-box,
+    var(--linear-gradient-1) border-box;
+
+  &:hover,
+  &:focus {
+    background: linear-gradient(
+          141.22deg,
+          var(--color-white),
+          var(--color-white)
+        )
+        padding-box,
+      var(--linear-gradient-2) border-box;
+  }
+}

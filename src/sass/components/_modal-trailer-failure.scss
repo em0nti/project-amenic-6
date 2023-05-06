@@ -1,0 +1,70 @@
+.modal-trailer-oops {
+    position: relative;
+    margin: 0 auto;
+    padding: 39 33 8 33;
+    width: 280px;
+    height: 289px;
+    background-color: #111111;
+    box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+    border-radius: 16px;
+        @media screen and (min-width: $container-width-tablet) {
+            width: 609px;
+            height: 400px;
+            padding-top: 132px;
+            padding-left: 44px;
+        }
+        @media screen and (min-width: $container-width-desktop) {
+            width: 700px;
+            height: 400px;
+        }
+}
+
+.modal-close__button {
+    display: block;
+    padding: 0;
+    border-style: none;
+    background-color: transparent;
+    line-height: 0;
+    position: absolute;
+    right: 24.5px;
+    top: 24.5px;
+            @media screen and (min-width: $container-width-tablet) {
+                right: 30.75px;
+                top: 30.75px;
+            }
+}
+
+.modals-close__icon {
+    color: white;
+    width: 7px;
+    height: 7px;
+        @media screen and (min-width: $container-width-tablet) {
+        width: 10.5px;
+        height: 10.5px;
+        }
+}
+
+.modal-trailer-oops__text {
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.87;
+        @media screen and (min-width: $container-width-tablet) {
+        font-size: 24px;
+        line-height: 1.26;
+        }
+}
+.modal-trailer-oops__image {
+    bottom: 8px;
+    margin: 0 auto;
+        @media screen and (min-width: $container-width-tablet) {
+            width: 296px;
+            position: absolute;
+            right: 10px;
+        }
+        @media screen and (min-width: $container-width-desktop) {
+            width: 363px;
+            right: 0;
+            bottom: 0;
+        }
+}

@@ -1,0 +1,85 @@
+.weekly-trends__heder {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 40px;
+  margin-bottom: 24px;
+
+  @include mq(tablet) {
+    margin-top: 52px;
+  }
+  @include mq(desktop) {
+    margin-top: 80px;
+    margin-bottom: 28px;
+  }
+}
+
+.weekly-trends__title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+
+  text-transform: uppercase;
+
+  color: black;
+
+  @include mq(tablet) {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  @include mq(desktop) {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+}
+
+.weekly-trends__link {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+
+  @extend %link;
+
+  color: #f87719;
+
+  @include mq(tablet) {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  @include mq(desktop) {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  &:hover {
+    color: rgb(206, 157, 97);
+  }
+}
+
+.movi-list-general-set {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movi-card-general-set {
+  margin-bottom: 32px;
+
+  @include mq(tablet) {
+    flex-basis: calc((100% - 32px) / 3);
+    margin-right: 16px;
+    margin-bottom: 28px;
+
+    &:nth-child(3n) {
+      margin-right: 0px;
+    }
+  }
+
+  @include mq(desktop) {
+    margin-bottom: 32px;
+  }
+}

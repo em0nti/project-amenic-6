@@ -1,0 +1,52 @@
+.button-add {
+  border: 1px solid #0000;
+
+  @include font(12, 1.2, null);
+
+  @include mq(tablet) {
+    @include font(12, 1.3, null);
+  }
+
+  background: linear-gradient(141.22deg, var(--color-black), var(--color-black))
+      padding-box,
+    var(--linear-gradient-2) border-box;
+
+  color: var(--color-white);
+
+  &:hover,
+  &:focus {
+    background: var(--color-white);
+    color: var(--color-primary);
+    border: transparent;
+  }
+}
+
+// .button--add.button--dark {
+//     background:
+//         linear-gradient(var(--color-black), var(--color-black)) padding-box,
+//         var(--linear-gradient-2) border-box;
+
+//     color: var(--color-white);
+//     &:hover,
+//     &:focus {
+
+//         background: var(--color-white);
+//         color: var(--color-primary);
+//         border: transparent;
+//     }
+// }
+
+.button-add--color-light {
+  background: linear-gradient(141.22deg, var(--color-white), var(--color-white))
+      padding-box,
+    var(--linear-gradient-2) border-box;
+
+  color: var(--color-dark-grey-1);
+
+  &:hover,
+  &:focus {
+    background: var(--color-dark-grey-1);
+    color: var(--color-primary);
+    border: transparent;
+  }
+}
