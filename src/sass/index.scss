@@ -8,10 +8,20 @@
 @import './base/base';
 
 @import './layout/card-set';
+@import './layout/footer';
 
+@import './components/buttons/button';
+@import './components/buttons/button-main';
+@import './components/buttons/button-add';
+@import './components/buttons/button-search';
 @import './components/container';
+
 @import './components/backdrop';
 @import './components/modal';
-@import './components/upcoming-this-mounth.scss';
+@import './components/upcoming-this-month';
+
 @import './components/card';
 @import './components/modal-trailer-failure';
+@import './components/weekly-trends';
+@import './components/library-list';
+@import './components/catalog-list';

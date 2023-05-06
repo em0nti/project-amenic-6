@@ -1,6 +1,9 @@
 //this is class for fetching data
 import ApiFetchService from './api_fetch_service';
 import ApiMarkupService from './api_markup_service';
+import initModals from './init-open-close-modals';
+
+initModals();
 
 // create instance 'apiFetchService' for using in functions
 const apiFetchService = new ApiFetchService();

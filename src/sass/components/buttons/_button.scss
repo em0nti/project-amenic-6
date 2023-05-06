@@ -1,0 +1,15 @@
+.button {
+  @extend %button;
+
+  height: 38px;
+  @include mq(tablet) {
+    height: 40px;
+  }
+  font-weight: 500;
+  border-radius: 74px;
+
+  padding: 12px 24px;
+
+  transition: background-color 250ms, color 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

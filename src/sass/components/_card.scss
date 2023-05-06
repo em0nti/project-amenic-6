@@ -1,3 +1,21 @@
+.movi-card-general-set {
+        margin-bottom: 32px;
+
+        @include mq(tablet) {
+            flex-basis: calc((100% - 32px) / 3);
+            margin-right: 16px;
+            margin-bottom: 28px;
+
+            &:nth-child(3n) {
+                margin-right: 0px;
+            }
+        }
+
+        @include mq(desktop) {
+            margin-bottom: 32px;
+        }
+    }
+
 .card__item {
     position: relative;
     width: 280px;
