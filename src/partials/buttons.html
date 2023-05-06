@@ -1,58 +1,82 @@
+<!--
 
-<!----- кнопки iз загальними класами ----->
+Предоставленный код определяет набор стилей для кнопок. Эти стили могут быть использованы, добавив соответствующее имя класса к элементу HTML. Классы, определенные в коде, включают:
+
+.button: это основной стиль кнопки, который может быть расширен другими классами. Он устанавливает высоту кнопки, жирность шрифта и радиус границы. Он также включает эффект перехода для цвета фона и цвета текста кнопки.
+
+.button-main: этот класс добавляет дополнительные стили к основному стилю кнопки (.button) для использования в качестве основной кнопки. Он устанавливает размер шрифта и межстрочный интервал с помощью миксина, называемого font(), и добавляет градиентный фон. Он также изменяет цвет фона при наведении курсора или фокусировке.
+
+.button-main--height-desktop-40: этот класс изменяет высоту класса .button-main для использования на desktop с высотой 40 пикселей. Например конопка "Remind me".
+
+.button-main--height-desktop-52: этот класс изменяет высоту класса .button-main для использования на desktop с высотой 52 пикселя. Например конопка "Load more" и "Search movie".
+
+.button-main--color-primary: этот класс добавляет цвет кнопки. Он устанавливает цвет текста, границу и фоновые градиенты.
+
+.button-add: этот класс определяет стиль для использования в качестве кнопки "Добавить в библиотеку". Он устанавливает размер шрифта и добавляет градиентный фон с границей. Он также изменяет цвет фона при наведении курсора или фокусировке.
+
+.button-add--color-light: этот класс устанавливает цвет фона и цвет текста.
+
+.button-search: этот класс определяет стиль для использования в качестве кнопки поиска. Он устанавливает размер и отступ кнопки, добавляет границу и включает иконку поиска. Он также изменяет цвет фона при наведении курсора или фокусировке.
+
+.button-search--color-light: этот класс устанавливает цвет фона и цвет текста.
+
+.button-search__search-icon: этот класс стилизует иконку поиска внутри класса .button-search. Он устанавлив размер иконки и цвет.
+-->
 
 <!-- button  Watch trailer -->
 
-     <button type="button" class="button button--main" id="watch-trailer-btn">
-      <span>Watch trailer</span>
+<button type="button" class="button button-main" id="watch-trailer-btn">
+  <span>Watch trailer</span>
+</button>
 
 <!-- button  Geg started -->
 
-      <button type="button" class="button button--main" id="get-started-btn">
-      <span>Geg started</span>
+<button type="button" class="button button-main" id="get-started-btn">
+  <span>Geg started</span>
 
+  <!-- button Add to my library -->
 
-<!-- button Add to my library -->
+  <button type="button" class="button button-add" id="add-to-library-btn">
+    <span>Add to my library</span>
+  </button>
 
-    <button type="button" class="button button--add" id="add-to-library-btn">
-      <span>Add to my library</span>
-    </button>
+  <!-- button--search -->
 
-<!-- button--search -->
+  <button type="submit" class="button button-search" id="search-btn">
+    <span>
+      <svg width="20" height="20" class="button-search__search-icon">
+        <use href="./images/symbol-defs.svg#icon-search"></use>
+      </svg>
+    </span>
+  </button>
 
-    <button type="submit" class="button button--search" id="search-btn">
-      <span> 
-        <svg width="20" height="20" class="search-icon">
-        <use href="./images/symbol-defs.svg#icon-search"></use></svg
-                  >
-      </span>
-    </button>
- 
+  <!-- button Load more -->
 
+  <button
+    type="button"
+    class="button button-main button-main--height-desktop-52"
+    id="load-more-btn"
+  >
+    <span>Load more</span>
+  </button>
 
+  <!-- button Search movie -->
 
+  <button
+    type="button"
+    class="button button-main button-main--height-desktop-52"
+    id="search-movie-btn"
+  >
+    <span>Search movie</span>
+  </button>
 
-  <!----- кнопки із спеціфічними класами -- button--load-more- / button--search-movie-/  -button--remind-->
+  <!-- button Remind me -->
 
-<!-- button Load more -->  
-
-<button type="button" class="button button--main button--load-more" id="load-more-btn">
-      <span>Load more</span>
-    </button>
-
-
-    
-
-<!-- button Search movie --> 
-
-    <button type="button" class="button button--main button--search-movie" id="search-movie-btn">
-      <span>Search movie</span>
-    </button>
-
-<!-- button Remind me --> 
-
-     <button type="button" class="button button--main button--remind" id="remind-btn">
-      <span>Remind me</span>
-      
-    </button>
- 
+  <button
+    type="button"
+    class="button button-main button-main--height-desktop-40"
+    id="remind-btn"
+  >
+    <span>Remind me</span>
+  </button>
+</button>
