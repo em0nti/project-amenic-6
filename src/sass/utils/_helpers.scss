@@ -16,6 +16,13 @@
   cursor: pointer;
 }
 
+@mixin font($fs, $lh, $ls) {
+  
+  font-size: $fs + px;
+  line-height: $lh;
+  letter-spacing: $ls;
+}
+
 /**
   Міксін для медіазапитів.
 
