@@ -9,7 +9,10 @@
 
 @import './layout/card-set';
 
-@import './components/buttons';
+@import './components/buttons/button';
+@import './components/buttons/button-main';
+@import './components/buttons/button-add';
+@import './components/buttons/button-search';
 @import './components/container';
 
 @import './components/backdrop';
@@ -20,3 +23,4 @@
 @import './components/modal-trailer-failure';
 @import './components/weekly-trends';
 @import './components/library-list';
+@import './components/catalog-list';
