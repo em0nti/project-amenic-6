@@ -1,4 +1,150 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 847px;
+  background-color: var(--color-black);
+  padding: 55px 10px;
+}
+
 .poster-block {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+}
+
+.poster {
+  width: 248px;
+  height: 318px;
+  box-shadow: 1px 1px 24px 2px rgba(1, 1, 1, 0.45);
+  border-radius: 5px;
+}
+
+.film-information-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  margin-bottom: 29px;
+  color: var(--color-white);
+}
+
+.rating-table {
+  margin-bottom: 15px;
+}
+
+.rating {
+  display: inline-block;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border-radius: 5px;
+  width: 36px;
+  height: 18px;
+  text-align: center;
+}
+
+.table-subtitle {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.18;
+  color: #b7b7b7;
+  padding-right: 32px;
+}
+
+.table-info {
+  font-family: 'Roboto', sans-serif;
+  background: var(--color-white);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+}
+
+.about {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: #b7b7b7;
+}
+
+.about-film {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.66;
+  max-height: 160px;
+  overflow-y: auto;
+  margin-bottom: 24px;
+  color: #f8f8f8;
+}
+
+.buttons-add {
+  display: flex;
+  align-items: center;
+}
+
+.btn-add {
+  width: 140px;
+  height: 38px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  border-radius: 74px;
+  border: 1px linear #ffc226 #f84119;
+  cursor: pointer;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    background-color: var(--color-white);
+    color: #fff;
+    border: 1px solid var(--color-black);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 704px;
+    height: 488;
+    padding: 41px 43px;
+  }
+
+  .modal-film-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .poster {
+    width: 295px;
+    height: 403px;
+  }
+
+  .film-information-title {
+    font-size: 24px;
+    line-height: 1.16;
+    margin-bottom: 27px;
+  }
+
+  .rating {
+    width: 33px;
+    height: 16px;
+  }
+
+  .table-subtitle {
+    font-size: 14px;
+    line-height: 1.14;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .modal {
+    overflow-y: auto;
+  }
 }
