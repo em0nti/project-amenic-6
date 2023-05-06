@@ -105,6 +105,11 @@ p {
     font-weight: 400;
   }
 }
+@media screen and (min-width: 1024px) {
+  .footer__page {
+    padding-top: 20px;
+  }
+}
 .footer__team-modal {
   text-decoration: underline;
 }
