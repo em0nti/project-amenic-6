@@ -1,8 +1,9 @@
 
-.buttons-container{
-    margin-bottom: 30px;
-    gap: 10px;
-}
+// .buttons-container{
+//     // margin-bottom: 30px;
+//     // gap: 10px;
+//     display: flex;
+// }
 
 
 
@@ -11,13 +12,13 @@
 
     height: 38px;
     @include mq(tablet) {
-            height: 40px;
+        height: 40px;
         }
     font-weight: 500;
     border-radius: 74px;
     
     padding: 12px 24px;
-    gap: 10px;
+   
     
     transition: background-color 250ms, color 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -92,11 +93,11 @@
             var(--linear-gradient-1) border-box;
 
     &:hover,
-        &:focus {
+    &:focus {
     
-            background:
-                    linear-gradient(var(--color-white), var(--color-white)) padding-box,
-                    var(--linear-gradient-2) border-box;
+    background:
+            linear-gradient(var(--color-white), var(--color-white)) padding-box,
+            var(--linear-gradient-2) border-box;
         }
 }
 
@@ -172,7 +173,7 @@
     
         @include mq(desktop) {
             width: 48px;
-                height: 48px;
+            height: 48px;
             padding: 14px;
         }
          color: var(--color-white);
@@ -182,8 +183,8 @@
          &:hover,
          &:focus {
              background:
-                 linear-gradient(var(--color-white), var(--color-white)) padding-box,
-                 var(--linear-gradient-1) border-box;
+                linear-gradient(var(--color-white), var(--color-white)) padding-box,
+                var(--linear-gradient-1) border-box;
     
              color: var(--color-primary);
     
@@ -230,6 +231,7 @@
 
 .search-icon {
     width: 100%;
-        height: 100%;
- fill: currentColor;
+    height: 100%;
+    fill: currentColor;
 }
+
