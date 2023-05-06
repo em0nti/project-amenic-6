@@ -1,18 +1,14 @@
-.library-container {
-  margin: 0;
-}
 @media screen and (min-width: 1279px) {
   .library-container {
     padding-left: 117px;
-    margin: 0;
   }
 }
-.hero__library {
+.hero-library {
   background-repeat: no-repeat;
   background-size: cover;
 }
 @media screen and (max-width: 767px) {
-  .hero__library {
+  .hero-library {
     padding-bottom: 144px;
     background-image: linear-gradient(
         87.8deg,
@@ -24,7 +20,7 @@
   }
 }
 @media screen and (min-width: 768px) {
-  .hero__library {
+  .hero-library {
     padding-bottom: 118px;
 
     background-image: linear-gradient(
@@ -38,7 +34,7 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .hero__library {
+  .hero-library {
     padding-bottom: 249px;
     background-image: linear-gradient(
         87.8deg,

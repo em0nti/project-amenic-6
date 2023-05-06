@@ -3,7 +3,7 @@
   margin-bottom: 20px;
 }
 @media screen and (max-width: 767px) {
-  .hero__home {
+  .hero-home {
     padding-bottom: 28px;
   }
   .button-home {
@@ -19,7 +19,7 @@
   }
 }
 @media screen and (min-width: 768px) {
-  .hero__home {
+  .hero-home {
     padding-top: 36px;
     padding-bottom: 36px;
   }
@@ -39,7 +39,7 @@
   }
 }
 @media screen and (min-width: 1280px) {
-  .hero__home {
+  .hero-home {
     padding-top: 118px;
     padding-bottom: 159px;
   }
