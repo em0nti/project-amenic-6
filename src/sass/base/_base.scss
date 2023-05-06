@@ -3,3 +3,31 @@
   font-style: normal;
   font-weight: 400;
 }
+
+.page__section {
+  &--margin-lg {
+    margin-bottom: 40px;
+
+    @include mq(tablet) {
+      margin-bottom: 52px;
+    }
+    @include mq(desktop) {
+      margin-bottom: 80px;
+    }
+  }
+  &--margin-md {
+    margin-bottom: 32px;
+
+    @include mq(tablet) {
+      margin-bottom: 44px;
+    }
+    @include mq(desktop) {
+      margin-bottom: 60px;
+    }
+  }
+}
+
+.dark {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
