@@ -11,8 +11,11 @@ p {
   color: #545454;
 }
 .icon-heart {
+  width: 40px;
+  height: 40px;
   padding-left: 10px;
   padding-right: 10px;
+  padding-bottom: 22px;
   fill: #f87719;
   animation: beat 1s infinite;
 }
@@ -31,7 +34,7 @@ p {
 @media screen and (min-width: 320px) {
   .container {
     width: 320px;
-    /* height: 70px; */
+    height: 70px;
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -64,7 +67,7 @@ p {
     margin: 0px;
     display: flex;
     justify-content: center;
-    padding-top: 29px;
+    padding-top: 14px;
     padding-bottom: 10px;
   }
 
@@ -76,6 +79,7 @@ p {
   }
   .footer__page {
     font-size: 14px;
+    line-height: 1.14;
     font-weight: 400;
   }
 }
@@ -97,9 +101,20 @@ p {
 
   .footer__page {
     font-size: 16px;
+    line-height: 1.12;
     font-weight: 400;
   }
 }
 .footer__team-modal {
   text-decoration: underline;
+}
+
+body:not([style='background-color: white;']) {
+  background-color: black;
+  color: #b7b7b7;
+}
+
+body[style='background-color: black;'] {
+  background-color: white;
+  color: #595959;
 }
