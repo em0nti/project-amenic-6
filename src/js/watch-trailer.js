@@ -11,7 +11,7 @@ watchTrailerBtn.addEventListener('click', onWatchTrailerClick);
 let player;
 
 async function onWatchTrailerClick() {
-        await fetch('https://api.themoviedb.org/3/movie/640146/videos?api_key=91ae85947dca7203ec2b4d7841a3c73b&language=en-US')
+        await fetch('https://api.themoviedb.org/3/movie/fdgsdfgsd/videos?api_key=91ae85947dca7203ec2b4d7841a3c73b&language=en-US')
         .then(response => {
         if (!response.ok) {
          throw new Error(response.status);
@@ -41,7 +41,6 @@ async function onWatchTrailerClick() {
             const closeButton = document.querySelector('.modal-trailer-oops .modal__cloze-button');
             closeButton.addEventListener('click', closeModalClick);
             function closeModalClick() {
-                video.pause()
                 console.log("closeModalClick");
                 modalTrailerNotOk.classList.add("backdrop--hidden"); 
             }
