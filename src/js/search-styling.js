@@ -47,6 +47,7 @@ const initChoices = () => {
   const choicesYear = new Choices(searchRefs.year, choicesOptions2);
   const choicesGenre = new Choices(searchRefs.genre, choicesOptions3);
   const choicesCountry = new Choices(searchRefs.country, choicesOptions4);
+  console.log(choicesYear);
   return [choicesYear, choicesGenre, choicesCountry];
 };
 
