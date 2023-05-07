@@ -7,29 +7,23 @@ export default function renderRating(backendRating) {
         if (i <= starRating) {
             ratingArr.push(
                 `<li class="card__rate--item">
-                    <img
-                        class="card__rate--img"
-                        src="./images/star-full.svg"
-                        alt="star"
-                    />
+<svg class="icon-star">
+            <use href="/icons_new.7c5bd545.svg#icon-star"></use>
+          </svg>
                 </li>`)
         } else if (i === Math.ceil(starRating) && starRating % 1 !== 0) {
             ratingArr.push(
                 `<li class="card__rate--item">
-                    <img
-                        class="card__rate--img"
-                        src="./images/star-half.svg"
-                        alt="star"
-                    />
+<svg class="icon-star">
+            <use href="/icons_new.7c5bd545.svg#icon-star-half"></use>
+          </svg>
                 </li>`)
         } else if (i > starRating) {
             ratingArr.push(
                 `<li class="card__rate--item">
-                    <img
-                        class="card__rate--img"
-                        src="./images/star-empty.svg"
-                        alt="star"
-                    />
+<svg class="icon-star">
+            <use href="/icons_new.7c5bd545.svg#icon-star-outline"></use>
+          </svg>
                 </li>`)
         
         }
