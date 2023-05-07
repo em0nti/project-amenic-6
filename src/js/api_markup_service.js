@@ -100,31 +100,46 @@ ${starsRating}
     // let yearOfRelease = release_date.slice(0, 4);
     let truncatePopularity = popularity.toFixed(1);
 
-    return `  <div class="container">
+    return `
+   <div class="container">
     <h2 class="upcoming__title">Upcoming this month</h2>
     <div class="upcoming__section-wrapper">
-      <picture>
-        <source
-          srcset="https://image.tmdb.org/t/p/original${backdrop_path} 1x, https://image.tmdb.org/t/p/original${backdrop_path} 2x"
-          media="(min-width: 1200px)"
-        />
-        <source
-          srcset="https://image.tmdb.org/t/p/original${backdrop_path} 1x, https://image.tmdb.org/t/p/original${backdrop_path} 2x"
-          media="(min-width: 768px)"
-        />
-        <source
-          srcset="https://image.tmdb.org/t/p/original${backdrop_path} 1x, https://image.tmdb.org/t/p/original${backdrop_path} 2x"
-          media="(min-width: 320px)"
-        />
+      <div class="upcoming__img-wrapper">
+        <picture>
+          <source
+            srcset="
+              https://image.tmdb.org/t/p/original${backdrop_path} 1x,
+              https://image.tmdb.org/t/p/original${backdrop_path} 2x
+            "
+            media="(min-width: 1200px)"
+          />
+          <source
+            srcset="
+              https://image.tmdb.org/t/p/original${backdrop_path} 1x,
+              https://image.tmdb.org/t/p/original${backdrop_path} 2x
+            "
+            media="(min-width: 768px)"
+          />
+          <source
+            srcset="
+              https://image.tmdb.org/t/p/original${backdrop_path} 1x,
+              https://image.tmdb.org/t/p/original${backdrop_path} 2x
+            "
+            media="(min-width: 320px)"
+          />
 
-        <img
-          srcset="https://image.tmdb.org/t/p/original${backdrop_path} 1x, https://image.tmdb.org/t/p/original${backdrop_path} 2x"
-          src="https://image.tmdb.org/t/p/original${backdrop_path}"
-          class="upcoming__image"
-          alt="Poster of film"
-          width="805px"
-        />
-      </picture>
+          <img
+            srcset="
+              https://image.tmdb.org/t/p/original${backdrop_path} 1x,
+              https://image.tmdb.org/t/p/original${backdrop_path} 2x
+            "
+            src="https://image.tmdb.org/t/p/original${backdrop_path}"
+            class="upcoming__image"
+            alt="Poster of film"
+            width="805px"
+          />
+        </picture>
+      </div>
 
       <div class="upcoming__inform-wrapper">
         <h3 class="upcoming__film-name">${title}</h3>
@@ -158,14 +173,14 @@ ${starsRating}
 
         <h4 class="upcoming__about">About</h4>
         <p class="upcoming__dcr">
-          ${overview}
+        ${overview}
         </p>
         <button type="button" class="button button-main button-main--height-desktop-40" id="remind-btn">
           <span>Remind me</span>
         </button>
       </div>
     </div>
-  </div>`;
+  </div> `;
   }
   // method for markup gallery from arrays of films (like Weekly trends, upcoming etc.)
   markupGallery(numOfArray) {
