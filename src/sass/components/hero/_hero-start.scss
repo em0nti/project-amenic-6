@@ -1,6 +1,6 @@
-.hero__container {
-  margin: 0;
-}
+// .hero__container {
+//   margin: 0;
+// }
 
 .hero__title {
   font-family: 'Roboto';
@@ -29,9 +29,9 @@
   color: #111111;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: $container-width-mobile) {
   .hero {
-    max-width: 1280px;
+    // max-width: 1280px;
     padding-top: 40px;
     padding-bottom: 84px;
     background-image: linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
@@ -42,10 +42,10 @@
     height: 380px;
   }
 }
-@media (min-width: 768px) {
+@media screen and (min-width: $container-width-tablet) {
   .hero {
     // height: 432px;
-    max-width: 1280px;
+    // max-width: 1280px;
     padding-top: 62px;
     padding-bottom: 62px;
     background-image: linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
@@ -55,10 +55,10 @@
     background-size: cover;
   }
 }
-@media (min-width: 1280px) {
+@media screen and (min-width: $container-width-desktop) {
   .hero {
     height: 720px;
-    max-width: 1600px;
+    // max-width: 1600px;
     padding-top: 169px;
     padding-bottom: 169px;
     background-image: linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
@@ -68,7 +68,7 @@
     background-size: cover;
   }
 }
-@media screen and (min-width: 320px) {
+@media screen and (min-width: $container-width-mobile) {
   .hero__info {
     max-width: 199px;
   }
@@ -91,7 +91,7 @@
     display: none;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $container-width-tablet) {
   .hero__info {
     max-width: 315px;
   }
@@ -113,7 +113,7 @@
     display: block;
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: $container-width-desktop) {
   .hero__info {
     max-width: 464px;
   }
@@ -129,7 +129,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: $container-width-tablet) {
   .hero-white {
     background-image: url('/src/images/table-white.png'), url('/src/images/tabllet-heroy.png');
   }
@@ -140,7 +140,7 @@
     color: var(--color-dark-grey-2);
   }
 }
-@media (min-width: 1280px) {
+@media screen and (min-width: $container-width-desktop) {
   .hero-white {
     background-image: url('/src/images/desk-white.png'), url('/src/images/gesk-heroy.png');
   }
