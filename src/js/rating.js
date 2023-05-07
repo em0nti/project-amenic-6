@@ -1,5 +1,5 @@
 // в функцию надо передать рейтинг из бекнеда в виде дробного числа
-function renderRating(backendRating) {
+export default function renderRating(backendRating) {
 
     const starRating = backendRating / 2; 
     const ratingArr = [];
@@ -36,4 +36,3 @@ function renderRating(backendRating) {
     }
     return ratingArr.join(" ");
 }
- console.log(renderRating(7));
