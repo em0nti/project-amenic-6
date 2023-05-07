@@ -54,7 +54,28 @@ async function markUpWeeklyTrends(numOfArray) {
 
     refs.sectioWeeklyTrends.insertAdjacentHTML('beforeend', filmMarklUp);
 
-    console.log(filmMarklUp);
+    // console.log(filmMarklUp);
+  } catch (error) {
+    console.log(error);
+  }
+}
+// function to markup day trends film
+async function markUpDayTrends(numOfArray) {
+  try {
+    let filmArrayIDtoMarkup = getRandomInt(18);
+    apiFetchService.setTrendsType = 'day';
+    await apiFetchService.fetchFilmGenres();
+    await apiFetchService.fetchFilmTrends();
+    let dataFromTrends = await apiFetchService.getFilmsTrends;
+    apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
+    // apiMarkupService.setFilmsForMarkup = '';
+    apiMarkupService.setFilmsForMarkup = await dataFromTrends[filmArrayIDtoMarkup];
+    filmDataFormMarkup = apiMarkupService.getFilmsForMarkup;
+    let filmMarklUp = await apiMarkupService.markupFilmHeroTrendsDay(filmDataFormMarkup);
+
+    refs.sectionHeroDayTrends.insertAdjacentHTML('beforeend', filmMarklUp);
+
+    console.log('markUpDayTrends', filmMarklUp);
   } catch (error) {
     console.log(error);
   }
@@ -104,7 +125,7 @@ async function markupFilmUpcoming() {
     let markupFilmUpcoming = await apiMarkupService.markupFilmCardUpcoming(
       dataFilmUpcomingForMarkup,
     );
-    console.log(markupFilmUpcoming);
+    // console.log(markupFilmUpcoming);
 
     refs.sectionUpcoming.insertAdjacentHTML('beforeend', markupFilmUpcoming);
   } catch (error) {
@@ -117,7 +138,10 @@ function getRandomInt(max) {
 }
 // show weekly trends 3 films
 markUpWeeklyTrends(3);
+//render film to Upcoming section
 markupFilmUpcoming();
+//show day trends in hero home section
+// markUpDayTrends(1);
 
 //====TESTS=====//
 // markupFilmUpcoming();

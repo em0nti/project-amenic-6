@@ -157,7 +157,7 @@ export default class ApiFetchService {
 
       // console.log("log in method 'fetchFilmGenres': ", data.genres);
       this.genres = data.genres;
-      console.log("log in method 'fetchFilmGenres' this.genres: ", this.genres);
+      //console.log("log in method 'fetchFilmGenres' this.genres: ", this.genres);
       // console.log('this.genres', this.genres);
       return data.genres;
     } catch (error) {
