@@ -144,7 +144,7 @@ export default class ApiMarkupService {
   }
   // method for markup film card from fetch by Upcoming
   markupFilmCardUpcoming({
-    poster_path,
+    backdrop_path,
     title,
     genre_ids,
     release_date,
@@ -170,21 +170,21 @@ export default class ApiMarkupService {
     <div class="upcoming__section-wrapper">
       <picture>
         <source
-          srcset="https://image.tmdb.org/t/p/original${poster_path} 1x, https://image.tmdb.org/t/p/original${poster_path} 2x"
+          srcset="https://image.tmdb.org/t/p/original${backdrop_path} 1x, https://image.tmdb.org/t/p/original${backdrop_path} 2x"
           media="(min-width: 1200px)"
         />
         <source
-          srcset="https://image.tmdb.org/t/p/original${poster_path} 1x, https://image.tmdb.org/t/p/original${poster_path} 2x"
+          srcset="https://image.tmdb.org/t/p/original${backdrop_path} 1x, https://image.tmdb.org/t/p/original${backdrop_path} 2x"
           media="(min-width: 768px)"
         />
         <source
-          srcset="https://image.tmdb.org/t/p/original${poster_path} 1x, https://image.tmdb.org/t/p/original${poster_path} 2x"
+          srcset="https://image.tmdb.org/t/p/original${backdrop_path} 1x, https://image.tmdb.org/t/p/original${backdrop_path} 2x"
           media="(min-width: 320px)"
         />
 
         <img
-          srcset="https://image.tmdb.org/t/p/original${poster_path} 1x, https://image.tmdb.org/t/p/original${poster_path} 2x"
-          src="https://image.tmdb.org/t/p/original${poster_path}"
+          srcset="https://image.tmdb.org/t/p/original${backdrop_path} 1x, https://image.tmdb.org/t/p/original${backdrop_path} 2x"
+          src="https://image.tmdb.org/t/p/original${backdrop_path}"
           class="upcoming__image"
           alt="Poster of film"
           width="805px"
