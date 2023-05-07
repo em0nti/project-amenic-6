@@ -2,6 +2,7 @@
 import ApiFetchService from './api_fetch_service';
 import ApiMarkupService from './api_markup_service';
 import initModals from './init-open-close-modals';
+import { refs } from './constants';
 
 initModals();
 
@@ -51,6 +52,8 @@ async function markUpWeeklyTrends(numOfArray) {
     apiMarkupService.setFilmsForMarkup = await dataFromTrends;
     let filmMarklUp = await apiMarkupService.markupGallery(numOfArray);
 
+    refs.sectionGallery.insertAdjacentHTML('beforeend', filmMarklUp);
+
     console.log(filmMarklUp);
   } catch (error) {
     console.log(error);
@@ -78,7 +81,12 @@ async function markupFilmByIDArray(arrayID) {
     apiFetchService.setFilmsIDArray = arrayID;
     await apiFetchService.fetchFilmByIDArray();
     apiMarkupService.setFilmsForMarkup = apiFetchService.getFilmsArrayByID;
-    apiMarkupService.markupGalleryByID();
+    let filmMarklUp = await apiMarkupService.markupGalleryByID();
+    console.log(filmMarklUp);
+
+    refs.sectionGallery.insertAdjacentHTML('beforeend', filmMarklUp);
+
+    // console.log(filmMarklUp);
   } catch (error) {
     console.log(error);
   }
@@ -107,8 +115,10 @@ function getRandomInt(max) {
 }
 //====TESTS=====//
 // markupFilmUpcoming();
-// markupFilmByIDArray([808, 809]);
+// markupFilmByIDArray([808, 493529]);
 // markupFilmByID(808);
-// markUpWeeklyTrends(3);
+// markUpWeeklyTrends(2);
 // markupFilmByQuery('Dungeons & Dragons: Honor Among Thieves');
 // markupFilmByQuery('cat');
+// apiFetchService.fetchFilmImagesByID(808);
+// console.log(refs);

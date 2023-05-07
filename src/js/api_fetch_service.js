@@ -75,6 +75,20 @@ export default class ApiFetchService {
       console.log(error.message);
     }
   }
+  // fetch images posters by ID
+  async fetchFilmImagesByID(filmID) {
+    try {
+      // this.id = filmID;
+      const urlImagesByID = `${this.url}movie/${filmID}/images?api_key=${this.key}`;
+      let { data } = await axios.get(urlImagesByID);
+      console.log("log in method 'fetchFilmByID': ", data);
+      // this.filmByID = data;
+      // console.log('filmsByID DATA', this.filmsByID);
+      return data;
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
   //fetch film by id array, like [505,509,999]
   async fetchFilmByIDArray() {
     try {
