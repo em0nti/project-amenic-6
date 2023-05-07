@@ -1,4 +1,10 @@
 .library__movi-card-list {
-  display: flex;
-  flex-wrap: wrap;
+  @include mq(tablet) {
+    gap: 28px 16px;
+    --items: 3;
+  }
+
+  @include mq(desktop) {
+    gap: 32px 16px;
+  }
 }
