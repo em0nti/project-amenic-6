@@ -5,8 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Catalog - Cinemania</title>
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="js/catalog.js"></script>
     <link rel="shortcut icon" type="image/png" href="./images/favicon.png" />
   </head>
-  <body class="page"></body>
+  <body class="page dark">
+    <include src="./partials/header.html"></include>
+
+    <include src="./partials/hero-catalog.html"></include>
+    <include src="./partials/search-form.html"></include>
+    <include src="./partials/catalog-list.html"></include>
+    <include src="./partials/footer.html"></include>
+
+    <script type="module" src="js/catalog.js"></script>
+  </body>
 </html>
