@@ -1,3 +1,4 @@
+import renderRating from './rating';
 export default class ApiMarkupService {
   constructor() {
     //here will be stored the array of films to markup (YOU MUST GET IT FROM FETCH CLASS, use setter 'setFilmsForMarkup')
@@ -6,7 +7,7 @@ export default class ApiMarkupService {
     this.genresAll = [];
   }
   //method for markup film card from arrays of films (like Weekly trends, upcoming etc.)
-  markupFilmCard({ poster_path, title, genre_ids, release_date }) {
+  markupFilmCard({ poster_path, title, genre_ids, release_date, vote_average }) {
     let listOfGenres = '';
     if (genre_ids.length === 0) {
       listOfGenres = '';
@@ -17,6 +18,8 @@ export default class ApiMarkupService {
     }
 
     let yearOfRelease = release_date.slice(0, 4);
+    let starsRating = renderRating(vote_average);
+
     // console.log(yearOfRelease);
     return `<div class="card card__item card-set__item movi-card-general-set">
   <img
@@ -34,48 +37,14 @@ export default class ApiMarkupService {
     </div>
     <div class="card__rate">
       <ul class="card__rate--list">
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-full.svg"
-            alt="star"
-          />
-        </li>
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-full.svg"
-            alt="star"
-          />
-        </li>
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-full.svg"
-            alt="star"
-          />
-        </li>
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-half.svg"
-            alt="star"
-          />
-        </li>
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-empty.svg"
-            alt="star"
-          />
-        </li>
+${starsRating}
       </ul>
     </div>
   </div>
 </div>`;
   }
   // method for markup film card from fetch by ID Film
-  markupFilmCardByID({ poster_path, title, genres, release_date }) {
+  markupFilmCardByID({ poster_path, title, genres, release_date, vote_average }) {
     let listOfGenres = '';
     if (genres.length === 0) {
       listOfGenres = '';
@@ -102,41 +71,7 @@ export default class ApiMarkupService {
     </div>
     <div class="card__rate">
       <ul class="card__rate--list">
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-full.svg"
-            alt="star"
-          />
-        </li>
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-full.svg"
-            alt="star"
-          />
-        </li>
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-full.svg"
-            alt="star"
-          />
-        </li>
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-half.svg"
-            alt="star"
-          />
-        </li>
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-empty.svg"
-            alt="star"
-          />
-        </li>
+${starsRating}
       </ul>
     </div>
   </div>
@@ -144,7 +79,7 @@ export default class ApiMarkupService {
   }
   // method for markup film card from fetch by Upcoming
   markupFilmCardUpcoming({
-    poster_path,
+    backdrop_path,
     title,
     genre_ids,
     release_date,
@@ -165,31 +100,46 @@ export default class ApiMarkupService {
     // let yearOfRelease = release_date.slice(0, 4);
     let truncatePopularity = popularity.toFixed(1);
 
-    return `  <div class="container">
+    return `
+   <div class="container">
     <h2 class="upcoming__title">Upcoming this month</h2>
     <div class="upcoming__section-wrapper">
-      <picture>
-        <source
-          srcset="https://image.tmdb.org/t/p/original${poster_path} 1x, https://image.tmdb.org/t/p/original${poster_path} 2x"
-          media="(min-width: 1200px)"
-        />
-        <source
-          srcset="https://image.tmdb.org/t/p/original${poster_path} 1x, https://image.tmdb.org/t/p/original${poster_path} 2x"
-          media="(min-width: 768px)"
-        />
-        <source
-          srcset="https://image.tmdb.org/t/p/original${poster_path} 1x, https://image.tmdb.org/t/p/original${poster_path} 2x"
-          media="(min-width: 320px)"
-        />
+      <div class="upcoming__img-wrapper">
+        <picture>
+          <source
+            srcset="
+              https://image.tmdb.org/t/p/original${backdrop_path} 1x,
+              https://image.tmdb.org/t/p/original${backdrop_path} 2x
+            "
+            media="(min-width: 1200px)"
+          />
+          <source
+            srcset="
+              https://image.tmdb.org/t/p/original${backdrop_path} 1x,
+              https://image.tmdb.org/t/p/original${backdrop_path} 2x
+            "
+            media="(min-width: 768px)"
+          />
+          <source
+            srcset="
+              https://image.tmdb.org/t/p/original${backdrop_path} 1x,
+              https://image.tmdb.org/t/p/original${backdrop_path} 2x
+            "
+            media="(min-width: 320px)"
+          />
 
-        <img
-          srcset="https://image.tmdb.org/t/p/original${poster_path} 1x, https://image.tmdb.org/t/p/original${poster_path} 2x"
-          src="https://image.tmdb.org/t/p/original${poster_path}"
-          class="upcoming__image"
-          alt="Poster of film"
-          width="805px"
-        />
-      </picture>
+          <img
+            srcset="
+              https://image.tmdb.org/t/p/original${backdrop_path} 1x,
+              https://image.tmdb.org/t/p/original${backdrop_path} 2x
+            "
+            src="https://image.tmdb.org/t/p/original${backdrop_path}"
+            class="upcoming__image"
+            alt="Poster of film"
+            width="805px"
+          />
+        </picture>
+      </div>
 
       <div class="upcoming__inform-wrapper">
         <h3 class="upcoming__film-name">${title}</h3>
@@ -223,14 +173,14 @@ export default class ApiMarkupService {
 
         <h4 class="upcoming__about">About</h4>
         <p class="upcoming__dcr">
-          ${overview}
+        ${overview}
         </p>
         <button type="button" class="button button-main button-main--height-desktop-40" id="remind-btn">
           <span>Remind me</span>
         </button>
       </div>
     </div>
-  </div>`;
+  </div> `;
   }
   // method for markup gallery from arrays of films (like Weekly trends, upcoming etc.)
   markupGallery(numOfArray) {
