@@ -18,7 +18,7 @@ export default class ApiMarkupService {
 
     let yearOfRelease = release_date.slice(0, 4);
     // console.log(yearOfRelease);
-    return `<div class="card__item card-set__item movi-card-general-set">
+    return `<div class="card card__item card-set__item movi-card-general-set">
   <img
     class="card__image"
     loading="lazy"
@@ -163,39 +163,27 @@ export default class ApiMarkupService {
     }
 
     // let yearOfRelease = release_date.slice(0, 4);
-    return `
-        <div class="container">
+
+    return `  <div class="container">
     <h2 class="upcoming__title">Upcoming this month</h2>
     <div class="upcoming__section-wrapper">
       <picture>
         <source
-          srcset="
-            ${poster_path} 1x,
-            ${poster_path} 2x
-          "
+          srcset="https://image.tmdb.org/t/p/original${poster_path} 1x, https://image.tmdb.org/t/p/original${poster_path} 2x"
           media="(min-width: 1200px)"
         />
         <source
-          srcset="
-           ${poster_path} 1x,
-            ${poster_path} 2x
-          "
+          srcset="https://image.tmdb.org/t/p/original${poster_path} 1x, https://image.tmdb.org/t/p/original${poster_path} 2x"
           media="(min-width: 768px)"
         />
         <source
-          srcset="
-           ${poster_path} 1x,
-            ${poster_path} 2x
-          "
+          srcset="https://image.tmdb.org/t/p/original${poster_path} 1x, https://image.tmdb.org/t/p/original${poster_path} 2x"
           media="(min-width: 320px)"
         />
 
         <img
-          srcset="
-             ${poster_path} 1x,
-            ${poster_path} 2x
-          "
-          src="${poster_path}"
+          srcset="https://image.tmdb.org/t/p/original${poster_path} 1x, https://image.tmdb.org/t/p/original${poster_path} 2x"
+          src="https://image.tmdb.org/t/p/original${poster_path}"
           class="upcoming__image"
           alt="Poster of film"
           width="805px"
@@ -208,15 +196,11 @@ export default class ApiMarkupService {
         <ul class="upcoming__list-info list">
           <li class="upcoming-item-wrapper">
             <div class="upcoming__item">
-              <p class="upcoming__parameter upcoming__parameter--color">
-                Release date
-              </p>
+              <p class="upcoming__parameter upcoming__parameter--color">Release date</p>
               <p class="upcoming__value upcoming__value--orange">${release_date}</p>
             </div>
             <div class="upcoming__item">
-              <p class="upcoming__parameter upcoming__parameter--bckg">
-                Vote / Votes
-              </p>
+              <p class="upcoming__parameter upcoming__parameter--bckg">Vote / Votes</p>
               <p class="upcoming__value">
                 <span class="upcoming__numbers--bckg">${vote_average}</span> /
                 <span class="upcoming__numbers--bckg">${vote_count}</span>
@@ -226,15 +210,11 @@ export default class ApiMarkupService {
 
           <li class="upcoming-item-wrapper">
             <div class="upcoming__item">
-              <p class="upcoming__parameter upcoming__parameter--number">
-                Popularity
-              </p>
+              <p class="upcoming__parameter upcoming__parameter--number">Popularity</p>
               <p class="upcoming__value">${popularity}</p>
             </div>
             <div class="upcoming__item">
-              <p class="upcoming__parameter upcoming__parameter--genre">
-                Genre
-              </p>
+              <p class="upcoming__parameter upcoming__parameter--genre">Genre</p>
               <p class="upcoming__value">${listOfGenres}</p>
             </div>
           </li>
@@ -242,13 +222,14 @@ export default class ApiMarkupService {
 
         <h4 class="upcoming__about">About</h4>
         <p class="upcoming__dcr">
-        ${overview}
+          ${overview}
         </p>
-        <button type="button" class="upcoming__btn-remind">Remind me</button>
+        <button type="button" class="button button-main button-main--height-desktop-40" id="remind-btn">
+          <span>Remind me</span>
+        </button>
       </div>
     </div>
-  </div>
-    `;
+  </div>`;
   }
   // method for markup gallery from arrays of films (like Weekly trends, upcoming etc.)
   markupGallery(numOfArray) {
