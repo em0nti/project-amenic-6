@@ -105,6 +105,8 @@ async function markupFilmUpcoming() {
       dataFilmUpcomingForMarkup,
     );
     console.log(markupFilmUpcoming);
+
+    refs.sectionUpcoming.insertAdjacentHTML('beforeend', markupFilmUpcoming);
   } catch (error) {
     console.log(error);
   }
@@ -115,6 +117,8 @@ function getRandomInt(max) {
 }
 // show weekly trends 3 films
 markUpWeeklyTrends(3);
+markupFilmUpcoming();
+
 //====TESTS=====//
 // markupFilmUpcoming();
 // markupFilmByIDArray([808, 493529]);
