@@ -1,3 +1,4 @@
+import renderRating from './rating';
 export default class ApiMarkupService {
   constructor() {
     //here will be stored the array of films to markup (YOU MUST GET IT FROM FETCH CLASS, use setter 'setFilmsForMarkup')
@@ -6,7 +7,7 @@ export default class ApiMarkupService {
     this.genresAll = [];
   }
   //method for markup film card from arrays of films (like Weekly trends, upcoming etc.)
-  markupFilmCard({ poster_path, title, genre_ids, release_date }) {
+  markupFilmCard({ poster_path, title, genre_ids, release_date, vote_average }) {
     let listOfGenres = '';
     if (genre_ids.length === 0) {
       listOfGenres = '';
@@ -17,6 +18,8 @@ export default class ApiMarkupService {
     }
 
     let yearOfRelease = release_date.slice(0, 4);
+    let starsRating = renderRating(vote_average);
+
     // console.log(yearOfRelease);
     return `<div class="card card__item card-set__item movi-card-general-set">
   <img
@@ -34,48 +37,14 @@ export default class ApiMarkupService {
     </div>
     <div class="card__rate">
       <ul class="card__rate--list">
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-full.svg"
-            alt="star"
-          />
-        </li>
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-full.svg"
-            alt="star"
-          />
-        </li>
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-full.svg"
-            alt="star"
-          />
-        </li>
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-half.svg"
-            alt="star"
-          />
-        </li>
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-empty.svg"
-            alt="star"
-          />
-        </li>
+${starsRating}
       </ul>
     </div>
   </div>
 </div>`;
   }
   // method for markup film card from fetch by ID Film
-  markupFilmCardByID({ poster_path, title, genres, release_date }) {
+  markupFilmCardByID({ poster_path, title, genres, release_date, vote_average }) {
     let listOfGenres = '';
     if (genres.length === 0) {
       listOfGenres = '';
@@ -102,41 +71,7 @@ export default class ApiMarkupService {
     </div>
     <div class="card__rate">
       <ul class="card__rate--list">
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-full.svg"
-            alt="star"
-          />
-        </li>
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-full.svg"
-            alt="star"
-          />
-        </li>
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-full.svg"
-            alt="star"
-          />
-        </li>
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-half.svg"
-            alt="star"
-          />
-        </li>
-        <li class="card__rate--item">
-          <img
-            class="card__rate--img"
-            src="./images/star-empty.svg"
-            alt="star"
-          />
-        </li>
+${starsRating}
       </ul>
     </div>
   </div>
