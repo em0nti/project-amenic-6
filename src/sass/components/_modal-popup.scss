@@ -9,6 +9,13 @@
   padding: 55px 10px;
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   border-radius: 20px;
+  //   //visibility: hidden;
+  //   //opacity: 0;
+  //   z-index: 30;
+  //   &.active {
+  //     visibility: visible;
+  //     opacity: 1;
+  //   }
 }
 
 .poster-block {
@@ -163,6 +170,7 @@
     width: 844px;
     height: 598px;
     padding: 57px 59px;
+    overflow-y: auto;
   }
 
   .modal-film-info {
