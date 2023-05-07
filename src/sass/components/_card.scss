@@ -1,34 +1,11 @@
-.movi-card-general-set {
-  margin-bottom: 32px;
-
-  @include mq(tablet) {
-    flex-basis: calc((100% - 32px) / 3);
-    margin-right: 16px;
-    margin-bottom: 28px;
-
-    &:nth-child(3n) {
-      margin-right: 0px;
-    }
-  }
-
-  @include mq(desktop) {
-    margin-bottom: 32px;
-  }
-}
-
-.card__item {
+.card {
   position: relative;
-  width: 280px;
   height: auto;
-  @media screen and (min-width: $container-width-tablet) {
-    width: 224px;
-  }
-  @media screen and (min-width: $container-width-desktop) {
-    width: 395px;
-  }
 }
 .card__image {
   border-radius: 5px;
+  object-fit: cover;
+  object-position: center;
 }
 .card__footer {
   position: absolute;
@@ -38,7 +15,7 @@
   padding-bottom: 12px;
   width: 100%;
   height: 52px;
-  bottom: 0px;
+  bottom: 0;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;

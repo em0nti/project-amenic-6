@@ -1,0 +1,50 @@
+@media screen and (min-width: 1279px) {
+  .library-container {
+    padding-left: 117px;
+  }
+}
+.hero-library {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media screen and (max-width: 767px) {
+  .hero-library {
+    padding-bottom: 144px;
+    background-image: linear-gradient(
+        87.8deg,
+        #0e0e0e 15.61%,
+        rgba(14, 14, 14, 0) 60.39%
+      ),
+      url('/src/images/hero-library-tabl.png');
+    // background-position: right, left;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hero-library {
+    padding-bottom: 118px;
+
+    background-image: linear-gradient(
+        87.8deg,
+        #0e0e0e 15.61%,
+        rgba(14, 14, 14, 0) 60.39%
+      ),
+      url('/src/images/hero-library-tabl.png');
+    // background-position: right, left;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero-library {
+    padding-bottom: 249px;
+    background-image: linear-gradient(
+        87.8deg,
+        #0e0e0e 15.61%,
+        rgba(14, 14, 14, 0) 60.39%
+      ),
+      url('/src/images/hero-lib-desk.png');
+    // background-position: right, left;
+  }
+}
+.library-text {
+  margin-bottom: 0;
+}
