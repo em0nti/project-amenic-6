@@ -2,6 +2,7 @@
 import ApiFetchService from './api_fetch_service';
 import ApiMarkupService from './api_markup_service';
 import initModals from './init-open-close-modals';
+import { refs } from './constants';
 
 initModals();
 
@@ -51,7 +52,30 @@ async function markUpWeeklyTrends(numOfArray) {
     apiMarkupService.setFilmsForMarkup = await dataFromTrends;
     let filmMarklUp = await apiMarkupService.markupGallery(numOfArray);
 
-    console.log(filmMarklUp);
+    refs.sectioWeeklyTrends.insertAdjacentHTML('beforeend', filmMarklUp);
+
+    // console.log(filmMarklUp);
+  } catch (error) {
+    console.log(error);
+  }
+}
+// function to markup day trends film
+async function markUpDayTrends(numOfArray) {
+  try {
+    let filmArrayIDtoMarkup = getRandomInt(18);
+    apiFetchService.setTrendsType = 'day';
+    await apiFetchService.fetchFilmGenres();
+    await apiFetchService.fetchFilmTrends();
+    let dataFromTrends = await apiFetchService.getFilmsTrends;
+    apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
+    // apiMarkupService.setFilmsForMarkup = '';
+    apiMarkupService.setFilmsForMarkup = await dataFromTrends[filmArrayIDtoMarkup];
+    filmDataFormMarkup = apiMarkupService.getFilmsForMarkup;
+    let filmMarklUp = await apiMarkupService.markupFilmHeroTrendsDay(filmDataFormMarkup);
+
+    refs.sectionHeroDayTrends.insertAdjacentHTML('beforeend', filmMarklUp);
+
+    console.log('markUpDayTrends', filmMarklUp);
   } catch (error) {
     console.log(error);
   }
@@ -78,7 +102,12 @@ async function markupFilmByIDArray(arrayID) {
     apiFetchService.setFilmsIDArray = arrayID;
     await apiFetchService.fetchFilmByIDArray();
     apiMarkupService.setFilmsForMarkup = apiFetchService.getFilmsArrayByID;
-    apiMarkupService.markupGalleryByID();
+    let filmMarklUp = await apiMarkupService.markupGalleryByID();
+    console.log(filmMarklUp);
+
+    refs.sectionGallery.insertAdjacentHTML('beforeend', filmMarklUp);
+
+    // console.log(filmMarklUp);
   } catch (error) {
     console.log(error);
   }
@@ -96,7 +125,9 @@ async function markupFilmUpcoming() {
     let markupFilmUpcoming = await apiMarkupService.markupFilmCardUpcoming(
       dataFilmUpcomingForMarkup,
     );
-    console.log(markupFilmUpcoming);
+    // console.log(markupFilmUpcoming);
+
+    refs.sectionUpcoming.insertAdjacentHTML('beforeend', markupFilmUpcoming);
   } catch (error) {
     console.log(error);
   }
@@ -105,10 +136,19 @@ async function markupFilmUpcoming() {
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
+// show weekly trends 3 films
+markUpWeeklyTrends(3);
+//render film to Upcoming section
+markupFilmUpcoming();
+//show day trends in hero home section
+// markUpDayTrends(1);
+
 //====TESTS=====//
 // markupFilmUpcoming();
-// markupFilmByIDArray([808, 809]);
+// markupFilmByIDArray([808, 493529]);
 // markupFilmByID(808);
 // markUpWeeklyTrends(3);
 // markupFilmByQuery('Dungeons & Dragons: Honor Among Thieves');
 // markupFilmByQuery('cat');
+// apiFetchService.fetchFilmImagesByID(808);
+// console.log(refs);
