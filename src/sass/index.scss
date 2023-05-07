@@ -1,5 +1,4 @@
 @import '../../node_modules/modern-normalize/modern-normalize.css';
-@import '../../node_modules/choices.js/src/styles/choices.scss';
 @import './utils/reset';
 @import './utils/variable';
 @import './utils/helpers';
@@ -36,5 +35,6 @@
 @import './components/modal-trailer-failure';
 @import './components/modal-trailer-success';
 
-@import './components/search-form';
-@import './components/select';
+@import './components/loader';
+@import './components/modal-team';
+

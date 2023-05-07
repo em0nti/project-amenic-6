@@ -1,0 +1,28 @@
+.loader {
+  padding: 20px;
+  outline: none;
+  border: none;
+  box-shadow: -5px -5px 20px #fff, 5px 5px 20px orange;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid orange;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hide {
+  display: none;
+}
