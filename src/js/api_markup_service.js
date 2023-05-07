@@ -163,6 +163,7 @@ export default class ApiMarkupService {
     }
 
     // let yearOfRelease = release_date.slice(0, 4);
+    let truncatePopularity = popularity.toFixed(1);
 
     return `  <div class="container">
     <h2 class="upcoming__title">Upcoming this month</h2>
@@ -211,7 +212,7 @@ export default class ApiMarkupService {
           <li class="upcoming-item-wrapper">
             <div class="upcoming__item">
               <p class="upcoming__parameter upcoming__parameter--number">Popularity</p>
-              <p class="upcoming__value">${popularity}</p>
+              <p class="upcoming__value">${truncatePopularity}</p>
             </div>
             <div class="upcoming__item">
               <p class="upcoming__parameter upcoming__parameter--genre">Genre</p>
@@ -258,6 +259,27 @@ export default class ApiMarkupService {
     console.log('method -markupGalleryByID- in ApiMarkupService', markUpFilmsAll);
 
     return markUpFilmsAll;
+  }
+  // method to markup day film trends in hero section
+  markupFilmHeroTrendsDay({ poster_path, title, overview }) {
+    return ` <div class="container hero__container library-container">
+    <div class="hero__info">
+      <h1 class="hero__title" id="titleB">${title}</h1>
+      <div>
+        <img src="/src/images/card-rate-mobile.png" class="hero__star" />
+      </div>
+      <p class="hero__text hero__text-width" id="textB">
+       ${overview}
+      </p>
+      <button type="button" class="button button-main button-home" id="watch-trailer-btn">
+        <span>Watch trailer</span>
+      </button>
+
+      <div class="slide-home">
+        <img src="/src/images/mob-slayd.png" class="slide-img" />
+      </div>
+    </div>
+  </div>`;
   }
   // method for get genre name from ID
   getNameGenre(idGenre) {
