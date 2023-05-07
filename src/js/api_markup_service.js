@@ -18,24 +18,61 @@ export default class ApiMarkupService {
 
     let yearOfRelease = release_date.slice(0, 4);
     // console.log(yearOfRelease);
-    return `
-      <div class="card__item movi-card-general-set">
-        <img class="card__image" loading="lazy" src="${poster_path}" alt="" />
-        <div class="card__footer">
-          <div class="card__descr">
-            <p class="card__name">${title}</p>
-            <p class="card__details">
-              <span>${listOfGenres}</span>
-              <span> | </span>
-              <span>${yearOfRelease}</span>
-            </p>
-          </div>
-          <div class="card__rate">
-            <img src="./images/card-rate-mobile.png" alt="stars" />
-          </div>
-        </div>
-      </div>
-    `;
+    return `<div class="card__item card-set__item movi-card-general-set">
+  <img
+    class="card__image"
+    loading="lazy"
+    src="https://image.tmdb.org/t/p/original${poster_path}"
+    alt=""
+  />
+  <div class="card__footer">
+    <div class="card__descr">
+      <p class="card__name">${title}</p>
+      <p class="card__details">
+        <span>${listOfGenres}</span><span> | </span><span>${yearOfRelease}</span>
+      </p>
+    </div>
+    <div class="card__rate">
+      <ul class="card__rate--list">
+        <li class="card__rate--item">
+          <img
+            class="card__rate--img"
+            src="./images/star-full.svg"
+            alt="star"
+          />
+        </li>
+        <li class="card__rate--item">
+          <img
+            class="card__rate--img"
+            src="./images/star-full.svg"
+            alt="star"
+          />
+        </li>
+        <li class="card__rate--item">
+          <img
+            class="card__rate--img"
+            src="./images/star-full.svg"
+            alt="star"
+          />
+        </li>
+        <li class="card__rate--item">
+          <img
+            class="card__rate--img"
+            src="./images/star-half.svg"
+            alt="star"
+          />
+        </li>
+        <li class="card__rate--item">
+          <img
+            class="card__rate--img"
+            src="./images/star-empty.svg"
+            alt="star"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>`;
   }
   // method for markup film card from fetch by ID Film
   markupFilmCardByID({ poster_path, title, genres, release_date }) {
@@ -49,24 +86,61 @@ export default class ApiMarkupService {
     }
 
     let yearOfRelease = release_date.slice(0, 4);
-    return `
-      <div class="card__item movi-card-general-set">
-        <img class="card__image" loading="lazy" src="${poster_path}" alt="" />
-        <div class="card__footer">
-          <div class="card__descr">
-            <p class="card__name">${title}</p>
-            <p class="card__details">
-              <span>${listOfGenres}</span>
-              <span> | </span>
-              <span>${yearOfRelease}</span>
-            </p>
-          </div>
-          <div class="card__rate">
-            <img src="./images/card-rate-mobile.png" alt="stars" />
-          </div>
-        </div>
-      </div>
-    `;
+    return `<div class="card__item card-set__item movi-card-general-set">
+  <img
+    class="card__image"
+    loading="lazy"
+    src="https://image.tmdb.org/t/p/original${poster_path}"
+    alt=""
+  />
+  <div class="card__footer">
+    <div class="card__descr">
+      <p class="card__name">${title}</p>
+      <p class="card__details">
+        <span>${listOfGenres}</span><span> | </span><span>${yearOfRelease}</span>
+      </p>
+    </div>
+    <div class="card__rate">
+      <ul class="card__rate--list">
+        <li class="card__rate--item">
+          <img
+            class="card__rate--img"
+            src="./images/star-full.svg"
+            alt="star"
+          />
+        </li>
+        <li class="card__rate--item">
+          <img
+            class="card__rate--img"
+            src="./images/star-full.svg"
+            alt="star"
+          />
+        </li>
+        <li class="card__rate--item">
+          <img
+            class="card__rate--img"
+            src="./images/star-full.svg"
+            alt="star"
+          />
+        </li>
+        <li class="card__rate--item">
+          <img
+            class="card__rate--img"
+            src="./images/star-half.svg"
+            alt="star"
+          />
+        </li>
+        <li class="card__rate--item">
+          <img
+            class="card__rate--img"
+            src="./images/star-empty.svg"
+            alt="star"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>`;
   }
   // method for markup film card from fetch by Upcoming
   markupFilmCardUpcoming({
@@ -191,7 +265,7 @@ export default class ApiMarkupService {
       return markUpFilmsAllReduce;
     } else {
       let markUpFilmsAll = markup.map(film => this.markupFilmCard(film)).join('');
-      console.log('markUpFilmsAll', markUpFilmsAll);
+      console.log('method -markupGallery- in ApiMarkupService', markUpFilmsAll);
 
       return markUpFilmsAll;
     }
@@ -200,7 +274,7 @@ export default class ApiMarkupService {
   markupGalleryByID() {
     const markup = this.filmsForMarkupArray.filter(film => film.genres.length !== 0);
     let markUpFilmsAll = markup.map(film => this.markupFilmCardByID(film)).join('');
-    console.log('markUpFilmsAll', markUpFilmsAll);
+    console.log('method -markupGalleryByID- in ApiMarkupService', markUpFilmsAll);
 
     return markUpFilmsAll;
   }
