@@ -4,11 +4,25 @@
 .choices-year {
   width: 95px;
 }
+
 .choices-genre {
   width: 173px;
+  @include mq(tablet) {
+    width: 144px;
+  }
+  @include mq(desktop) {
+    width: 260px;
+  }
 }
+
 .choices-country {
   width: 220px;
+  @include mq(tablet) {
+    width: 181px;
+  }
+  @include mq(desktop) {
+    width: 281px;
+  }
 }
 
 .choices,
@@ -17,13 +31,11 @@
   color: var(--color-light-grey-1);
 }
 
-.choices,
-.select {
+.choices {
   height: 40px;
   border: 1px solid var(--color-white);
   border-radius: 8px 8px 8px 8px;
-  //padding: 12px 16px;
-  //margin: 0;
+  margin: 0;
 
   background-color: transparent;
 }
