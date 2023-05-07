@@ -2,7 +2,7 @@
   margin-top: 12px;
   margin-bottom: 20px;
 }
-@media screen and (max-width: 767px) {
+@media screen and (min-width: $container-width-mobile) {
   .hero-home {
     padding-bottom: 28px;
   }
@@ -18,7 +18,7 @@
     height: 16px;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $container-width-tablet) {
   .hero-home {
     padding-top: 36px;
     padding-bottom: 36px;
@@ -38,7 +38,7 @@
     height: 20px;
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: $container-width-desktop) {
   .hero-home {
     padding-top: 118px;
     padding-bottom: 159px;
