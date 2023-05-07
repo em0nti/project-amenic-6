@@ -7,6 +7,8 @@
   height: 847px;
   background-color: var(--color-black);
   padding: 55px 10px;
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  border-radius: 20px;
 }
 
 .poster-block {
@@ -99,7 +101,7 @@
   line-height: 1.33;
   text-transform: uppercase;
   border-radius: 74px;
-  //   border: 1px linear #ffc226 #f84119;
+  border: 1px linear #ffc226 #f84119;
   cursor: pointer;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
