@@ -1,0 +1,16 @@
+.main-header {
+  height: 48px;
+  background-color: transparent;
+
+  @include mq(tablet) {
+    height: 60px;
+  }
+}
+
+.main-navigation__list {
+  @extend %list;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
