@@ -18,7 +18,7 @@ export default class ApiMarkupService {
 
     let yearOfRelease = release_date.slice(0, 4);
     // console.log(yearOfRelease);
-    return `<div class="card__item card-set__item movi-card-general-set">
+    return `<div class="card card__item card-set__item movi-card-general-set">
   <img
     class="card__image"
     loading="lazy"
