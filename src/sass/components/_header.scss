@@ -1,11 +1,13 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 48px;
-  padding: 0 20px;
   background-color: var(--color-black);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+
+  @include mq(mobile-only) {
+    justify-content: space-between;
+    height: 48px;
+  }
 
   @include mq(tablet) {
     height: 60px;
@@ -15,33 +17,47 @@
 .header__wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
+
+  @include mq(mobile-only) {
+    justify-content: space-between;
+  }
 }
 
 .header__logo {
   @extend %link;
   display: flex;
-  left: 0;
-  position: absolute;
-  margin-left: 21px;
+}
 
+.header__icon {
+  margin: 0;
+  width: 32px;
+  height: 32px;
   @include mq(tablet) {
-    margin-left: 32px;
+    margin-right: 8px;
+    width: 48px;
+    height: 48px;
   }
 }
 
-.icon-cinema_logo {
+.header__theme-button {
+  width: 38px;
+  height: 16px;
+  border-radius: 194px;
+
+  background-color: var(--color-primary);
+}
+
+.header__navigation {
   display: flex;
-  width: 40px;
-  height: 35px;
-  max-width: 60px;
-  justify-content: left;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  @include mq(mobile-only) {
+    display: none;
+  }
 
   @include mq(tablet) {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    margin-top: 6px;
+    margin-right: auto;
   }
 }
 
@@ -56,9 +72,12 @@
   text-decoration: none;
   @include mq(tablet) {
     display: flex;
-    padding-top: 16px;
-    padding-left: 6px;
-    margin-left: 50px;
+    align-self: center;
+    margin-right: 60px;
+  }
+
+  @include mq(desktop) {
+    margin-right: 307px;
   }
 }
 
@@ -96,7 +115,6 @@
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    justify-content: center;
     gap: 32px;
   }
 
