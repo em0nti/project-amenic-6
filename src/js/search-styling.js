@@ -1,4 +1,4 @@
-import Choices from 'choices.js';
+// import Choices from 'choices.js';
 
 const searchRefs = {
   year: document.querySelector('[data-year]'),
