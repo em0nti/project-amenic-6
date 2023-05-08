@@ -12,7 +12,9 @@ let player;
 
 export async function onWatchTrailerClick() {
   Loading.standard();
-  await fetch('https://api.themoviedb.org/3/movie/550/videos?api_key=91ae85947dca7203ec2b4d7841a3c73b&language=en-US')
+  await fetch(
+    'https://api.themoviedb.org/3/movie/550/videos?api_key=91ae85947dca7203ec2b4d7841a3c73b&language=en-US',
+  )
     .then(response => {
       if (!response.ok) {
         throw new Error(response.status);
@@ -21,7 +23,9 @@ export async function onWatchTrailerClick() {
     })
     .then(data => {
       // Извлекаем трейлер в формате YouTube
-      const trailer = data.results.find(video => video.type === 'Trailer' && video.site === 'YouTube');
+      const trailer = data.results.find(
+        video => video.type === 'Trailer' && video.site === 'YouTube',
+      );
       if (trailer) {
         const trailerKey = trailer.key;
         console.log(trailerKey);
