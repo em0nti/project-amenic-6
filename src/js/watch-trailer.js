@@ -55,12 +55,3 @@ export async function onWatchTrailerClick() {
     });
 }
 
-function createMarkup(trailerKey) {
-  return `
-            <iframe
-                class="trailer-video"
-                src="https://www.youtube.com/embed/${trailerKey}">
-                allowfullscreen
-            ></iframe>
-        `;
-}
