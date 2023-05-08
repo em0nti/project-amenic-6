@@ -8,7 +8,7 @@ const STORAGE_KEY = 'movie-id';
 const apiFetchService = new ApiFetchService();
 const id = apiFetchService.getID;
 
-refs.remind-btn.addEventListener('click', onClickAddToLibrary);
+refs.remindMeBtn.addEventListener('click', onClickAddToLibrary);
 
 
 // функція яка по натисканню кнопки додає значення в масив
