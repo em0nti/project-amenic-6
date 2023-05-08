@@ -1,4 +1,5 @@
 @import '../../node_modules/modern-normalize/modern-normalize.css';
+@import '../../node_modules/choices.js/src/styles/choices.scss';
 @import './utils/reset';
 @import './utils/variable';
 @import './utils/helpers';
@@ -8,21 +9,37 @@
 @import './base/base';
 
 @import './layout/card-set';
-@import './layout/footer';
 
+@import './components/container';
 @import './components/buttons/button';
 @import './components/buttons/button-main';
 @import './components/buttons/button-add';
 @import './components/buttons/button-search';
-@import './components/container';
+@import './components/buttons/button-scroll-to-top';
 
-@import './components/backdrop';
-@import './components/modal';
-@import './components/upcoming-this-month';
+@import './components/hero/hero-start';
+@import './components/hero/hero-home';
+@import './components/hero/hero-catalog';
+@import './components/hero/hero-library';
+
+@import './components/header';
+@import './components/footer';
 
 @import './components/card';
-@import './components/modal-trailer-failure';
 @import './components/weekly-trends';
 @import './components/library-list';
 @import './components/catalog-list';
+
+@import './components/upcoming-this-month';
+
 @import './components/mobile-modal';
+@import './components/backdrop';
+@import './components/modal';
+@import './components/modal-trailer-failure';
+@import './components/modal-trailer-success';
+@import './components/loader';
+@import './components/modal-team';
+
+@import './components/search-form';
+@import './components/select';
+

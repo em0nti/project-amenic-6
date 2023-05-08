@@ -19,14 +19,21 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
-    "modern-normalize": "^1.1.0"
+    "choices.js": "^10.2.0",
+    "detect-it": "^4.0.1",
+    "modern-normalize": "^1.1.0",
+    "notiflix": "^3.2.6",
+    "youtube": "^0.1.0",
+    "youtube-iframe": "^1.0.3",
+    "youtube-player": "^5.6.0"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "latest",
     "buffer": "^5.7.1",
     "parcel": "latest",
     "parcel-reporter-clean-dist": "^1.0.4",
-    "posthtml-include": "^1.7.4"
+    "posthtml-include": "^1.7.4",
+    "process": "^0.11.10"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
 }

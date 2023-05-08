@@ -1,0 +1,42 @@
+<!-------------------------------- модальне вікно успішно завантаженого трейлера -->
+<div id="trailer-ok" class="backdrop backdrop--hidden">
+  <div class="modal backdrop__modal">
+    <div class="modal-trailer-success">
+      <include src="./partials/modals/close-button.html"></include>
+
+      <div id="player"></div>
+    </div>
+  </div>
+</div>
+<!-- ------------------------------ модальне вікно з помилкою завантаження трейлера -->
+<div id="trailer-not-ok" class="backdrop backdrop--hidden">
+  <div class="modal backdrop__modal">
+    <div class="modal-trailer-oops">
+      <include src="./partials/modals/close-button.html"></include>
+      <p class="modal-trailer-oops__text">
+        OOPS...<br />
+        We are very sorry! <br />
+        But we couldn’t find the trailer.
+      </p>
+      <picture class="modal-trailer-oops__image">
+        <source
+          srcset="/src/images/trailer-popup/oops-desktop-1x.png 1x, /src/images/trailer-popup/oops-desktop-2x.png 2x"
+          media="( min-width: 1280px)"
+        />
+        <source
+          srcset="/src/images/trailer-popup/oops-tablet-1x.png 1x, /src/images/trailer-popup/oops-tablet-2x.png 2x"
+          media="( min-width: 768px)"
+        />
+        <source
+          srcset="/src/images/trailer-popup/oops-mobile-1x.png 1x, /src/images/trailer-popup/oops-mobile-2x.png 2x"
+          media="(min-width: 320px)"
+        />
+        <img
+          class="modal-trailer-oops__image"
+          src="/src/images/trailer-popup/oops-mobile-1x.png"
+          alt="trailer not found"
+        />
+      </picture>
+    </div>
+  </div>
+</div>

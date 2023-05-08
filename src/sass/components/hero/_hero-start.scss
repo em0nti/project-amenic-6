@@ -1,0 +1,147 @@
+// .hero__container {
+//   margin: 0;
+// }
+
+.hero__title {
+  font-family: 'Roboto';
+  font-style: normal;
+  color: var(--color-white);
+}
+.hero__text {
+  color: var(--color-light-grey-1);
+}
+// // .hero__button {
+// //   width: 110px;
+// //   height: 38px;
+// //   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+// //   border-radius: 74px;
+
+// //   border: none;
+// //   text-align: center;
+// }
+.hero__get-catalog {
+  text-decoration: none;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 0.7;
+  color: #111111;
+}
+
+@media screen and (min-width: $container-width-mobile) {
+  .hero {
+    // max-width: 1280px;
+    padding-top: 40px;
+    padding-bottom: 84px;
+    background-image: linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
+      url('/src/images/mobile-heroy.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 380px;
+  }
+}
+@media screen and (min-width: $container-width-tablet) {
+  .hero {
+    // height: 432px;
+    // max-width: 1280px;
+    padding-top: 62px;
+    padding-bottom: 62px;
+    background-image: linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
+      url('/src/images/blak-tablet.png'), url('/src/images/tabllet-heroy.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+@media screen and (min-width: $container-width-desktop) {
+  .hero {
+    height: 720px;
+    // max-width: 1600px;
+    padding-top: 169px;
+    padding-bottom: 169px;
+    background-image: linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
+      url('/src/images/blak-desk.png'), url('/src/images/gesk-heroy.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+@media screen and (min-width: $container-width-mobile) {
+  .hero__info {
+    max-width: 199px;
+  }
+  .hero__title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.18;
+    margin-bottom: 8px;
+  }
+  .hero__title-br {
+    display: none;
+  }
+
+  .hero__text {
+    font-size: 14px;
+    line-height: 1.14;
+    margin-bottom: 16px;
+  }
+  .hero__spanhiden {
+    display: none;
+  }
+}
+@media screen and (min-width: $container-width-tablet) {
+  .hero__info {
+    max-width: 315px;
+  }
+  .hero__title {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 1.18;
+    margin-bottom: 8px;
+  }
+  .hero__title-br {
+    display: block;
+  }
+  .hero__text {
+    font-size: 14px;
+    line-height: 1.14;
+    margin-bottom: 32px;
+  }
+  .hero__spanhiden {
+    display: block;
+  }
+}
+@media screen and (min-width: $container-width-desktop) {
+  .hero__info {
+    max-width: 464px;
+  }
+  .hero__title {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 1.17;
+    margin-bottom: 16px;
+  }
+  .hero__text {
+    font-size: 16px;
+    line-height: 1.18;
+  }
+}
+
+@media screen and (min-width: $container-width-tablet) {
+  .hero-white {
+    background-image: url('/src/images/table-white.png'), url('/src/images/tabllet-heroy.png');
+  }
+  .hero__title-day {
+    color: var(--color-dark-grey-1);
+  }
+  .hero__text-day {
+    color: var(--color-dark-grey-2);
+  }
+}
+@media screen and (min-width: $container-width-desktop) {
+  .hero-white {
+    background-image: url('/src/images/desk-white.png'), url('/src/images/gesk-heroy.png');
+  }
+}
