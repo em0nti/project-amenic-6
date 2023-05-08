@@ -1,0 +1,52 @@
+<div class="backdrop">
+  <div class="modal backdrop__modal 'modal-for-film'"> 
+    <include src="./partials/modals/close-button.html"></include>
+    
+    <button
+  class="modal__cloze-button modal__cloze-button--position-40"
+  type="button"
+  data-modal-close
+>
+  <svg class="modal__cloze-icon">
+    <use href="/src/images/symbol-defs.svg#modal-cloze"></use>
+  </svg>
+</button>
+
+    <div class="modal__popup filmpage">
+      <div class="filmpage__poster">
+        <img class="filmpage__img" src="/src/images/film-popup/film.png" alt="film" />
+      </div>
+      <div class="filmpage__content">
+        <h2 class="filmpage__title">John Wick: Chapter 4</h2>
+        <table class="filmpage__table">
+          <tr>
+            <td class="filmpage__table--subtitle">Vote / Votes</td>
+            <td class="filmpage__table--information">
+              <span class="filmpage__table--rating">7.3</span> / <span class="filmpage__table--rating2">1260</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="filmpage__table--subtitle">Popularity</td>
+            <td class="filmpage__table--information">100.2</td>
+          </tr>
+          <tr>
+            <td class="filmpage__table--subtitle">Genre</td>
+            <td class="filmpage__table--information">Action Thriller Crime</td>
+          </tr>
+        </table>
+        <p class="filmpage__table--headline">About</p>
+        <p class="filmpage__table--description">
+          John Wick (Keanu Reeves) takes on his most lethal adversaries yet in the upcoming fourth instalment of the
+          series. With the price on his head ever increasing, John Wick uncovers a path to defeating The High Table. But
+          before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the
+          globe and forces that turn old friends into foes.
+        </p>
+        <button type="button" class="button button-add" id="add-to-library-btn">
+          <span>Add to my library</span>
+        </button>
+      </div>
+    </div>
+    </div>
+</div>
+  </div>
+</div>
