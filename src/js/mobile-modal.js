@@ -1,5 +1,5 @@
 const refs = {
-  openModal: document.querySelector(`.test`),
+  openModal: document.querySelector(`.header__icon-menu`),
   closeModal: document.querySelector(`.close_modal-cross`),
   menu: document.querySelector(`.mobile_modal-conainer`),
 };

@@ -31,12 +31,29 @@
 .header__logo {
   @extend %link;
   display: flex;
+
+  @include mq(mobile-only) {
+    display: none;
+  }
 }
 
-.header__icon {
+.header__icon-menu {
   margin: 0;
   width: 32px;
   height: 32px;
+
+  @include mq(tablet) {
+    display: none;
+    // margin-right: 8px;
+    // width: 48px;
+    // height: 48px;
+  }
+}
+
+.header__icon {
+  @include mq(mobile-only) {
+    display: none;
+  }
   @include mq(tablet) {
     margin-right: 8px;
     width: 48px;
