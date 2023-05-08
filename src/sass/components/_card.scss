@@ -58,8 +58,19 @@
 }
 .card__rate--item {
   margin-right: 5.5px;
+    @media screen and (min-width: $container-width-tablet) {
+      margin-right: 1px;
+      }
 }
 .card__rate--img {
-  width: 15px;
-  height: 14px;
+  width: 13.12px;
+  height: 12.25px;
+    @media screen and (min-width: $container-width-tablet) {
+  width: 9.37px;
+  height: 8.75px;
+  }
+  @media screen and (min-width: $container-width-desktop) {
+   width: 16.87px;
+  height: 15.75px;
+  }
 }
