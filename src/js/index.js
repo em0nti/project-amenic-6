@@ -173,7 +173,7 @@ function onChangeWeeklyTrendsByResizeViewport(e) {
 }
 
 function onChangeWeeklyTrendsByScreenWidth() {
-  screenWidth = window.innerWidth;
+  let screenWidth = window.innerWidth;
   console.log('current Width Screen in px is: ', screenWidth);
   if (screenWidth < 768) {
     markUpWeeklyTrends(1);
