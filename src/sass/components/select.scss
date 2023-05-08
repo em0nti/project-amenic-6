@@ -32,12 +32,21 @@
 }
 
 .choices {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.17;
+
+  //color: var(--color-light-grey-1);
   height: 40px;
   border: 1px solid var(--color-white);
   border-radius: 8px 8px 8px 8px;
   margin: 0;
 
   background-color: transparent;
+
+  @include mq(desktop) {
+    font-size: 16px;
+  }
 }
 
 .select__option {
@@ -91,6 +100,14 @@
   color: var(--color-primary);
 }
 
+.choices-year .choices__list--dropdown .is-highlighted {
+  font-size: 18px;
+
+  @include mq(desktop) {
+    font-size: 22px;
+  }
+}
+
 //------------------------------------------------
 
 .choices__list--single {
@@ -103,6 +120,12 @@
   height: 44px;
   padding: 16px 20px 10px 20px;
   border-bottom: 0.5px solid grey;
+}
+
+.choices-year .choices__list--dropdown .choices__item--selectable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .choices__placeholder {
