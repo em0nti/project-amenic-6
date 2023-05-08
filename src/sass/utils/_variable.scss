@@ -1,60 +1,16 @@
-:root {
-  // Layouts
-  //--section-padding-default: px;
-  //--section-padding-lg: px;
-  --container-padding: 20px;
-  --container-padding-tablet: 32px;
-
-  /* card-set */
-  --items: 1;
-  --indent: 16px;
-
-  // Colors
-  --color-primary: #f87719;
-  --color-white: #fff;
-  --color-black: #000;
-  --color-dark-grey-1: #111;
-  --color-dark-grey-2: #282828;
-  --color-dark-grey-3: #1c1c1c;
-  --color-grey-1: #595959;
-  --color-grey-2: #b7b7b7;
-  --color-light-grey-1: #f8f8f8;
-  --linear-gradient-1: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-  --linear-gradient-2: linear-gradient(141.22deg, #f84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
-  /* transition */
-  --transition-duration: 250ms;
-  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-:root[theme='dark'] {
-  --container-padding: 20px;
-  --container-padding-tablet: 32px;
-
-  /* card-set */
-  --items: 1;
-  --indent: 16px;
-
-  // Colors
-  --color-primary: #f87719;
-  --color-white: #000;
-  --color-black: #fff;
-  --color-dark-grey-1: #000;
-  --color-dark-grey-2: #f8f8f8;
-  --color-grey-1: #595959;
-  --color-grey-2: #595959;
-  --color-light-grey-1: #282828;
-  --linear-gradient-1: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-  --linear-gradient-2: linear-gradient(141.22deg, #f84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
-  /* transition */
-  --transition-duration: 250ms;
-  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 //Media Breakpoints
 $container-width-mobile: 320px;
 $container-width-tablet: 768px;
 $container-width-desktop: 1280px;
 
+// НОВИЙ ROOT---------------
 :root {
+  --container-padding: 20px;
+  --container-padding-tablet: 32px;
+
+  /* card-set */
+  --items: 1;
+  --indent: 16px;
   --color-body: #000;
   --color-titleAll: #fff;
   --color-H4card: #fff;
@@ -73,6 +29,12 @@ $container-width-desktop: 1280px;
   --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 :root[theme='dark'] {
+  --container-padding: 20px;
+  --container-padding-tablet: 32px;
+
+  /* card-set */
+  --items: 1;
+  --indent: 16px;
   --color-body: #fff;
   --color-titleAll: #111111;
   --color-H4card: #fff;
