@@ -1,0 +1,36 @@
+.button-switch {
+  position: relative;
+  padding: 0;
+  border: none;
+  border-radius: 30px;
+}
+.size-swit {
+  width: 38px;
+  height: 16px;
+}
+
+.switch-night {
+  position: absolute;
+  top: 1px;
+}
+.switch-day {
+  border: none;
+}
+.switch-hidden {
+  display: none;
+}
+.color {
+  background-color: black;
+}
+@media screen and (min-width: $container-width-tablet) {
+  .size-swit {
+    width: 54px;
+    height: 20px;
+  }
+}
+@media screen and (min-width: $container-width-tablet) {
+  .size-swit {
+    width: 60px;
+    height: 24px;
+  }
+}

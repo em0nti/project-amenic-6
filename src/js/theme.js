@@ -1,30 +1,51 @@
-// (() => {
-//   const refs = {
-//     openModalBtn: document.querySelector('.hero__button'),
-//     hero: document.querySelector('#img'),
-//     heroHome: document.querySelector('#imgA'),
-//     heroHom: document.querySelector('#imgB'),
-//     h1: document.querySelector('#title'),
-//     h1A: document.querySelector('#titleA'),
-//     h1B: document.querySelector('#titleB'),
-//     pHero: document.querySelector('#text'),
+const hero = document.querySelector('.hero');
+const heroHome = document.querySelector('.hero');
+const heroHom = document.querySelector('.hero');
+const switchNight = document.querySelector('.switch-night');
+const switchDay = document.querySelector('.switch-day');
+document.addEventListener('DOMContentLoaded', () => {
+  init();
+});
+switchBtnHiden();
+heroLeftImg();
+function init() {
+  if (localStorage.getItem('theme')) {
+    document.documentElement.setAttribute('theme', 'dark');
+  } else {
+    document.documentElement.removeAttribute('theme');
+  }
+}
+const toggleBtn = document.querySelector('.button-switch');
+toggleBtn.addEventListener('click', function () {
+  if (document.documentElement.hasAttribute('theme')) {
+    document.documentElement.removeAttribute('theme');
 
-//     pHeroA: document.querySelector('#textA'),
-//     pHeroB: document.querySelector('#textB'),
-//   };
+    localStorage.removeItem('theme');
+    switchBtnHiden();
+    heroLeftImg();
+  } else {
+    document.documentElement.setAttribute('theme', 'dark');
 
-//   refs.openModalBtn.addEventListener('click', toggleModal);
-
-//   function toggleModal() {
-//     refs.hero.classList.toggle('hero-white');
-//     refs.heroHome.classList.toggle('hero-white');
-//     refs.heroHom.classList.toggle('hero-white');
-//     refs.h1.classList.toggle('hero__title-day');
-//     refs.h1A.classList.toggle('hero__title-day');
-//     refs.h1B.classList.toggle('hero__title-day');
-
-//     refs.pHero.classList.toggle('hero__text-day');
-//     refs.pHeroA.classList.toggle('hero__text-day');
-//     refs.pHeroB.classList.toggle('hero__text-day');
-//   }
-// })();
+    localStorage.setItem('theme', 1);
+    switchBtnHiden();
+    heroLeftImg();
+  }
+});
+function heroLeftImg() {
+  if (localStorage.getItem('theme')) {
+    hero.classList.add('hero-white');
+    heroHome.classList.add('hero-white');
+    heroHom.classList.add('hero-white');
+  } else {
+    hero.classList.remove('hero-white');
+    heroHome.classList.remove('hero-white');
+    heroHom.classList.remove('hero-white');
+  }
+}
+function switchBtnHiden() {
+  if (localStorage.getItem('theme')) {
+    switchNight.classList.add('switch-hidden');
+  } else {
+    switchNight.classList.remove('switch-hidden');
+  }
+}

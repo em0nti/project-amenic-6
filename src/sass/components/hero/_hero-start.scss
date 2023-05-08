@@ -5,11 +5,10 @@
 .hero__title {
   font-family: 'Roboto';
   font-style: normal;
-  color: var(--color-white);
 }
-.hero__text {
-  color: var(--color-light-grey-1);
-}
+// .hero__text {
+
+// }
 // // .hero__button {
 // //   width: 110px;
 // //   height: 38px;
@@ -72,6 +71,9 @@
   .hero__info {
     max-width: 199px;
   }
+  .hero__title-color {
+    color: #fff;
+  }
   .hero__title {
     font-weight: 700;
     font-size: 32px;
@@ -83,6 +85,7 @@
   }
 
   .hero__text {
+    color: #f8f8f8;
     font-size: 14px;
     line-height: 1.14;
     margin-bottom: 16px;
@@ -95,6 +98,9 @@
   .hero__info {
     max-width: 315px;
   }
+  .hero__title-color {
+    color: var(--color-white);
+  }
   .hero__title {
     font-weight: 700;
     font-size: 44px;
@@ -105,6 +111,7 @@
     display: block;
   }
   .hero__text {
+    color: var(--color-light-grey-1);
     font-size: 14px;
     line-height: 1.14;
     margin-bottom: 32px;
@@ -117,6 +124,9 @@
   .hero__info {
     max-width: 464px;
   }
+  .hero__title-color {
+    color: var(--color-white);
+  }
   .hero__title {
     font-weight: 700;
     font-size: 64px;
@@ -124,6 +134,7 @@
     margin-bottom: 16px;
   }
   .hero__text {
+    color: var(--color-light-grey-1);
     font-size: 16px;
     line-height: 1.18;
   }
@@ -131,13 +142,7 @@
 
 @media screen and (min-width: $container-width-tablet) {
   .hero-white {
-    background-image: url('/src/images/table-white.png'), url('/src/images/tabllet-heroy.png');
-  }
-  .hero__title-day {
-    color: var(--color-dark-grey-1);
-  }
-  .hero__text-day {
-    color: var(--color-dark-grey-2);
+    background-image: url('/src/images/SubtractWhite.png'), url('/src/images/tabllet-heroy.png');
   }
 }
 @media screen and (min-width: $container-width-desktop) {

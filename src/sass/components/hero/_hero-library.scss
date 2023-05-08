@@ -1,3 +1,7 @@
+.hero__title-libr {
+  color: #fff;
+}
+
 @media screen and (min-width: $container-width-desktop) {
   .library-container {
     padding-left: 117px;
@@ -35,4 +39,5 @@
 }
 .library-text {
   margin-bottom: 0;
+  color: #f8f8f8;
 }
