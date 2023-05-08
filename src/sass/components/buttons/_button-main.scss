@@ -11,8 +11,7 @@
   }
   background: var(--linear-gradient-1);
 
-  &:hover,
-  &:focus {
+  &:hover {
     background: var(--linear-gradient-2);
   }
 }
@@ -54,8 +53,7 @@
       padding-box,
     var(--linear-gradient-1) border-box;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background: linear-gradient(
           141.22deg,
           var(--color-white),

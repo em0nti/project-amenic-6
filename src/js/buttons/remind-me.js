@@ -13,7 +13,9 @@ refs.remindMeBtn.addEventListener('click', onClickAddToLibrary);
 
 // функція яка по натисканню кнопки додає значення в масив
 
-function onClickAddToLibrary() {
+function onClickAddToLibrary(e) {
+    const id = Number(e.currentTarget.dataset.id)
+    console.log('Our ID: ', id)
     addIdArrToStorage(id);
 }
 
