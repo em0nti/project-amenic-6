@@ -1,7 +1,7 @@
 .mobile_modal-conainer {
   width: 204px;
   height: 428px;
-  background-color: #171717;
+  background-color: var(--color-dark-grey-1);
   border-radius: 0px 8px 8px 0px;
   position: fixed;
   left: 0;
@@ -15,14 +15,18 @@
   transition: transform 200ms linear, -webkit-transform 200ms linear;
   animation: 0.5s show ease;
 
-  // @keyframes show {
-  //   from {
-  //     opacity: 0;
-  //   }
-  //   to {
-  //     opacity: 1;
-  //   }
-  // }
+  @keyframes show {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+.backdrop {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .mobile-modal__item:not(:last-child) {
