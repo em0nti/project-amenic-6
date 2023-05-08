@@ -18,16 +18,6 @@
         height: 400px;
     }
 }
-
-.trailer-video {
-    border: 0;
-    width: 85%;
-    aspect-ratio: 1.77;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
 .modal-trailer-oops {
     position: relative;
     margin: 0 auto;
@@ -49,4 +39,28 @@
         width: 700px;
         height: 400px;
     }
+}
+.modal-trailer-oops__text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.19;
+            @media screen and (min-width: $container-width-tablet) {
+            font-size: 24px;
+            line-height: 1.16;
+            }
+}
+.modal-trailer-oops__image {
+    position: absolute;
+    width: 159px;
+    right: 15%;
+    bottom: 12px;
+        @media screen and (min-width: $container-width-tablet) {
+            width: 296px;
+            right: 0;
+            bottom: 0px;
+            }
+        
+        @media screen and (min-width: $container-width-desktop) {       
+width: 363px
+            }
 }
