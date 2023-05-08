@@ -7,30 +7,38 @@ export function openModal(modal, player = null) {
     document.addEventListener(
       'keydown',
       event => handleKeyDown(event, modal, player),
-      supportsPassiveEvents ? { passive: true } : false
+      supportsPassiveEvents ? { passive: true } : false,
     );
     modal.addEventListener(
       'click',
       event => handleOverlayClick(event, modal, player),
-      supportsPassiveEvents ? { passive: true } : false
+      supportsPassiveEvents ? { passive: true } : false,
     );
     modal
       .querySelector('[data-modal-close]')
-      .addEventListener('click', () => closeModal(modal, player), supportsPassiveEvents ? { passive: true } : false);
+      .addEventListener(
+        'click',
+        () => closeModal(modal, player),
+        supportsPassiveEvents ? { passive: true } : false,
+      );
   } else {
     document.addEventListener(
       'keydown',
       event => handleKeyDown(event, modal),
-      supportsPassiveEvents ? { passive: true } : false
+      supportsPassiveEvents ? { passive: true } : false,
     );
     modal.addEventListener(
       'click',
       event => handleOverlayClick(event, modal),
-      supportsPassiveEvents ? { passive: true } : false
+      supportsPassiveEvents ? { passive: true } : false,
     );
     modal
       .querySelector('[data-modal-close]')
-      .addEventListener('click', () => closeModal(modal), supportsPassiveEvents ? { passive: true } : false);
+      .addEventListener(
+        'click',
+        () => closeModal(modal),
+        supportsPassiveEvents ? { passive: true } : false,
+      );
   }
   console.log(`Modal <${modal}> is open. Player is ${player}`);
 }
@@ -42,7 +50,9 @@ export function closeModal(modal, player = null) {
   modal.removeEventListener('click', handleOverlayClick);
 
   if (player) {
-    modal.querySelector('[data-modal-close]').removeEventListener('click', () => closeModal(modal, player));
+    modal
+      .querySelector('[data-modal-close]')
+      .removeEventListener('click', () => closeModal(modal, player));
     player.stopVideo();
   } else {
     modal.querySelector('[data-modal-close]').removeEventListener('click', () => closeModal(modal));
