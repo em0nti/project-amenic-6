@@ -10,7 +10,7 @@ const playerYT = document.getElementById('player');
 
 let player;
 
-export async function onWatchTrailerClick() {
+export async function onWatchTrailerClick(movieId){
   Loading.standard();
   await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=91ae85947dca7203ec2b4d7841a3c73b&language=en-US`)
 

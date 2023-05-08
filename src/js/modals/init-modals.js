@@ -8,7 +8,7 @@ function initModals() {
   //refs.watchTrailerBtn.addEventListener('click', () => openModal(refs.modalTrailer));
   // refs.popupBtn.addEventListener('click', () => openModal(refs.modalPopup));
 
-  refs.watchTrailerBtn.addEventListener('click', onWatchTrailerClick);
+  refs.watchTrailerBtn.addEventListener('click', () => onWatchTrailerClick(493529));
 }
 
 export default initModals;
