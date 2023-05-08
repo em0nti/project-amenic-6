@@ -1,23 +1,8 @@
-// .hero__container {
-//   margin: 0;
-// }
-
 .hero__title {
   font-family: 'Roboto';
   font-style: normal;
 }
-// .hero__text {
 
-// }
-// // .hero__button {
-// //   width: 110px;
-// //   height: 38px;
-// //   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-// //   border-radius: 74px;
-
-// //   border: none;
-// //   text-align: center;
-// }
 .hero__get-catalog {
   text-decoration: none;
   font-family: 'Roboto';
@@ -99,7 +84,7 @@
     max-width: 315px;
   }
   .hero__title-color {
-    color: var(--color-white);
+    color: var(--color-titleAll);
   }
   .hero__title {
     font-weight: 700;
@@ -111,7 +96,7 @@
     display: block;
   }
   .hero__text {
-    color: var(--color-light-grey-1);
+    color: var(--color-heroPage);
     font-size: 14px;
     line-height: 1.14;
     margin-bottom: 32px;
@@ -125,7 +110,7 @@
     max-width: 464px;
   }
   .hero__title-color {
-    color: var(--color-white);
+    color: var(--color-titleAll);
   }
   .hero__title {
     font-weight: 700;
@@ -134,7 +119,7 @@
     margin-bottom: 16px;
   }
   .hero__text {
-    color: var(--color-light-grey-1);
+    color: var(--color-heroPage);
     font-size: 16px;
     line-height: 1.18;
   }
