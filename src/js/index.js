@@ -203,3 +203,19 @@ function onChangeWeeklyTrendsByScreenWidth() {
     return;
   }
 }
+
+refs.searchForm.addEventListener('submit', onSubmitSearch);
+console.log(refs.searchForm);
+
+function onSubmitSearch(event) {
+  event.preventDefault();
+  console.log(event);
+  // if (evt.target.firstElementChild.value.trim() === '') {
+  //   console.log('empty search');
+  // }
+  // let query = evt.target.firstElementChild.value.trim();
+
+  // console.log(query);
+
+  //markupFilmByQuery();
+}
