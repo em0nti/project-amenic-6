@@ -1,17 +1,17 @@
 
 import { refs } from "../constants";
 import { save, load, remove } from "../local-storage-service";
-import ApiFetchService from '../api_fetch_service';
+// import ApiFetchService from '../api_fetch_service';
 
 
 const STORAGE_KEY = 'movie-id';
-const apiFetchService = new ApiFetchService();
-const id = apiFetchService.getID;
+// const apiFetchService = new ApiFetchService();
+// const id = apiFetchService.getID;
 
 refs.addToLibraryBtn.addEventListener('click', onClickAddRemoveFromLibrary);
 
 
-
+// ! Як отримати ID на цьому етапі
 
 // перевіряємо чи є фільм з таким id в локал сторадж, якщо є змінюю назву кнопки
 let storageValue = showStorageValue(STORAGE_KEY);
@@ -23,7 +23,9 @@ if (storageValue !== undefined && verifycontainsId(storageValue, id)) {
 
 // функція яка по натисканню кнопки додає значення в масив
 
-function onClickAddRemoveFromLibrary() { 
+function onClickAddRemoveFromLibrary(e) { 
+    id = Number(e.currentTarget.dataset.id)
+    console.log('Our ID: ', id)
     addIdArrToStorage(id);
 }
 
