@@ -52,7 +52,8 @@ async function markUpWeeklyTrends(numOfArray) {
     apiMarkupService.setFilmsForMarkup = await dataFromTrends;
     let filmMarklUp = await apiMarkupService.markupGallery(numOfArray);
 
-    refs.sectioWeeklyTrends.insertAdjacentHTML('beforeend', filmMarklUp);
+    refs.sectionWeeklyTrends.innerHTML = filmMarklUp;
+    // refs.sectioWeeklyTrends.insertAdjacentHTML('beforeend', filmMarklUp);
 
     // console.log(filmMarklUp);
   } catch (error) {
@@ -113,7 +114,7 @@ async function markupFilmByIDArray(arrayID) {
   }
 }
 //function to markup filmUpcoming with randomizer
-async function markupFilmUpcoming() {
+async function markupFilmUpcoming(posterType) {
   try {
     let filmArrayIDtoMarkup = getRandomInt(18);
     await apiFetchService.fetchFilmGenres();
@@ -122,10 +123,13 @@ async function markupFilmUpcoming() {
     let dataFilmUpcomingForMarkup = await dataFilmUpcoming[filmArrayIDtoMarkup];
     console.log(dataFilmUpcomingForMarkup);
 
-    let markupFilmUpcoming = await apiMarkupService.markupFilmCardUpcoming(dataFilmUpcomingForMarkup);
+    let markupFilmUpcoming = await apiMarkupService.markupFilmCardUpcoming(
+      dataFilmUpcomingForMarkup,
+      posterType,
+    );
     // console.log(markupFilmUpcoming);
-
-    refs.sectionUpcoming.insertAdjacentHTML('beforeend', markupFilmUpcoming);
+    refs.sectionUpcoming.innerHTML = markupFilmUpcoming;
+    // refs.sectionUpcoming.insertAdjacentHTML('beforeend', markupFilmUpcoming);
   } catch (error) {
     console.log(error);
   }
@@ -135,9 +139,9 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 // show weekly trends 3 films
-markUpWeeklyTrends(3);
+// markUpWeeklyTrends(3);
 //render film to Upcoming section
-markupFilmUpcoming();
+//markupFilmUpcoming('poster');
 //show day trends in hero home section
 // markUpDayTrends(1);
 
@@ -150,3 +154,33 @@ markupFilmUpcoming();
 // markupFilmByQuery('cat');
 // apiFetchService.fetchFilmImagesByID(808);
 // console.log(refs);
+
+// section which use screen viewport and change parametres and rerender
+const viewportData = window.matchMedia('(max-width: 767px)');
+viewportData.addEventListener('change', onChangeWeeklyTrendsByResizeViewport);
+window.addEventListener('load', onChangeWeeklyTrendsByScreenWidth);
+
+function onChangeWeeklyTrendsByResizeViewport(e) {
+  if (e.matches) {
+    markUpWeeklyTrends(1);
+    markupFilmUpcoming('poster');
+    console.log('markUpWeeklyTrends(1)');
+  } else {
+    markUpWeeklyTrends(3);
+    markupFilmUpcoming('backdrop');
+    console.log('markUpWeeklyTrends(3)');
+  }
+}
+
+function onChangeWeeklyTrendsByScreenWidth() {
+  screenWidth = window.innerWidth;
+  console.log('current Width Screen in px is: ', screenWidth);
+  if (screenWidth < 768) {
+    markUpWeeklyTrends(1);
+    markupFilmUpcoming('backdrop');
+  } else {
+    markUpWeeklyTrends(3);
+    markupFilmUpcoming('backdrop');
+    return;
+  }
+}

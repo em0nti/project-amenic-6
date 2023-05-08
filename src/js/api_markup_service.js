@@ -78,16 +78,20 @@ ${starsRating}
 </div>`;
   }
   // method for markup film card from fetch by Upcoming
-  markupFilmCardUpcoming({
-    backdrop_path,
-    title,
-    genre_ids,
-    release_date,
-    vote_average,
-    vote_count,
-    popularity,
-    overview,
-  }) {
+  markupFilmCardUpcoming(
+    {
+      backdrop_path,
+      title,
+      genre_ids,
+      release_date,
+      vote_average,
+      vote_count,
+      popularity,
+      overview,
+      poster_path,
+    },
+    posterType,
+  ) {
     let listOfGenres = '';
     if (genre_ids.length === 0) {
       listOfGenres = '';
@@ -99,6 +103,13 @@ ${starsRating}
 
     // let yearOfRelease = release_date.slice(0, 4);
     let truncatePopularity = popularity.toFixed(1);
+    let posterTypeForMarkup = '';
+    if (posterType === 'backdrop') {
+      posterTypeForMarkup = backdrop_path;
+    } else if (posterType === 'poster') {
+      posterTypeForMarkup = poster_path;
+    }
+    //console.log('posterTypeForMarkup', posterTypeForMarkup);
 
     return `
    <div class="container">
@@ -108,32 +119,32 @@ ${starsRating}
         <picture>
           <source
             srcset="
-              https://image.tmdb.org/t/p/original${backdrop_path} 1x,
-              https://image.tmdb.org/t/p/original${backdrop_path} 2x
+              https://image.tmdb.org/t/p/original${posterTypeForMarkup} 1x,
+              https://image.tmdb.org/t/p/original${posterTypeForMarkup} 2x
             "
             media="(min-width: 1200px)"
           />
           <source
             srcset="
-              https://image.tmdb.org/t/p/original${backdrop_path} 1x,
-              https://image.tmdb.org/t/p/original${backdrop_path} 2x
+              https://image.tmdb.org/t/p/original${posterTypeForMarkup} 1x,
+              https://image.tmdb.org/t/p/original${posterTypeForMarkup} 2x
             "
             media="(min-width: 768px)"
           />
           <source
             srcset="
-              https://image.tmdb.org/t/p/original${backdrop_path} 1x,
-              https://image.tmdb.org/t/p/original${backdrop_path} 2x
+              https://image.tmdb.org/t/p/original${posterTypeForMarkup} 1x,
+              https://image.tmdb.org/t/p/original${posterTypeForMarkup} 2x
             "
             media="(min-width: 320px)"
           />
 
           <img
             srcset="
-              https://image.tmdb.org/t/p/original${backdrop_path} 1x,
-              https://image.tmdb.org/t/p/original${backdrop_path} 2x
+              https://image.tmdb.org/t/p/original${posterTypeForMarkup} 1x,
+              https://image.tmdb.org/t/p/original${posterTypeForMarkup} 2x
             "
-            src="https://image.tmdb.org/t/p/original${backdrop_path}"
+            src="https://image.tmdb.org/t/p/original${posterTypeForMarkup}"
             class="upcoming__image"
             alt="Poster of film"
             width="805px"
@@ -182,6 +193,7 @@ ${starsRating}
     </div>
   </div> `;
   }
+
   // method for markup gallery from arrays of films (like Weekly trends, upcoming etc.)
   markupGallery(numOfArray) {
     const markup = this.filmsForMarkupArray.filter(film => film.genre_ids.length !== 0);
