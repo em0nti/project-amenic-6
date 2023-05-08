@@ -1,6 +1,6 @@
 {
   "name": "cinemania-app",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "homepage": "https://em0nti.github.io/project-amenic-6",
   "scripts": {
@@ -19,17 +19,15 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
+    "detect-it": "^4.0.1",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
-    "vimeo": "^2.3.1",
-    "youtube": "^0.1.0",
-    "youtube-iframe": "^1.0.3",
     "youtube-player": "^5.6.0"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "latest",
-    "buffer": "^5.7.1",
-    "parcel": "latest",
+    "@parcel/transformer-sass": "^2.6.0",
+    "buffer": "^6.0.3",
+    "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4",
     "process": "^0.11.10"
