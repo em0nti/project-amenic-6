@@ -1,7 +1,7 @@
 //this is class for fetching data
 import ApiFetchService from './api_fetch_service';
 import ApiMarkupService from './api_markup_service';
-import initModals from './init-open-close-modals';
+import initModals from './modals/init-modals';
 import { refs } from './constants';
 
 initModals();
@@ -122,9 +122,7 @@ async function markupFilmUpcoming() {
     let dataFilmUpcomingForMarkup = await dataFilmUpcoming[filmArrayIDtoMarkup];
     console.log(dataFilmUpcomingForMarkup);
 
-    let markupFilmUpcoming = await apiMarkupService.markupFilmCardUpcoming(
-      dataFilmUpcomingForMarkup,
-    );
+    let markupFilmUpcoming = await apiMarkupService.markupFilmCardUpcoming(dataFilmUpcomingForMarkup);
     // console.log(markupFilmUpcoming);
 
     refs.sectionUpcoming.insertAdjacentHTML('beforeend', markupFilmUpcoming);
