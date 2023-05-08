@@ -1,18 +1,19 @@
-<header class="main-header">
+<header class="header">
   <div class="container">
-    <div class="logo"></div>
-    <nav class="main-navigation">
-      <ul class="main-navigation__list">
-        <li class="main-navigation__item">
-          <a href="/src/index.html" class="main-navigation__link">Home</a>
-        </li>
-        <li class="main-navigation__item">
-          <a href="/src/catalog.html" class="main-navigation__link">Catalog</a>
-        </li>
-        <li class="main-navigation__item">
-          <a href="/src/library.html" class="main-navigation__link">My library</a>
-        </li>
-      </ul>
-    </nav>
+    <div class="header__wrapper">
+      <a class="header__logo" href="./index.html">
+        <img width="60" height="60" class="header__icon" src="./images/header__logo.png" />
+        <span class="header__title">Cinemania</span>
+      </a>
+      <button class="header__menu-toggle">Menu</button>
+      <nav class="header__navigation">
+        <ul class="header__menu">
+          <li class="header-menu__item"><a href="./index.html" class="header__menu-link current">Home</a></li>
+          <li class="header-menu__item"><a href="./catalog.html" class="header__menu-link">Catalog</a></li>
+          <li class="header-menu__item"><a href="./library.html" class="header__menu-link">My library</a></li>
+        </ul>
+      </nav>
+      <div class="header__theme-button"></div>
+    </div>
   </div>
 </header>

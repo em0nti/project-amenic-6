@@ -25,6 +25,26 @@
       margin-bottom: 60px;
     }
   }
+  &--margin-sm {
+    margin-bottom: 16px;
+
+    @include mq(tablet) {
+      margin-bottom: 36px;
+    }
+    @include mq(desktop) {
+      margin-bottom: 48px;
+    }
+  }
+  &--margin-pagination {
+    margin-bottom: 20px;
+
+    @include mq(tablet) {
+      margin-bottom: 44px;
+    }
+    @include mq(desktop) {
+      margin-bottom: 60px;
+    }
+  }
 }
 
 .dark {
