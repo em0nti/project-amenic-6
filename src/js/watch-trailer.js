@@ -29,7 +29,7 @@ export async function onWatchTrailerClick() {
         console.log(trailerKey);
         player = YouTubePlayer(playerYT);
         player.loadVideoById(trailerKey);
-        openModal(modalTrailerOk);
+        openModal(modalTrailerOk, player);
         // modalTrailerOk.classList.remove('backdrop--hidden');
         // closeButton.addEventListener('click', closeModalClick);
         // if (closeModal(modalTrailerOk)) {
