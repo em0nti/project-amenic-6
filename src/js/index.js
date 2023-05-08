@@ -61,7 +61,7 @@ async function markUpWeeklyTrends(numOfArray) {
   }
 }
 // function to markup day trends film
-async function markUpDayTrends(numOfArray) {
+async function markUpDayTrends(posterType) {
   try {
     let filmArrayIDtoMarkup = getRandomInt(18);
     apiFetchService.setTrendsType = 'day';
@@ -72,9 +72,24 @@ async function markUpDayTrends(numOfArray) {
     // apiMarkupService.setFilmsForMarkup = '';
     apiMarkupService.setFilmsForMarkup = await dataFromTrends[filmArrayIDtoMarkup];
     filmDataFormMarkup = apiMarkupService.getFilmsForMarkup;
+    console.log(
+      'filmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkup',
+      filmDataFormMarkup,
+    );
     let filmMarklUp = await apiMarkupService.markupFilmHeroTrendsDay(filmDataFormMarkup);
 
-    refs.sectionHeroDayTrends.insertAdjacentHTML('beforeend', filmMarklUp);
+    refs.sectionHeroDayTrends.innerHTML = filmMarklUp;
+    backGroundPoster = document.querySelector('.hero');
+
+    if (posterType === 'backdrop') {
+      let backGroundPosterPath = filmDataFormMarkup.backdrop_path;
+      backGroundPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/original/${backGroundPosterPath}')`;
+    } else if (posterType === 'poster') {
+      let backGroundBackdropPath = filmDataFormMarkup.poster_path;
+      backGroundPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/original/${backGroundBackdropPath}')`;
+    }
+
+    //refs.sectionHeroDayTrends.insertAdjacentHTML('beforeend', filmMarklUp);
 
     console.log('markUpDayTrends', filmMarklUp);
   } catch (error) {
@@ -154,7 +169,7 @@ function getRandomInt(max) {
 // markupFilmByQuery('cat');
 // apiFetchService.fetchFilmImagesByID(808);
 // console.log(refs);
-
+// markUpDayTrends('backdrop');
 // section which use screen viewport and change parametres and rerender
 const viewportData = window.matchMedia('(max-width: 767px)');
 viewportData.addEventListener('change', onChangeWeeklyTrendsByResizeViewport);
@@ -164,10 +179,12 @@ function onChangeWeeklyTrendsByResizeViewport(e) {
   if (e.matches) {
     markUpWeeklyTrends(1);
     markupFilmUpcoming('poster');
+    markUpDayTrends('poster');
     console.log('markUpWeeklyTrends(1)');
   } else {
     markUpWeeklyTrends(3);
     markupFilmUpcoming('backdrop');
+    markUpDayTrends('backdrop');
     console.log('markUpWeeklyTrends(3)');
   }
 }
@@ -177,9 +194,11 @@ function onChangeWeeklyTrendsByScreenWidth() {
   console.log('current Width Screen in px is: ', screenWidth);
   if (screenWidth < 768) {
     markUpWeeklyTrends(1);
+    markUpDayTrends('poster');
     markupFilmUpcoming('backdrop');
   } else {
     markUpWeeklyTrends(3);
+    markUpDayTrends('backdrop');
     markupFilmUpcoming('backdrop');
     return;
   }
