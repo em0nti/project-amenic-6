@@ -18,7 +18,8 @@ export default class ApiMarkupService {
     }
 
     let yearOfRelease = release_date.slice(0, 4);
-    let starsRating = renderRating(vote_average);
+    let element = 'card';
+    let starsRating = renderRating(vote_average, element);
 
     // console.log(yearOfRelease);
     return `<div class="card card__item card-set__item movi-card-general-set">
@@ -225,7 +226,8 @@ ${starsRating}
   }
   // method to markup day film trends in hero section
   markupFilmHeroTrendsDay({ poster_path, title, overview, vote_average }) {
-    let starsRating = renderRating(vote_average);
+    let element = 'hero';
+    let starsRating = renderRating(vote_average, element);
     return ` <div class="container hero__container library-container">
     <div class="hero__info">
       <h1 class="hero__title" id="titleB">${title}</h1>
