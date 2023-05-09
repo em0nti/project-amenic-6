@@ -108,7 +108,7 @@ async function markupFilmByID(ID) {
     // console.log(dataFilmFromID);
     // apiMarkupService.setFilmsForMarkup = await dataFilmFromID;
     let markupFilmByID = await apiMarkupService.markupFilmCardByID(dataFilmFromID);
-    console.log(markupFilmByID);
+    // console.log(markupFilmByID);
   } catch (error) {
     console.log(error);
   }
@@ -214,3 +214,20 @@ async function onChangeWeeklyTrendsByScreenWidth() {
     console.log(error);
   }
 }
+
+async function onShowPopUpModal(ID) {
+  try {
+    await apiFetchService.fetchFilmGenres();
+    let dataFilmFromID = await apiFetchService.fetchFilmByID(ID);
+    apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
+    // console.log(dataFilmFromID);
+    // apiMarkupService.setFilmsForMarkup = await dataFilmFromID;
+    let markupFilmByID = await apiMarkupService.markupFilmCardPopUpByID(dataFilmFromID);
+    // console.log(markupFilmByID);
+    refs.popUpModal.innerHTML = markupFilmByID;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// onShowPopUpModal(808);
