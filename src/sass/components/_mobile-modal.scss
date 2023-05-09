@@ -2,6 +2,8 @@
   width: 204px;
   height: 428px;
   background-color: var(--color-dark-grey-1);
+  // #171717;
+  // #F8F8F8;
   border-radius: 0px 8px 8px 0px;
   position: fixed;
   left: 0;
@@ -27,6 +29,8 @@
 
 .backdrop {
   background-color: rgba(255, 255, 255, 0.2);
+
+  // rgba(0, 0, 0, 0.2)
 }
 
 .mobile-modal__item:not(:last-child) {
