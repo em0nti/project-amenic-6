@@ -12,7 +12,7 @@ export function initModals() {
   const currentPage = window.location.pathname;
   if (currentPage === '/library.html') {
     refs.cards.addEventListener('click', () => openModal(refs.modalPopUp));
-    refs.watchTrailerBtn.addEventListener('click', () => onWatchTrailerClick(493529));
+    refs.cards.addEventListener('click', e => onCardClick(e));
     return;
   }
   refs.watchTrailerBtn.addEventListener('click', () => onWatchTrailerClick(493529));
