@@ -178,31 +178,39 @@ const viewportData = window.matchMedia('(max-width: 767px)');
 viewportData.addEventListener('change', onChangeWeeklyTrendsByResizeViewport);
 window.addEventListener('load', onChangeWeeklyTrendsByScreenWidth);
 
-function onChangeWeeklyTrendsByResizeViewport(e) {
-  if (e.matches) {
-    markUpWeeklyTrends(1);
-    markupFilmUpcoming('poster');
-    markUpDayTrends('poster');
-    console.log('markUpWeeklyTrends(1)');
-  } else {
-    markUpWeeklyTrends(3);
-    markupFilmUpcoming('backdrop');
-    markUpDayTrends('backdrop');
-    console.log('markUpWeeklyTrends(3)');
+async function onChangeWeeklyTrendsByResizeViewport(e) {
+  try {
+    if (e.matches) {
+      markUpWeeklyTrends(1);
+      markupFilmUpcoming('poster');
+      markUpDayTrends('poster');
+      console.log('markUpWeeklyTrends(1)');
+    } else {
+      markUpWeeklyTrends(3);
+      markupFilmUpcoming('backdrop');
+      markUpDayTrends('backdrop');
+      console.log('markUpWeeklyTrends(3)');
+    }
+  } catch (error) {
+    console.log(error);
   }
 }
 
-function onChangeWeeklyTrendsByScreenWidth() {
-  let screenWidth = window.innerWidth;
-  console.log('current Width Screen in px is: ', screenWidth);
-  if (screenWidth < 768) {
-    markUpWeeklyTrends(1);
-    markUpDayTrends('poster');
-    markupFilmUpcoming('backdrop');
-  } else {
-    markUpWeeklyTrends(3);
-    markUpDayTrends('backdrop');
-    markupFilmUpcoming('backdrop');
-    return;
+async function onChangeWeeklyTrendsByScreenWidth() {
+  try {
+    let screenWidth = window.innerWidth;
+    console.log('current Width Screen in px is: ', screenWidth);
+    if (screenWidth < 768) {
+      markUpWeeklyTrends(1);
+      markUpDayTrends('poster');
+      markupFilmUpcoming('backdrop');
+    } else {
+      markUpWeeklyTrends(3);
+      markUpDayTrends('backdrop');
+      markupFilmUpcoming('backdrop');
+      return;
+    }
+  } catch (error) {
+    console.log(error);
   }
 }
