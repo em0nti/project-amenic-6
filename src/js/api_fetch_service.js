@@ -111,8 +111,8 @@ export default class ApiFetchService {
   }
   //fetch film by query
   async fetchFilmByQuery() {
-    const urlByQuery = `${this.url}search/movie?api_key=${this.key}&language=${this.language}&query=${this.query}&page=${this.page}`;
     try {
+      const urlByQuery = `${this.url}search/movie?api_key=${this.key}&language=${this.language}&query=${this.query}&page=${this.page}`;
       let { data } = await axios.get(urlByQuery);
       console.log("log in method 'fetchFilmByQuery': ", data.results);
       this.filmsByQuery = data.results;
@@ -127,7 +127,7 @@ export default class ApiFetchService {
     try {
       let { data } = await axios.get(urlTrends);
       // console.log(data.production_countries);
-      console.log("log in method 'fetchFilmTrends': ", data.results);
+      //console.log("log in method 'fetchFilmTrends': ", data.results);
       // this.filmGenres = data.results.genre_ids;
       // console.log(this.filmGenres);
       this.filmsTrends = data.results;
@@ -142,7 +142,7 @@ export default class ApiFetchService {
     try {
       let { data } = await axios.get(urlUpcoming);
       // console.log(data.production_countries);
-      console.log("log in method 'fetchFilmUpcoming': ", data.results);
+      //console.log("log in method 'fetchFilmUpcoming': ", data.results);
       this.filmUpcoming = data.results;
       return data.results;
     } catch (error) {

@@ -16,6 +16,7 @@
 @import './components/buttons/button-add';
 @import './components/buttons/button-search';
 @import './components/buttons/button-scroll-to-top';
+@import './components/rating-stars';
 
 @import './components/hero/hero-start';
 @import './components/hero/hero-home';
@@ -30,9 +31,16 @@
 @import './components/library-list';
 @import './components/catalog-list';
 @import './components/upcoming-this-month';
+@import './components/markup-pagination';
 
 @import './components/backdrop';
 @import './components/modal';
+
+
+
+@import './components/mobile-modal';
+@import './components/buttons/btn-swit';
+
 
 @import './components/modal-trailer';
 @import './components/loader';
@@ -40,3 +48,6 @@
 
 @import './components/search-form';
 @import './components/select';
+
+@import './components/modal-popup';
+

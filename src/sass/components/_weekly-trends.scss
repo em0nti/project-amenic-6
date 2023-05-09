@@ -55,8 +55,8 @@
   }
 }
 
-.weekly-trends__movi-list :not(:first-child) {
-  @include mq(mobile-only) {
-    display: none;
-  }
-}
+//.weekly-trends__movi-list :not(:first-child) {
+//  @include mq(mobile-only) {
+//    display: none;
+//  }
+//}

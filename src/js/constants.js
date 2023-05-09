@@ -10,4 +10,16 @@ export const refs = {
   modalTrailerOk: document.getElementById('trailer-ok'),
   modalTrailerNotOk: document.getElementById('trailer-not-ok'),
   watchTrailerBtn: document.getElementById('watch-trailer-btn'),
+  sectionHeroDayTrends: document.querySelector('.hero'),
+  modalPopUp: document.querySelector('#modal-pop-up'),
+  cards: document.querySelector('.js-cards'),
+  popUpModal: document.querySelector('.popup-modal-win'),
+  sectionCatalogCardSet: document.querySelector('.catalog__movi-catalog-list'),
+
+  //Forms
+  form: document.querySelector('#search-form'),
+};
+
+export const activeCardState = {
+  id: null,
 };

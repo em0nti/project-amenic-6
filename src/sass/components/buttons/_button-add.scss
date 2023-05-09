@@ -13,8 +13,7 @@
 
   color: var(--color-white);
 
-  &:hover,
-  &:focus {
+  &:hover {
     background: var(--color-white);
     color: var(--color-primary);
     border: transparent;
@@ -43,8 +42,7 @@
 
   color: var(--color-dark-grey-1);
 
-  &:hover,
-  &:focus {
+  &:hover {
     background: var(--color-dark-grey-1);
     color: var(--color-primary);
     border: transparent;
