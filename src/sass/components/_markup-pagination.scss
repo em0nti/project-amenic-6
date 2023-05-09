@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
 
-  color: var(--color-white);
+  color: var(--color-upcomingValue);
 }
 
 .pagination__link {
@@ -41,9 +41,9 @@
   height: 24px;
 
   font-size: 10px;
-  line-height: 2.4;
+  line-height: 22px;
 
-  border: 1px solid var(--color-white);
+  border: 1px solid var(--color-heroPage);
   border-radius: 50%;
 
   text-align: center;
@@ -66,7 +66,8 @@
   height: 11px;
   width: 6px;
 
-  stroke: var(--color-light-grey-1);
+  stroke: var(--color-upcomingValue);
+  fill: var(--color-body);
 
   @include mq(tablet) {
     height: 16px;
@@ -74,29 +75,6 @@
   }
 }
 .pagination__pointer:hover {
-  stroke: var(--color-grey-1);
+  stroke: var(--color-headerNav);
 }
 
-// .dark нужно заменить на класс при белой теме на body
-
-// .dark .pagination__pointer {
-//   stroke: var(--color-grey-2);
-//   fill: var(--color-white);
-// }
-
-// .dark .pagination__pointer:hover {
-//   stroke: var(--color-grey-1);
-// }
-
-// .dark .pagination__cercle {
-//   border-color: var(--color-grey-1);
-// }
-
-// .dark .pagination__cercle--current-page {
-//   color: var(--color-dark-grey-2);
-// }
-
-// .dark .pagination__item {
-//       border-color: var(--color-grey-1);
-//   color: var(--color-grey-1);
-// }
