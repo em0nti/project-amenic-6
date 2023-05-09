@@ -80,7 +80,16 @@ ${starsRating}
 </div>`;
   }
   // method for markup film POPUP by film ID
-  markupFilmCardPopUpByID({ poster_path, title, genres, vote_average, vote_count, popularity, overview, id }) {
+  markupFilmCardPopUpByID({
+    poster_path,
+    title,
+    genres,
+    vote_average,
+    vote_count,
+    popularity,
+    overview,
+    id,
+  }) {
     let listOfGenres = '';
     if (genres.length === 0) {
       listOfGenres = '';
@@ -88,7 +97,11 @@ ${starsRating}
       listOfGenres = this.getNameGenre(genres[0].id);
     } else if (genres.length > 2) {
       listOfGenres =
-        this.getNameGenre(genres[0].id) + ' ' + this.getNameGenre(genres[1].id) + ' ' + this.getNameGenre(genres[2].id);
+        this.getNameGenre(genres[0].id) +
+        ' ' +
+        this.getNameGenre(genres[1].id) +
+        ' ' +
+        this.getNameGenre(genres[2].id);
     }
 
     let truncatePopularity = popularity.toFixed(1);
@@ -131,8 +144,19 @@ ${starsRating}
   }
   // method for markup film card from fetch by Upcoming
   markupFilmCardUpcoming(
-    { backdrop_path, title, genre_ids, release_date, vote_average, vote_count, popularity, overview, poster_path, id },
-    posterType
+    {
+      backdrop_path,
+      title,
+      genre_ids,
+      release_date,
+      vote_average,
+      vote_count,
+      popularity,
+      overview,
+      poster_path,
+      id,
+    },
+    posterType,
   ) {
     let listOfGenres = '';
     if (genre_ids.length === 0) {
@@ -245,7 +269,9 @@ ${starsRating}
       let filmsMarkupArrayReduce = this.filmsForMarkupArray.slice(0, numOfArray);
       // console.log(filmsMarkupArrayReduce);
 
-      let markUpFilmsAllReduce = filmsMarkupArrayReduce.map(film => this.markupFilmCard(film)).join('');
+      let markUpFilmsAllReduce = filmsMarkupArrayReduce
+        .map(film => this.markupFilmCard(film))
+        .join('');
       //   console.log('VVVVVVVV', vvv);
       return markUpFilmsAllReduce;
     } else {
@@ -269,7 +295,7 @@ ${starsRating}
     let starsRating = renderRating(vote_average, element);
     return ` <div class="container hero__container library-container">
     <div class="hero__info">
-      <h1 class="hero__title" id="titleB">${title}</h1>
+      <h1 class="hero__title" hero__title-color id="titleB">${title}</h1>
       <div>
         <ul class="hero__star">${starsRating}</ul>
       </div>
