@@ -11,8 +11,14 @@ export const refs = {
   modalTrailerNotOk: document.getElementById('trailer-not-ok'),
   watchTrailerBtn: document.getElementById('watch-trailer-btn'),
   sectionHeroDayTrends: document.querySelector('.hero'),
+  modalPopUp: document.querySelector('#modal-pop-up'),
+  cards: document.querySelectorAll('.js-cards'),
   popUpModal: document.querySelector('.popup-modal-win'),
 
   //Forms
   form: document.querySelector('#search-form'),
+};
+
+export const activeCardState = {
+  id: null,
 };
