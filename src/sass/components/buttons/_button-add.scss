@@ -10,11 +10,11 @@
   background: linear-gradient(141.22deg, var(--color-body), var(--color-body)) padding-box,
     var(--linear-gradient-2) border-box;
 
-  color: var(--color-white);
+  color: var(--color-titleAll);
 
   &:hover {
-    background: var(--color-white);
-    color: var(--color-primary);
+    background: var(--color-titleAll);
+    color: var(--color-OrangText);
     border: transparent;
   }
 }
