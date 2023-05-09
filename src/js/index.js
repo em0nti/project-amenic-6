@@ -3,6 +3,7 @@ import ApiFetchService from './api_fetch_service'; ///////
 import ApiMarkupService from './api_markup_service'; //////
 import { initModals } from './modals/init-modals';
 import { refs } from './constants'; ///////
+import { initStorage } from './storage';
 import { currentPage } from './show-current-page';
 import {
   markupFilmByQuery,
@@ -21,6 +22,8 @@ import {
 currentPage();
 
 initModals();
+
+initStorage();
 
 // create instance 'apiFetchService' for using in functions
 const apiFetchService = new ApiFetchService(); ///////
