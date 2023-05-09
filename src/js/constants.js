@@ -14,6 +14,7 @@ export const refs = {
   modalPopUp: document.querySelector('#modal-pop-up'),
   cards: document.querySelector('.js-cards'),
   popUpModal: document.querySelector('.popup-modal-win'),
+
   sectionCatalogCardSet: document.querySelector('.catalog__movi-catalog-list'),
 
   //Forms
