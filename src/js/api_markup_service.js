@@ -55,6 +55,7 @@ ${starsRating}
     }
 
     let yearOfRelease = release_date.slice(0, 4);
+    let starsRating = renderRating(vote_average);
     return `<div class="card__item card-set__item movi-card-general-set">
   <img
     class="card__image"
@@ -223,12 +224,13 @@ ${starsRating}
     return markUpFilmsAll;
   }
   // method to markup day film trends in hero section
-  markupFilmHeroTrendsDay({ poster_path, title, overview }) {
+  markupFilmHeroTrendsDay({ poster_path, title, overview, vote_average }) {
+    let starsRating = renderRating(vote_average);
     return ` <div class="container hero__container library-container">
     <div class="hero__info">
       <h1 class="hero__title" id="titleB">${title}</h1>
       <div>
-        <img src="/src/images/card-rate-mobile.png" class="hero__star" />
+        <ul class="hero__star">${starsRating}</ul>
       </div>
       <p class="hero__text hero__text-width" id="textB">
        ${overview}
