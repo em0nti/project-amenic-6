@@ -12,7 +12,7 @@ export const refs = {
   watchTrailerBtn: document.getElementById('watch-trailer-btn'),
   sectionHeroDayTrends: document.querySelector('.hero'),
   modalPopUp: document.querySelector('#modal-pop-up'),
-  cards: document.querySelectorAll('.js-cards'),
+  cards: document.querySelector('.js-cards'),
 
   //Forms
   form: document.querySelector('#search-form'),
