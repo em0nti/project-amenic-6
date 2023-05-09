@@ -1,3 +1,4 @@
+
 export function currentPage() {
     const homeEl = document.querySelector('.header__menu-link.js-home');
     const catalogEl = document.querySelector('.header__menu-link.js-catalog');
@@ -42,4 +43,5 @@ export function currentPage() {
         mobCatalogEl.classList.contains('current') ? mobCatalogEl.classList.remove('current') : '';
       }
     }
+
 }
