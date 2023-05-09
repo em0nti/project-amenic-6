@@ -5,6 +5,7 @@
   bottom: 0;
   right: 0;
   z-index: 1;
+  overflow: hidden;
 
   visibility: visible;
   opacity: 1;
@@ -19,6 +20,7 @@
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+  overflow: auto;
 }
 
 .backdrop__modal {

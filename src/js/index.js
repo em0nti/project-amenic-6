@@ -74,15 +74,15 @@ async function markUpDayTrends(posterType) {
     apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
     // apiMarkupService.setFilmsForMarkup = '';
     apiMarkupService.setFilmsForMarkup = await dataFromTrends[filmArrayIDtoMarkup];
-    filmDataFormMarkup = apiMarkupService.getFilmsForMarkup;
-    console.log(
-      'filmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkup',
-      filmDataFormMarkup,
-    );
+    let filmDataFormMarkup = apiMarkupService.getFilmsForMarkup;
+    // console.log(
+    //   'filmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkup',
+    //   filmDataFormMarkup,
+    // );
     let filmMarklUp = await apiMarkupService.markupFilmHeroTrendsDay(filmDataFormMarkup);
 
     refs.sectionHeroDayTrends.innerHTML = filmMarklUp;
-    backGroundPoster = document.querySelector('.hero');
+    let backGroundPoster = document.querySelector('.hero');
 
     if (posterType === 'backdrop') {
       let backGroundPosterPath = filmDataFormMarkup.backdrop_path;
@@ -94,7 +94,7 @@ async function markUpDayTrends(posterType) {
 
     //refs.sectionHeroDayTrends.insertAdjacentHTML('beforeend', filmMarklUp);
 
-    console.log('markUpDayTrends', filmMarklUp);
+    // console.log('markUpDayTrends', filmMarklUp);
   } catch (error) {
     console.log(error);
   }
@@ -108,7 +108,7 @@ async function markupFilmByID(ID) {
     // console.log(dataFilmFromID);
     // apiMarkupService.setFilmsForMarkup = await dataFilmFromID;
     let markupFilmByID = await apiMarkupService.markupFilmCardByID(dataFilmFromID);
-    console.log(markupFilmByID);
+    // console.log(markupFilmByID);
   } catch (error) {
     console.log(error);
   }
@@ -122,7 +122,7 @@ async function markupFilmByIDArray(arrayID) {
     await apiFetchService.fetchFilmByIDArray();
     apiMarkupService.setFilmsForMarkup = apiFetchService.getFilmsArrayByID;
     let filmMarklUp = await apiMarkupService.markupGalleryByID();
-    console.log(filmMarklUp);
+    // console.log(filmMarklUp);
 
     refs.sectionGallery.insertAdjacentHTML('beforeend', filmMarklUp);
 
@@ -139,7 +139,7 @@ async function markupFilmUpcoming(posterType) {
     apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
     let dataFilmUpcoming = await apiFetchService.fetchFilmUpcoming();
     let dataFilmUpcomingForMarkup = await dataFilmUpcoming[filmArrayIDtoMarkup];
-    console.log(dataFilmUpcomingForMarkup);
+    //console.log(dataFilmUpcomingForMarkup);
 
     let markupFilmUpcoming = await apiMarkupService.markupFilmCardUpcoming(
       dataFilmUpcomingForMarkup,
@@ -178,31 +178,56 @@ const viewportData = window.matchMedia('(max-width: 767px)');
 viewportData.addEventListener('change', onChangeWeeklyTrendsByResizeViewport);
 window.addEventListener('load', onChangeWeeklyTrendsByScreenWidth);
 
-function onChangeWeeklyTrendsByResizeViewport(e) {
-  if (e.matches) {
-    markUpWeeklyTrends(1);
-    markupFilmUpcoming('poster');
-    markUpDayTrends('poster');
-    console.log('markUpWeeklyTrends(1)');
-  } else {
-    markUpWeeklyTrends(3);
-    markupFilmUpcoming('backdrop');
-    markUpDayTrends('backdrop');
-    console.log('markUpWeeklyTrends(3)');
+async function onChangeWeeklyTrendsByResizeViewport(e) {
+  try {
+    if (e.matches) {
+      markUpWeeklyTrends(1);
+      markupFilmUpcoming('poster');
+      markUpDayTrends('poster');
+      console.log('markUpWeeklyTrends(1)');
+    } else {
+      markUpWeeklyTrends(3);
+      markupFilmUpcoming('backdrop');
+      markUpDayTrends('backdrop');
+      console.log('markUpWeeklyTrends(3)');
+    }
+  } catch (error) {
+    console.log(error);
   }
 }
 
-function onChangeWeeklyTrendsByScreenWidth() {
-  let screenWidth = window.innerWidth;
-  console.log('current Width Screen in px is: ', screenWidth);
-  if (screenWidth < 768) {
-    markUpWeeklyTrends(1);
-    markUpDayTrends('poster');
-    markupFilmUpcoming('backdrop');
-  } else {
-    markUpWeeklyTrends(3);
-    markUpDayTrends('backdrop');
-    markupFilmUpcoming('backdrop');
-    return;
+async function onChangeWeeklyTrendsByScreenWidth() {
+  try {
+    let screenWidth = window.innerWidth;
+    //console.log('current Width Screen in px is: ', screenWidth);
+    if (screenWidth < 768) {
+      markUpWeeklyTrends(1);
+      markUpDayTrends('poster');
+      markupFilmUpcoming('backdrop');
+    } else {
+      markUpWeeklyTrends(3);
+      markUpDayTrends('backdrop');
+      markupFilmUpcoming('backdrop');
+      return;
+    }
+  } catch (error) {
+    console.log(error);
   }
 }
+
+async function onShowPopUpModal(ID) {
+  try {
+    await apiFetchService.fetchFilmGenres();
+    let dataFilmFromID = await apiFetchService.fetchFilmByID(ID);
+    apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
+    // console.log(dataFilmFromID);
+    // apiMarkupService.setFilmsForMarkup = await dataFilmFromID;
+    let markupFilmByID = await apiMarkupService.markupFilmCardPopUpByID(dataFilmFromID);
+    // console.log(markupFilmByID);
+    refs.popUpModal.innerHTML = markupFilmByID;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// onShowPopUpModal(808);

@@ -18,7 +18,8 @@ export default class ApiMarkupService {
     }
 
     let yearOfRelease = release_date.slice(0, 4);
-    let starsRating = renderRating(vote_average);
+    let element = 'card';
+    let starsRating = renderRating(vote_average, element);
 
     // console.log(yearOfRelease);
     return `<div class="card card__item card-set__item movi-card-general-set">
@@ -78,6 +79,69 @@ ${starsRating}
   </div>
 </div>`;
   }
+  // method for markup film POPUP by film ID
+  markupFilmCardPopUpByID({
+    poster_path,
+    title,
+    genres,
+    vote_average,
+    vote_count,
+    popularity,
+    overview,
+    id,
+  }) {
+    let listOfGenres = '';
+    if (genres.length === 0) {
+      listOfGenres = '';
+    } else if (genres.length < 2) {
+      listOfGenres = this.getNameGenre(genres[0].id);
+    } else if (genres.length > 2) {
+      listOfGenres =
+        this.getNameGenre(genres[0].id) +
+        ' ' +
+        this.getNameGenre(genres[1].id) +
+        ' ' +
+        this.getNameGenre(genres[2].id);
+    }
+
+    let truncatePopularity = popularity.toFixed(1);
+
+    return `  <div class="modal backdrop__modal popup-modal-win">
+    <include src="./partials/modals/close-button.html"></include>
+    <div class="modal__popup filmpage">
+      <div class="filmpage__poster">
+        <img class="filmpage__img" src="https://image.tmdb.org/t/p/original${poster_path}" alt="film" />
+      </div>
+      <div class="filmpage__content">
+        <h2 class="filmpage__title">${title}</h2>
+        <table class="filmpage__table">
+          <tr>
+            <td class="filmpage__table--subtitle">Vote / Votes</td>
+            <td class="filmpage__table--information">
+              <span class="filmpage__table--rating">${vote_average}</span> /
+              <span class="filmpage__table--rating2">${vote_count}</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="filmpage__table--subtitle">Popularity</td>
+            <td class="filmpage__table--information">${truncatePopularity}</td>
+          </tr>
+          <tr>
+            <td class="filmpage__table--subtitle">Genre</td>
+            <td class="filmpage__table--information">${listOfGenres}</td>
+          </tr>
+        </table>
+        <p class="filmpage__table--headline">About</p>
+        <p class="filmpage__table--description">
+          ${overview}
+        </p>
+        <button type="button" class="button button-add" data-id=“btn-${id} id="add-to-library-btn">
+          <span>Add to my library</span>
+        </button>
+      </div>
+    </div>
+  </div>`;
+  }
   // method for markup film card from fetch by Upcoming
   markupFilmCardUpcoming(
     {
@@ -90,6 +154,7 @@ ${starsRating}
       popularity,
       overview,
       poster_path,
+      id,
     },
     posterType,
   ) {
@@ -187,7 +252,8 @@ ${starsRating}
         <p class="upcoming__dcr">
         ${overview}
         </p>
-        <button type="button" class="button button-main button-main--height-desktop-40" id="remind-btn">
+        <button type="button" class="button button-main button-main--height-desktop-40"
+        data-id="btn-${id}" id="remind-btn">
           <span>Remind me</span>
         </button>
       </div>
@@ -201,7 +267,7 @@ ${starsRating}
 
     if (numOfArray) {
       let filmsMarkupArrayReduce = this.filmsForMarkupArray.slice(0, numOfArray);
-      console.log(filmsMarkupArrayReduce);
+      // console.log(filmsMarkupArrayReduce);
 
       let markUpFilmsAllReduce = filmsMarkupArrayReduce
         .map(film => this.markupFilmCard(film))
@@ -210,7 +276,7 @@ ${starsRating}
       return markUpFilmsAllReduce;
     } else {
       let markUpFilmsAll = markup.map(film => this.markupFilmCard(film)).join('');
-      console.log('method -markupGallery- in ApiMarkupService', markUpFilmsAll);
+      //console.log('method -markupGallery- in ApiMarkupService', markUpFilmsAll);
 
       return markUpFilmsAll;
     }
@@ -225,7 +291,8 @@ ${starsRating}
   }
   // method to markup day film trends in hero section
   markupFilmHeroTrendsDay({ poster_path, title, overview, vote_average }) {
-    let starsRating = renderRating(vote_average);
+    let element = 'hero';
+    let starsRating = renderRating(vote_average, element);
     return ` <div class="container hero__container library-container">
     <div class="hero__info">
       <h1 class="hero__title" id="titleB">${title}</h1>
