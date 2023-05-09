@@ -55,7 +55,7 @@
   width: 38px;
   height: 16px;
   border-radius: 194px;
-  background-color: var(--color-primary);
+  background-color: var(--color-OrangText);
 }
 
 .header__navigation {
@@ -90,7 +90,7 @@
 
   &:hover,
   &:focus {
-    color: var(--color-primary);
+    color: var(--color-OrangText);
   }
 }
 .light .header__title {
@@ -118,11 +118,11 @@
   color: var(--color-grey-1);
 }
 .header__menu-link.current {
-  color: var(--color-primary);
+  color: var(--color-OrangText);
 }
 
 .mobile-modal-link.current {
-  color: var(--color-primary);
+  color: var(--color-OrangText);
 }
 
 .header__menu {
@@ -146,7 +146,7 @@
   @extend %link;
   &:hover,
   &:focus {
-    color: var(--color-primary);
+    color: var(--color-OrangText);
   }
 
   @include mq(tablet) {
