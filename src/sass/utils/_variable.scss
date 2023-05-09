@@ -9,8 +9,11 @@ $container-width-desktop: 1280px;
   --container-padding-tablet: 32px;
 
   /* card-set */
+
   --items: 1;
   --indent: 16px;
+  --bagrBagdrop: rgba(255, 255, 255, 0.2);
+  --color-bagrMob: #171717;
   --color-body: #000;
   --color-titleAll: #fff;
   --color-H4card: #fff;
@@ -28,6 +31,7 @@ $container-width-desktop: 1280px;
   --transition-duration: 250ms;
   --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 :root[theme='dark'] {
   --container-padding: 20px;
   --container-padding-tablet: 32px;
@@ -35,6 +39,8 @@ $container-width-desktop: 1280px;
   /* card-set */
   --items: 1;
   --indent: 16px;
+  --bagrBagdrop: rgba(0, 0, 0, 0.2);
+  --color-bagrMob: #f8f8f8;
   --color-body: #fff;
   --color-titleAll: #111111;
   --color-H4card: #fff;
