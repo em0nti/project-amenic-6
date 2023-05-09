@@ -6,3 +6,16 @@ import { refs } from './constants';
 
 initModals();
 // initChoices();
+
+const form = document.querySelector('#search-form');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const searchQuery = e.currentTarget.elements.input.value;
+  console.log(searchQuery);
+});
+
+console.log('catalog.js is loaded', form);
+// function onSearchSubmit(event) {
+//   event.preventDefault();
+//   console.log(refs.form.input.value);
+// }

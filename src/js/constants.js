@@ -11,4 +11,7 @@ export const refs = {
   modalTrailerNotOk: document.getElementById('trailer-not-ok'),
   watchTrailerBtn: document.getElementById('watch-trailer-btn'),
   sectionHeroDayTrends: document.querySelector('.hero'),
+
+  //Forms
+  form: document.querySelector('#search-form'),
 };
