@@ -75,10 +75,10 @@ async function markUpDayTrends(posterType) {
     // apiMarkupService.setFilmsForMarkup = '';
     apiMarkupService.setFilmsForMarkup = await dataFromTrends[filmArrayIDtoMarkup];
     filmDataFormMarkup = apiMarkupService.getFilmsForMarkup;
-    console.log(
-      'filmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkup',
-      filmDataFormMarkup,
-    );
+    // console.log(
+    //   'filmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkup',
+    //   filmDataFormMarkup,
+    // );
     let filmMarklUp = await apiMarkupService.markupFilmHeroTrendsDay(filmDataFormMarkup);
 
     refs.sectionHeroDayTrends.innerHTML = filmMarklUp;
@@ -94,7 +94,7 @@ async function markUpDayTrends(posterType) {
 
     //refs.sectionHeroDayTrends.insertAdjacentHTML('beforeend', filmMarklUp);
 
-    console.log('markUpDayTrends', filmMarklUp);
+    // console.log('markUpDayTrends', filmMarklUp);
   } catch (error) {
     console.log(error);
   }
@@ -139,7 +139,7 @@ async function markupFilmUpcoming(posterType) {
     apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
     let dataFilmUpcoming = await apiFetchService.fetchFilmUpcoming();
     let dataFilmUpcomingForMarkup = await dataFilmUpcoming[filmArrayIDtoMarkup];
-    console.log(dataFilmUpcomingForMarkup);
+    //console.log(dataFilmUpcomingForMarkup);
 
     let markupFilmUpcoming = await apiMarkupService.markupFilmCardUpcoming(
       dataFilmUpcomingForMarkup,
@@ -199,7 +199,7 @@ async function onChangeWeeklyTrendsByResizeViewport(e) {
 async function onChangeWeeklyTrendsByScreenWidth() {
   try {
     let screenWidth = window.innerWidth;
-    console.log('current Width Screen in px is: ', screenWidth);
+    //console.log('current Width Screen in px is: ', screenWidth);
     if (screenWidth < 768) {
       markUpWeeklyTrends(1);
       markUpDayTrends('poster');
