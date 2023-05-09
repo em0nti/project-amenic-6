@@ -22,15 +22,23 @@
   }
 }
 
+.upcoming__inform-wrapper {
+  @include mq(desktop) {
+    width: 390px;
+  }
+}
+
 .upcoming__img-wrapper {
   width: 280px;
   height: 402px;
+  margin-bottom: 24px;
+  border-radius: 5px;
 
   @include mq(tablet) {
     width: 704px;
     height: 400px;
     margin-right: 16px;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
 
   @include mq(desktop) {
@@ -43,7 +51,8 @@
 .upcoming__image {
   // width: 280px;
   // height: 402px;
-  margin-bottom: 24px;
+  // margin-bottom: 24px;
+  border-radius: 5px;
 
   display: block;
   height: 100%;
@@ -66,7 +75,7 @@
 
 .upcoming__film-name {
   margin-bottom: 20px;
-  margin-top: 20px;
+  // margin-top: 20px;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.1;
@@ -153,19 +162,19 @@
 
 .upcoming__dcr {
   margin-bottom: 20px;
-  width: 279.5px;
+  width: 100%;
 
   font-size: 14px;
   line-height: 20px;
 
   color: var(--color-light-grey-1);
 
-  @include mq(tablet) {
-    width: 625px;
-  }
-  @include mq(desktop) {
-    width: 390px;
-  }
+  // @include mq(tablet) {
+  //   width: 625px;
+  // }
+  // @include mq(desktop) {
+  //   width: 390px;
+  // }
 }
 
 .upcoming__btn-remind {
