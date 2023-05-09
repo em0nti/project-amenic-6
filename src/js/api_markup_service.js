@@ -80,7 +80,16 @@ ${starsRating}
 </div>`;
   }
   // method for markup film POPUP by film ID
-  markupFilmCardPopUpByID({ poster_path, title, genres, vote_average, popularity, overview, id }) {
+  markupFilmCardPopUpByID({
+    poster_path,
+    title,
+    genres,
+    vote_average,
+    vote_count,
+    popularity,
+    overview,
+    id,
+  }) {
     let listOfGenres = '';
     if (genres.length === 0) {
       listOfGenres = '';
