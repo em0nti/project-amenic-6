@@ -196,7 +196,7 @@ export async function onChangeWeeklyTrendsByScreenWidth(blockInnerHTML, pageNum)
       markUpDayTrends('poster');
       return;
     }
-    if (screenWidth >= 768 && pageNum === 10) {
+    if (pageNum === 10) {
       markUpWeeklyTrends(10)
         .then(data => {
           console.log(blockInnerHTML);
