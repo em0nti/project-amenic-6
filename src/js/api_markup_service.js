@@ -238,10 +238,6 @@ ${starsRating}
       <button type="button" class="button button-main button-home" id="watch-trailer-btn">
         <span>Watch trailer</span>
       </button>
-
-      <div class="slide-home">
-        <img src="/src/images/mob-slayd.png" class="slide-img" />
-      </div>
     </div>
   </div>`;
   }
