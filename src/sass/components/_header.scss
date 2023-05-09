@@ -121,6 +121,10 @@
   color: var(--color-primary);
 }
 
+.mobile-modal-link.current {
+  color: var(--color-primary);
+}
+
 .header__menu {
   display: none;
   @extend %list;
