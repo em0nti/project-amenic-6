@@ -18,6 +18,7 @@ export function currentPage() {
         mobCatalogEl.classList.contains('current') ? mobCatalogEl.classList.remove('current') : '';
         mobLibraryEl.classList.contains('current') ? mobLibraryEl.classList.remove('current') : '';
       }
+      
     } else if (document.title === 'Catalog - Cinemania') {
       if (!catalogEl.classList.contains('current')) {
         catalogEl.classList.add('current');
