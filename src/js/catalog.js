@@ -6,3 +6,12 @@ import { refs } from './constants';
 
 initModals();
 // initChoices();
+refs.form.addEventListener('submit', e => {
+  e.preventDefault();
+  console.log(refs.form.input.value);
+});
+
+// function onSearchSubmit(e) {
+//   e.preventDefault();
+//   console.log(refs.form.input.value);
+// }
