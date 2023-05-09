@@ -1,7 +1,7 @@
 export function currentPage() {
-  const homeEl = document.querySelector('.home');
-  const catalogEl = document.querySelector('.catalog');
-  const libraryEl = document.querySelector('.library');
+  const homeEl = document.querySelector('.js-home');
+  const catalogEl = document.querySelector('.js-catalog');
+  const libraryEl = document.querySelector('.js-library');
 
   if (document.title === 'Home - Cinemania') {
     if (!homeEl.classList.contains('current')) {
