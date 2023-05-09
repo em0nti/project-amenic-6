@@ -111,8 +111,8 @@ export default class ApiFetchService {
   }
   //fetch film by query
   async fetchFilmByQuery() {
-    const urlByQuery = `${this.url}search/movie?api_key=${this.key}&language=${this.language}&query=${this.query}&page=${this.page}`;
     try {
+      const urlByQuery = `${this.url}search/movie?api_key=${this.key}&language=${this.language}&query=${this.query}&page=${this.page}`;
       let { data } = await axios.get(urlByQuery);
       console.log("log in method 'fetchFilmByQuery': ", data.results);
       this.filmsByQuery = data.results;
