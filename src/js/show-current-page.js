@@ -1,5 +1,4 @@
-export async function currentPage() {
-  try {
+export function currentPage() {
     const homeEl = document.querySelector('.header__menu-link.js-home');
     const catalogEl = document.querySelector('.header__menu-link.js-catalog');
     const libraryEl = document.querySelector('.header__menu-link.js-library');
@@ -42,7 +41,4 @@ export async function currentPage() {
         mobCatalogEl.classList.contains('current') ? mobCatalogEl.classList.remove('current') : '';
       }
     }
-  } catch (error) {
-    console.log(error);
-  }
 }
