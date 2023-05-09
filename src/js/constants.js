@@ -13,6 +13,7 @@ export const refs = {
   sectionHeroDayTrends: document.querySelector('.hero'),
   modalPopUp: document.querySelector('#modal-pop-up'),
   cards: document.querySelectorAll('.js-cards'),
+  popUpModal: document.querySelector('.popup-modal-win'),
 
   //Forms
   form: document.querySelector('#search-form'),
