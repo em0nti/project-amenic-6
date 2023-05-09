@@ -75,3 +75,17 @@
   height: 15.75px;
   }
 }
+.card__rate--img-hero {
+  width: 15px;
+  height: 14px;
+
+  @media screen and (min-width: $container-width-tablet) {
+width: 18.75px;
+  height: 17.5px;
+  }
+
+  @media screen and (min-width: $container-width-desktop) {
+    width: 22.5px;
+    height: 21px;
+  }
+}

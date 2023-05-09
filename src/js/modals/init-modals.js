@@ -1,5 +1,5 @@
 import { refs } from '../constants.js';
-import { openModal, closeModal } from './open-close-modals';
+import { openModal } from './open-close-modals';
 import { onWatchTrailerClick } from '../watch-trailer';
 
 function initModals() {
@@ -15,12 +15,12 @@ function initModals() {
     refs.watchTrailerBtn.addEventListener('click', () => onWatchTrailerClick(493529));
   }
 
-  // Check if the event occurred on the about page
+  // Check if the event occurred on the Catalog page
   if (currentPage === '/catalog.html') {
     refs.watchTrailerBtn.addEventListener('click', () => onWatchTrailerClick(493529));
   }
 
-  // Check if the event occurred on the contact page
+  // Check if the event occurred on the My Library page
   if (currentPage === '/library.html') {
     refs.cards.addEventListener('click', openModal(refs.modalPopUp));
   }
