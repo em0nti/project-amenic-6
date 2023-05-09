@@ -1,23 +1,8 @@
-// .hero__container {
-//   margin: 0;
-// }
-
 .hero__title {
   font-family: 'Roboto';
   font-style: normal;
 }
-// .hero__text {
 
-// }
-// // .hero__button {
-// //   width: 110px;
-// //   height: 38px;
-// //   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-// //   border-radius: 74px;
-
-// //   border: none;
-// //   text-align: center;
-// }
 .hero__get-catalog {
   text-decoration: none;
   font-family: 'Roboto';
@@ -30,7 +15,6 @@
 
 @media screen and (min-width: $container-width-mobile) {
   .hero {
-    // max-width: 1280px;
     padding-top: 40px;
     padding-bottom: 84px;
     background-image: linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
@@ -38,13 +22,10 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 380px;
   }
 }
 @media screen and (min-width: $container-width-tablet) {
   .hero {
-    // height: 432px;
-    // max-width: 1280px;
     padding-top: 62px;
     padding-bottom: 62px;
     background-image: linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
@@ -56,8 +37,6 @@
 }
 @media screen and (min-width: $container-width-desktop) {
   .hero {
-    height: 720px;
-    // max-width: 1600px;
     padding-top: 169px;
     padding-bottom: 169px;
     background-image: linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
