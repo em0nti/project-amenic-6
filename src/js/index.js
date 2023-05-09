@@ -82,7 +82,7 @@ async function markUpDayTrends(posterType) {
     let filmMarklUp = await apiMarkupService.markupFilmHeroTrendsDay(filmDataFormMarkup);
 
     refs.sectionHeroDayTrends.innerHTML = filmMarklUp;
-    backGroundPoster = document.querySelector('.hero');
+    let backGroundPoster = document.querySelector('.hero');
 
     if (posterType === 'backdrop') {
       let backGroundPosterPath = filmDataFormMarkup.backdrop_path;
@@ -122,7 +122,7 @@ async function markupFilmByIDArray(arrayID) {
     await apiFetchService.fetchFilmByIDArray();
     apiMarkupService.setFilmsForMarkup = apiFetchService.getFilmsArrayByID;
     let filmMarklUp = await apiMarkupService.markupGalleryByID();
-    console.log(filmMarklUp);
+    // console.log(filmMarklUp);
 
     refs.sectionGallery.insertAdjacentHTML('beforeend', filmMarklUp);
 
