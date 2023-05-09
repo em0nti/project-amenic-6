@@ -74,7 +74,7 @@ async function markUpDayTrends(posterType) {
     apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
     // apiMarkupService.setFilmsForMarkup = '';
     apiMarkupService.setFilmsForMarkup = await dataFromTrends[filmArrayIDtoMarkup];
-    filmDataFormMarkup = apiMarkupService.getFilmsForMarkup;
+    let filmDataFormMarkup = apiMarkupService.getFilmsForMarkup;
     // console.log(
     //   'filmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkup',
     //   filmDataFormMarkup,
