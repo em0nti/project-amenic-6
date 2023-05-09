@@ -78,7 +78,7 @@
     max-width: 315px;
   }
   .hero__title-color {
-    color: var(--color-white);
+    color: var(--color-titleAll);
   }
   .hero__title {
     font-weight: 700;
@@ -90,7 +90,7 @@
     display: block;
   }
   .hero__text {
-    color: var(--color-light-grey-1);
+    color: var(--color-heroPage);
     font-size: 14px;
     line-height: 1.14;
     margin-bottom: 32px;
@@ -104,7 +104,7 @@
     max-width: 464px;
   }
   .hero__title-color {
-    color: var(--color-white);
+    color: var(--color-titleAll);
   }
   .hero__title {
     font-weight: 700;
@@ -113,7 +113,7 @@
     margin-bottom: 16px;
   }
   .hero__text {
-    color: var(--color-light-grey-1);
+    color: var(--color-heroPage);
     font-size: 16px;
     line-height: 1.18;
   }
