@@ -28,7 +28,7 @@
   padding: 12px 16px;
   margin: 0;
 
-  border: 1px solid var(--color-white);
+  border: 1px solid var(--color-input);
   border-radius: 8px;
 
   @include mq(tablet) {
@@ -44,5 +44,5 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 1.17;
-  color: var(--color-grey-2);
+  color: var(--color-headerNav);
 }
