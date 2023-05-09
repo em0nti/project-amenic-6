@@ -1,6 +1,7 @@
 export const refs = {
   addToLibraryBtn: document.getElementById('add-to-library-btn'),
   remindMeBtn: document.getElementById('remind-btn'),
+  getSartedBtn: document.getElementById('get-started-btn'),
   sectionGallery: document.querySelector('.library__movi-card-list'),
   sectionWeeklyTrends: document.querySelector('.weekly-trends__movi-list'),
   sectionUpcoming: document.querySelector('.upcoming'),
