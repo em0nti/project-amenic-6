@@ -20,6 +20,8 @@ export const refs = {
   form: document.querySelector('#search-form'),
 };
 
-export const activeCardState = {
-  id: null,
+export const state = {
+  activeCard: { id: null },
+  homeHero: { id: null },
+  catalogHero: { id: null },
 };
