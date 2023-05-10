@@ -21,8 +21,8 @@ function closeModal(modalElement, videoPlayer = null) {
 
 function addEventListeners(modalElement) {
   modalElement.addEventListener('click', e => handleOverlayClick(e, modalElement));
-  modalElement.addEventListener('keydown', e => handleKeyDown.bind(e, modalElement));
-  modalElement.querySelector('[data-modal-close]').addEventListener('click', e => closeModal(e, modalElement));
+  modalElement.addEventListener('keydown', e => handleKeyDown(e, modalElement));
+  modalElement.querySelector('[data-modal-close]').addEventListener('click', () => closeModal(modalElement));
 }
 
 function addEventListenersTrailer(modalElement, videoPlayer) {
@@ -30,13 +30,13 @@ function addEventListenersTrailer(modalElement, videoPlayer) {
   modalElement.addEventListener('keydown', e => handleKeyDown(e, modalElement, videoPlayer));
   modalElement
     .querySelector('[data-modal-close]')
-    .addEventListener('click', e => closeModal(e, modalElement, videoPlayer));
+    .addEventListener('click', () => closeModal(modalElement, videoPlayer));
 }
 
 function removeEventListeners(modalElement) {
   modalElement.removeEventListener('click', e => handleOverlayClick(e, modalElement));
   modalElement.removeEventListener('keydown', e => handleKeyDown(e, modalElement));
-  modalElement.querySelector('[data-modal-close]').removeEventListener('click', e => closeModal(e, modalElement));
+  modalElement.querySelector('[data-modal-close]').removeEventListener('click', () => closeModal(modalElement));
 }
 
 function removeEventListenersTrailer(modalElement, videoPlayer) {
@@ -44,7 +44,7 @@ function removeEventListenersTrailer(modalElement, videoPlayer) {
   modalElement.removeEventListener('keydown', e => handleKeyDown(e, modalElement, videoPlayer));
   modalElement
     .querySelector('[data-modal-close]')
-    .removeEventListener('click', e => closeModal.bind(null, modalElement, videoPlayer));
+    .removeEventListener('click', () => closeModal(modalElement, videoPlayer));
 }
 
 function handleKeyDown(event, modalElement, videoPlayer = null) {
