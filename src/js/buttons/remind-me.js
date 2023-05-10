@@ -7,7 +7,7 @@ import { save, load } from "../local-storage-service";
 const STORAGE_KEY = 'movie-id';
 let id = state.activeCard.id;
 
-
+// let id = 88
 
 
 // ! вішав на боді
@@ -25,8 +25,7 @@ refs.remindMeBtn.addEventListener('click', onClickAddToLibrary);
 // функція яка по натисканню кнопки додає значення в масив
 
 export function onClickAddToLibrary() {
-    id = e.currentTarget.dataset.id;
-    
+        
     console.log('Our ID: ', id)
     addIdArrToStorage(id);
 }
@@ -44,8 +43,8 @@ function addIdArrToStorage(id) {
         save(STORAGE_KEY, idArr);
     } else if (verifycontainsId(storageValue, id)) {
         //первіряємо якщо id вже є повідомлення і виходимо
-        // Notiflix.Notify.info('You alredy have this movie in the library')
-        console.log("вже маємо")
+        Notiflix.Notify.info('You alredy have this movie in the library')
+        // console.log("вже маємо")
     } else {
         // до вже існуючго масиву додаємо значення
         storageValue.push(id);
