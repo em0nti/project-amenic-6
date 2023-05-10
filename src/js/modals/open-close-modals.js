@@ -1,67 +1,52 @@
-import { refs } from '../constants.js';
-import { supportsPassiveEvents } from 'detect-it';
+// modal.js
 
-export function openModal(modal, player = null) {
-  modal.classList.remove('backdrop--hidden');
-  if (player) {
-    document.addEventListener(
-      'keydown',
-      event => handleKeyDown(event, modal, player),
-      supportsPassiveEvents ? { passive: true } : false
-    );
-    modal.addEventListener(
-      'click',
-      event => handleOverlayClick(event, modal, player),
-      supportsPassiveEvents ? { passive: true } : false
-    );
-    modal
-      .querySelector('[data-modal-close]')
-      .addEventListener('click', () => closeModal(modal, player), supportsPassiveEvents ? { passive: true } : false);
-  } else {
-    document.addEventListener(
-      'keydown',
-      event => handleKeyDown(event, modal),
-      supportsPassiveEvents ? { passive: true } : false
-    );
-    modal.addEventListener(
-      'click',
-      event => handleOverlayClick(event, modal),
-      supportsPassiveEvents ? { passive: true } : false
-    );
-    modal
-      .querySelector('[data-modal-close]')
-      .addEventListener('click', () => closeModal(modal), supportsPassiveEvents ? { passive: true } : false);
-  }
-  console.log(`Modal <${modal}> is open. Player is ${player}`);
+function openModal(modalElement, videoPlayer) {
+  modalElement.classList.remove('backdrop--hidden');
+  addEventListeners(modalElement, videoPlayer);
 }
 
-export function closeModal(modal, player = null) {
-  modal.classList.add('backdrop--hidden');
-
-  document.removeEventListener('keydown', handleKeyDown);
-  modal.removeEventListener('click', handleOverlayClick);
-
-  if (player) {
-    modal.querySelector('[data-modal-close]').removeEventListener('click', () => closeModal(modal, player));
-    player.stopVideo();
-  } else {
-    modal.querySelector('[data-modal-close]').removeEventListener('click', () => closeModal(modal));
-  }
-  console.log(`Modal <${modal}> is closed. Player is ${player}`);
+function closeModal(modalElement, videoPlayer) {
+  modalElement.classList.add('backdrop--hidden');
+  removeEventListeners(modalElement, videoPlayer);
+  stopVideoPlayer(videoPlayer);
 }
 
-function handleKeyDown(event, modal, player = null) {
-  if (event.key === 'Escape' && player) {
-    closeModal(modal, player);
+function addEventListeners(modalElement, videoPlayer) {
+  modalElement.addEventListener('click', handleOverlayClick.bind(null, modalElement, videoPlayer));
+  modalElement.addEventListener('keydown', handleKeyDown.bind(null, modalElement, videoPlayer));
+  modalElement
+    .querySelector('[data-modal-close]')
+    .addEventListener('click', closeModal.bind(null, modalElement, videoPlayer));
+}
+
+function removeEventListeners(modalElement, videoPlayer) {
+  modalElement.removeEventListener('click', handleOverlayClick.bind(null, modalElement, videoPlayer));
+  modalElement.removeEventListener('keydown', handleKeyDown.bind(null, modalElement, videoPlayer));
+  modalElement
+    .querySelector('[data-modal-close]')
+    .removeEventListener('click', closeModal.bind(null, modalElement, videoPlayer));
+}
+
+function handleKeyDown(modalElement, videoPlayer, event) {
+  if (event.key === 'Escape' && videoPlayer) {
+    closeModal(modalElement, videoPlayer);
   } else {
-    closeModal(modal);
+    closeModal(modalElement);
   }
 }
 
-function handleOverlayClick(event, modal, player = null) {
-  if (event.target === modal && player) {
-    closeModal(modal, player);
+function handleOverlayClick(modalElement, videoPlayer, event) {
+  if (event.target === modalElement && videoPlayer) {
+    closeModal(modalElement, videoPlayer);
   } else {
-    closeModal(modal);
+    closeModal(modalElement);
   }
 }
+
+function stopVideoPlayer(videoPlayer) {
+  if (videoPlayer) {
+    videoPlayer.stopVideo();
+  }
+}
+
+export { openModal, closeModal };
