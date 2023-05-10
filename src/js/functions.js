@@ -68,15 +68,15 @@ export async function markUpDayTrends(posterType) {
 
     refs.sectionHeroDayTrends.innerHTML = filmMarklUp;
 
-    // let backGroundPoster = document.querySelector('.hero');
+    let backGroundPoster = document.querySelector('.hero');
 
-    // if (posterType === 'backdrop') {
-    //   let backGroundPosterPath = filmDataFormMarkup.backdrop_path;
-    //   backGroundPoster.style.backgroundImage = `linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%), url(./blak-desk.a6d97ec1.png), url('https://image.tmdb.org/t/p/original/${backGroundPosterPath}')`;
-    // } else if (posterType === 'poster') {
-    //   let backGroundBackdropPath = filmDataFormMarkup.poster_path;
-    //   backGroundPoster.style.backgroundImage = `linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%), url(./blak-desk.a6d97ec1.png), url('https://image.tmdb.org/t/p/original/${backGroundBackdropPath}')`;
-    // }
+    if (posterType === 'backdrop') {
+      let backGroundPosterPath = filmDataFormMarkup.backdrop_path;
+      backGroundPoster.style.backgroundImage = `linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%), url(./blak-desk.a6d97ec1.png), url('https://image.tmdb.org/t/p/original/${backGroundPosterPath}')`;
+    } else if (posterType === 'poster') {
+      let backGroundBackdropPath = filmDataFormMarkup.poster_path;
+      backGroundPoster.style.backgroundImage = `linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%), url(./blak-desk.a6d97ec1.png), url('https://image.tmdb.org/t/p/original/${backGroundBackdropPath}')`;
+    }
 
     let buttonTrailer = document.querySelector('#watch-trailer-btn');
     let FilmID = filmDataFormMarkup.id;
