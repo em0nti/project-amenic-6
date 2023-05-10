@@ -1,5 +1,5 @@
 .upcoming {
-  background-color: var(--color-black);
+  background-color: var(--color-body);
 }
 
 .upcoming__title {
@@ -10,7 +10,7 @@
   line-height: 1.1;
   text-transform: uppercase;
 
-  color: var(--color-white);
+  color: var(--color-titleAll);
 
   @include mq(tablet) {
     font-size: 24px;
@@ -81,7 +81,7 @@
   line-height: 1.1;
   text-transform: uppercase;
 
-  color: var(--color-white);
+  color: var(--color-titleAll);
 
   @include mq(tablet-only) {
     font-size: 28px;
@@ -104,15 +104,15 @@
   @include mq(desktop) {
   }
 }
-
+.upcoming__parameter {
+  color: var(--color-upcomingParams);
+}
 .upcoming__parameter:not(:last-child) {
   margin-bottom: 12px;
 
   font-weight: 500;
   font-size: 16px;
   line-height: 1.2;
-
-  color: var(--color-grey-2);
 }
 
 .upcoming__item {
@@ -145,7 +145,7 @@
 }
 
 .upcoming__value--orange {
-  color: var(--color-primary);
+  color: var(--color-OrangText);
 }
 
 .upcoming__about {
@@ -157,7 +157,7 @@
 
   text-transform: uppercase;
 
-  color: var(--color-grey-2);
+  color: var(--color-upcomingParams);
 }
 
 .upcoming__dcr {
@@ -167,7 +167,7 @@
   font-size: 14px;
   line-height: 20px;
 
-  color: var(--color-light-grey-1);
+  color: var(--color-heroPage);
 
   // @include mq(tablet) {
   //   width: 625px;
@@ -209,8 +209,8 @@
   padding: 1px 8px;
   border-radius: 5px;
 
-  color: var(--color-black);
-  background-color: var(--color-white);
+  color: var(--color-upcomingValueVotes);
+  background-color: var(--baggr-upcomingValueVotes);
 }
 
 .upcoming__numbers--bckg:nth-child(1) {

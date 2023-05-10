@@ -1,7 +1,7 @@
 .modal__popup {
   width: 280px;
   height: 878px;
-  background-color: var(--color-upcomingValueVotes);
+  background-color: var(--bagroundModal);
   padding: 55px 16px;
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   border-radius: 20px;
@@ -33,7 +33,7 @@
 
 .filmpage__table--rating {
   display: inline-block;
-  background-color: var(--color-H4card);
+  background-color: var(--baggr-upcomingValueVotes);
   color: var(--color-battonText);
   border-radius: 5px;
   width: 33px;
@@ -44,7 +44,7 @@
 
 .filmpage__table--rating2 {
   display: inline-block;
-  background-color: var(--color-H4card);
+  background-color: var(--baggr-upcomingValueVotes);
   color: var(--color-battonText);
   border-radius: 5px;
   width: 38px;

@@ -28,13 +28,12 @@ refs.addToLibraryBtn.addEventListener('click', onClickAddRemoveFromLibrary);
   
 // }
 // ? переписіваю ф-ю
-  function showIdOnCardClick(e) {
-      id = e.target.dataset.id
-       
-        console.log(id);
-      verifyIdOnCardOpen(id); 
+//   function showIdOnCardClick() {
+             
+//         console.log(id);
+//       verifyIdOnCardOpen(id); 
   
-}
+// }
 
 
 
@@ -52,7 +51,7 @@ function verifyIdOnCardOpen(id) {
     renamBtnToRemove();
 }
 }
-// verifyIdOnCardOpen(id);
+verifyIdOnCardOpen(id);
 
 
 

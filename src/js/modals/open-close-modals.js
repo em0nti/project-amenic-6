@@ -22,7 +22,9 @@ function closeModal(modalElement, videoPlayer = null) {
 function addEventListeners(modalElement) {
   modalElement.addEventListener('click', e => handleOverlayClick(e, modalElement));
   modalElement.addEventListener('keydown', e => handleKeyDown(e, modalElement));
-  modalElement.querySelector('[data-modal-close]').addEventListener('click', () => closeModal(modalElement));
+  modalElement
+    .querySelector('[data-modal-close]')
+    .addEventListener('click', () => closeModal(modalElement));
 }
 
 function addEventListenersTrailer(modalElement, videoPlayer) {
@@ -36,7 +38,9 @@ function addEventListenersTrailer(modalElement, videoPlayer) {
 function removeEventListeners(modalElement) {
   modalElement.removeEventListener('click', e => handleOverlayClick(e, modalElement));
   modalElement.removeEventListener('keydown', e => handleKeyDown(e, modalElement));
-  modalElement.querySelector('[data-modal-close]').removeEventListener('click', () => closeModal(modalElement));
+  modalElement
+    .querySelector('[data-modal-close]')
+    .removeEventListener('click', () => closeModal(modalElement));
 }
 
 function removeEventListenersTrailer(modalElement, videoPlayer) {
