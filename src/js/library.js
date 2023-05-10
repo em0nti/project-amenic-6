@@ -11,22 +11,3 @@ initModals();
 currentPage();
 
 refs.cards.addEventListener('click', onCardClick);
-
-// Функціонал Тимченко
-// refs.addToLibraryBtn.addEventListener('click', onClickAddRemoveFromLibrary);
-// refs.cards.addEventListener('click', showIdOnCardClick);
-
-
-// const STORAGE_KEY = 'movie-id';
-//  id = showIdOnCardClick()
-// let id = activeCardState.id;
-
-// console.log(id)
-
-// перевіряємо чи є фільм з таким id в локал сторадж, якщо є змінюю назву кнопки
-// verifyIdOnCardOpen(id);
-
-// функція яка по натисканню кнопки додає або видаляє значення в local storage
-// onClickAddRemoveFromLibrary();
-
-
