@@ -6,7 +6,6 @@ import { save, load } from '../local-storage-service';
 const STORAGE_KEY = 'movie-id';
 let id = state.activeCard.id;
 
-
 // ! вішав на боді
 // const body = document.body
 // console.log(body)
@@ -20,8 +19,12 @@ let id = state.activeCard.id;
 // функція яка по натисканню кнопки додає значення в масив
 
 
+
 export function onClickAddToLibrary() {
 
+  console.log('Our ID: ', ID);
+  addIdArrToStorage(ID);
+}
 
 
   console.log('Our ID: ', ID);
@@ -31,7 +34,6 @@ export function onClickAddToLibrary() {
 // ф-я яка завантажує дані в локал сторадж
 
 function addIdArrToStorage(id) {
-
 
     const storageValue = load(STORAGE_KEY);
     console.log(storageValue)

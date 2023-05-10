@@ -158,6 +158,19 @@ export async function markupFilmUpcoming(posterType) {
       onClickAddToLibrary(FilmID);
     }
     // refs.sectionUpcoming.insertAdjacentHTML('beforeend', markupFilmUpcoming);
+    const buttonRemindMe = document.getElementById('remind-btn');
+    const FilmID = dataFilmUpcomingForMarkup.id;
+    // console.log(dataFilmUpcomingForMarkup.id);
+    console.log(buttonRemindMe);
+
+    // console.log('TESTTEST', buttonTrailer);
+
+    buttonRemindMe.addEventListener('click', setIDOnclickLibrary);
+    function setIDOnclickLibrary(params) {
+      console.log(params);
+      console.log('setIDOnclickLibrary');
+      onClickAddToLibrary(FilmID);
+    }
   } catch (error) {
     console.log(error);
   }
