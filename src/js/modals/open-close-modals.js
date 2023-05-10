@@ -16,7 +16,7 @@ function closeModal(modalElement, videoPlayer = null) {
   } else {
     removeEventListeners(modalElement);
   }
-  console.log(`Modal is closed. Player is ${videoPlayer}`);
+  // console.log(`Modal is closed NEW. Player is ${videoPlayer}`);
 }
 
 function addEventListeners(modalElement) {

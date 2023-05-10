@@ -26,4 +26,6 @@ export const state = {
   homeHero: { id: null },
   catalogHero: { id: null },
   player: null,
+  //get theme from local storage whith default value 'dark' and parse to string
+  theme: localStorage.getItem('theme') || 'dark',
 };
