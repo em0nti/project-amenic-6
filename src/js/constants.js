@@ -25,4 +25,5 @@ export const state = {
   activeCard: { id: null },
   homeHero: { id: null },
   catalogHero: { id: null },
+  player: null,
 };

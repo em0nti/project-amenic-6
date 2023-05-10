@@ -16,41 +16,38 @@ function closeModal(modalElement, videoPlayer = null) {
   } else {
     removeEventListeners(modalElement);
   }
+  console.log(`Modal is closed. Player is ${videoPlayer}`);
 }
 
 function addEventListeners(modalElement) {
-  modalElement.addEventListener('click', handleOverlayClick.bind(null, modalElement));
-  modalElement.addEventListener('keydown', handleKeyDown.bind(null, modalElement));
-  modalElement
-    .querySelector('[data-modal-close]')
-    .addEventListener('click', closeModal.bind(null, modalElement));
+  modalElement.addEventListener('click', e => handleOverlayClick(e, modalElement));
+  modalElement.addEventListener('keydown', e => handleKeyDown.bind(e, modalElement));
+  modalElement.querySelector('[data-modal-close]').addEventListener('click', e => closeModal(e, modalElement));
 }
 
 function addEventListenersTrailer(modalElement, videoPlayer) {
-  modalElement.addEventListener('click', handleOverlayClick.bind(null, modalElement, videoPlayer));
-  modalElement.addEventListener('keydown', handleKeyDown.bind(null, modalElement, videoPlayer));
+  modalElement.addEventListener('click', e => handleOverlayClick(e, modalElement, videoPlayer));
+  modalElement.addEventListener('keydown', e => handleKeyDown(e, modalElement, videoPlayer));
   modalElement
     .querySelector('[data-modal-close]')
-    .addEventListener('click', closeModal.bind(null, modalElement, videoPlayer));
+    .addEventListener('click', e => closeModal(e, modalElement, videoPlayer));
 }
 
 function removeEventListeners(modalElement) {
-  modalElement.removeEventListener('click', handleOverlayClick.bind(null, modalElement));
-  modalElement.removeEventListener('keydown', handleKeyDown.bind(null, modalElement));
-  modalElement
-    .querySelector('[data-modal-close]')
-    .removeEventListener('click', closeModal.bind(null, modalElement));
+  modalElement.removeEventListener('click', e => handleOverlayClick(e, modalElement));
+  modalElement.removeEventListener('keydown', e => handleKeyDown(e, modalElement));
+  modalElement.querySelector('[data-modal-close]').removeEventListener('click', e => closeModal(e, modalElement));
 }
 
 function removeEventListenersTrailer(modalElement, videoPlayer) {
-  modalElement.removeEventListener('click', handleOverlayClick.bind(null, modalElement, videoPlayer));
-  modalElement.removeEventListener('keydown', handleKeyDown.bind(null, modalElement, videoPlayer));
+  modalElement.removeEventListener('click', e => handleOverlayClick(e, modalElement, videoPlayer));
+  modalElement.removeEventListener('keydown', e => handleKeyDown(e, modalElement, videoPlayer));
   modalElement
     .querySelector('[data-modal-close]')
-    .removeEventListener('click', closeModal.bind(null, modalElement, videoPlayer));
+    .removeEventListener('click', e => closeModal.bind(null, modalElement, videoPlayer));
 }
 
-function handleKeyDown(modalElement, videoPlayer = null, event) {
+function handleKeyDown(event, modalElement, videoPlayer = null) {
   if (event.key === 'Escape' && videoPlayer) {
     closeModal(modalElement, videoPlayer);
   } else {
@@ -58,7 +55,7 @@ function handleKeyDown(modalElement, videoPlayer = null, event) {
   }
 }
 
-function handleOverlayClick(modalElement, videoPlayer = null, event) {
+function handleOverlayClick(event, modalElement, videoPlayer = null) {
   if (event.target === modalElement && videoPlayer) {
     closeModal(modalElement, videoPlayer);
   } else {
