@@ -17,21 +17,15 @@
     height: 48px;
     padding: 14px;
   }
-  color: var(--color-white);
-  background: var(--linear-gradient-2) padding-box,
-    var(--linear-gradient-1) border-box;
+  color: var(--color-titleAll);
+  background: var(--linear-gradient-2) padding-box, var(--linear-gradient-1) border-box;
 
   &:hover,
   &:focus {
-    background: linear-gradient(
-          141.22deg,
-          var(--color-white),
-          var(--color-white)
-        )
-        padding-box,
+    background: linear-gradient(141.22deg, var(--color-body), var(--color-body)) padding-box,
       var(--linear-gradient-1) border-box;
 
-    color: var(--color-primary);
+    color: var(--color-OrangText);
   }
 }
 
@@ -56,17 +50,11 @@
 
 .button-search--color-light {
   color: var(--color-dark-grey-1);
-  background: var(--linear-gradient-2) padding-box,
-    var(--linear-gradient-1) border-box;
+  background: var(--linear-gradient-2) padding-box, var(--linear-gradient-1) border-box;
 
   &:hover,
   &:focus {
-    background: linear-gradient(
-          141.22deg,
-          var(--color-white),
-          var(--color-white)
-        )
-        padding-box,
+    background: linear-gradient(141.22deg, var(--color-white), var(--color-white)) padding-box,
       var(--linear-gradient-1) border-box;
 
     color: var(--color-primary);

@@ -1,66 +1,66 @@
 .modal-trailer-success {
-    position: relative;
-    margin: 0 auto;
-    padding: 20;
-    width: 280px;
-    height: 289px;
-    background-color: #111111;
-    box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
-    border-radius: 16px;
+  position: relative;
+  margin: 0 auto;
+  padding: 20;
+  width: 280px;
+  height: 289px;
+  background-color: var(--color-body);
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  border-radius: 16px;
 
-    @media screen and (min-width: $container-width-tablet) {
-        width: 609px;
-        height: 400px;
-    }
+  @media screen and (min-width: $container-width-tablet) {
+    width: 609px;
+    height: 400px;
+  }
 
-    @media screen and (min-width: $container-width-desktop) {
-        width: 700px;
-        height: 400px;
-    }
+  @media screen and (min-width: $container-width-desktop) {
+    width: 700px;
+    height: 400px;
+  }
 }
 .modal-trailer-oops {
-    position: relative;
-    margin: 0 auto;
-    padding: 39 33 8 33;
-    width: 280px;
-    height: 289px;
-    background-color: #111111;
-    box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
-    border-radius: 16px;
+  position: relative;
+  margin: 0 auto;
+  padding: 39 33 8 33;
+  width: 280px;
+  height: 289px;
+  background-color: --color-body;
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  border-radius: 16px;
 
-    @media screen and (min-width: $container-width-tablet) {
-        width: 609px;
-        height: 400px;
-        padding-top: 132px;
-        padding-left: 44px;
-    }
+  @media screen and (min-width: $container-width-tablet) {
+    width: 609px;
+    height: 400px;
+    padding-top: 132px;
+    padding-left: 44px;
+  }
 
-    @media screen and (min-width: $container-width-desktop) {
-        width: 700px;
-        height: 400px;
-    }
+  @media screen and (min-width: $container-width-desktop) {
+    width: 700px;
+    height: 400px;
+  }
 }
 .modal-trailer-oops__text {
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 1.19;
-            @media screen and (min-width: $container-width-tablet) {
-            font-size: 24px;
-            line-height: 1.16;
-            }
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.19;
+  @media screen and (min-width: $container-width-tablet) {
+    font-size: 24px;
+    line-height: 1.16;
+  }
 }
 .modal-trailer-oops__image {
-    position: absolute;
-    width: 159px;
-    right: 15%;
-    bottom: 12px;
-        @media screen and (min-width: $container-width-tablet) {
-            width: 296px;
-            right: 0;
-            bottom: 0px;
-            }
-        
-        @media screen and (min-width: $container-width-desktop) {       
-width: 363px
-            }
+  position: absolute;
+  width: 159px;
+  right: 15%;
+  bottom: 12px;
+  @media screen and (min-width: $container-width-tablet) {
+    width: 296px;
+    right: 0;
+    bottom: 0px;
+  }
+
+  @media screen and (min-width: $container-width-desktop) {
+    width: 363px;
+  }
 }
