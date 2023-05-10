@@ -1,13 +1,10 @@
 import Notiflix from 'notiflix';
 
-import { refs, state} from "../constants";
-import { save, load } from "../local-storage-service";
-
+import { refs, state } from '../constants';
+import { save, load } from '../local-storage-service';
 
 const STORAGE_KEY = 'movie-id';
 let id = state.activeCard.id;
-
-// let id = 88
 
 
 // ! вішав на боді
@@ -20,20 +17,19 @@ let id = state.activeCard.id;
 
 refs.remindMeBtn.addEventListener('click', onClickAddToLibrary);
 
-
-
 // функція яка по натисканню кнопки додає значення в масив
 
 export function onClickAddToLibrary() {
-        
-    console.log('Our ID: ', id)
-    addIdArrToStorage(id);
-}
 
+
+  console.log('Our ID: ', id);
+  addIdArrToStorage(id);
+}
 
 // ф-я яка завантажує дані в локал сторадж
 
 function addIdArrToStorage(id) {
+
 
     const storageValue = load(STORAGE_KEY);
     console.log(storageValue)
@@ -55,5 +51,5 @@ function addIdArrToStorage(id) {
 };
 
 function verifycontainsId(arr, x) {
-        return hasId = arr.includes(x); 
-};
+  return (hasId = arr.includes(x));
+}
