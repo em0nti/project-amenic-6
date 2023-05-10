@@ -1,7 +1,7 @@
 //this is class for fetching data
-import ApiFetchService from './api_fetch_service'; ///////
-import ApiMarkupService from './api_markup_service'; //////
-import { refs } from './constants'; ///////
+import ApiFetchService from './api_fetch_service';
+import ApiMarkupService from './api_markup_service';
+import { refs } from './constants';
 import { currentPage } from './show-current-page';
 import {
   markupFilmByQuery,
@@ -22,13 +22,21 @@ import { openModal } from './modals/open-close-modals';
 
 currentPage();
 
-// refs.watchTrailerBtn.addEventListener('click', () => onWatchTrailerClick(493529));
 refs.cards.addEventListener('click', e => onCardClick(e));
 refs.cards.addEventListener('click', () => openModal(refs.modalPopUp));
 
 // create instance 'apiFetchService' for using in functions
-const apiFetchService = new ApiFetchService(); ///////
-const apiMarkupService = new ApiMarkupService(); ///////
+const apiFetchService = new ApiFetchService();
+const apiMarkupService = new ApiMarkupService();
+
+window.addEventListener('load', () => {
+  // console.log(e);
+  onChangeWeeklyTrendsByScreenWidth(refs.sectionWeeklyTrends, 3);
+});
+window.addEventListener('load', () => {
+  // console.log(e);
+  onChangemarkupFilmUpcomingsByScreenWidth(refs.sectionUpcoming, 3);
+});
 
 // test params for fetching data by query
 //--------------//
@@ -198,14 +206,7 @@ const apiMarkupService = new ApiMarkupService(); ///////
 //   onChangeWeeklyTrendsByResizeViewport(refs.sectionWeeklyTrends),
 // );
 
-window.addEventListener('load', e => {
-  // console.log(e);
-  onChangeWeeklyTrendsByScreenWidth(refs.sectionWeeklyTrends, 3);
-});
-window.addEventListener('load', e => {
-  // console.log(e);
-  onChangemarkupFilmUpcomingsByScreenWidth(refs.sectionUpcoming, 3);
-});
+
 
 // async function onChangeWeeklyTrendsByResizeViewport(e) {
 //   try {
