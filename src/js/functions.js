@@ -83,7 +83,7 @@ export async function markUpDayTrends(posterType) {
     // console.log('TESTTEST', buttonTrailer);
     buttonTrailer.addEventListener('click', watchTrailer);
     function watchTrailer(params) {
-      console.log(params);
+      // console.log(params);
       onWatchTrailerClick(FilmID);
     }
 
