@@ -198,8 +198,14 @@ const apiMarkupService = new ApiMarkupService(); ///////
 //   onChangeWeeklyTrendsByResizeViewport(refs.sectionWeeklyTrends),
 // );
 
-window.addEventListener('load', onChangeWeeklyTrendsByScreenWidth(refs.sectionWeeklyTrends, 3));
-window.addEventListener('load', onChangemarkupFilmUpcomingsByScreenWidth(refs.sectionUpcoming, 3));
+window.addEventListener('load', e => {
+  // console.log(e);
+  onChangeWeeklyTrendsByScreenWidth(refs.sectionWeeklyTrends, 3);
+});
+window.addEventListener('load', e => {
+  // console.log(e);
+  onChangemarkupFilmUpcomingsByScreenWidth(refs.sectionUpcoming, 3);
+});
 
 // async function onChangeWeeklyTrendsByResizeViewport(e) {
 //   try {

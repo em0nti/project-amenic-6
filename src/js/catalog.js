@@ -58,4 +58,6 @@ console.log('catalog.js is loaded', form);
 // }
 const viewportData = window.matchMedia('(max-width: 767px)');
 //viewportData.addEventListener('change', onChangeWeeklyTrendsByResizeViewport);
-window.addEventListener('load', onChangeWeeklyTrendsByScreenWidth(refs.sectionCatalogCardSet, 10));
+window.addEventListener('load', e => {
+  onChangeWeeklyTrendsByScreenWidth(refs.sectionCatalogCardSet, 10);
+});
