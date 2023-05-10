@@ -14,15 +14,15 @@ let id = state.activeCard.id;
 //     console.log(e.target);
 // }
 
-refs.remindMeBtn.addEventListener('click', onClickAddToLibrary);
+//refs.remindMeBtn.addEventListener('click', onClickAddToLibrary);
 
 // функція яка по натисканню кнопки додає значення в масив
 
-export function onClickAddToLibrary() {
-  id = e.currentTarget.dataset.id;
+export function onClickAddToLibrary(ID) {
+  // id = e.currentTarget.dataset.id;
 
-  console.log('Our ID: ', id);
-  addIdArrToStorage(id);
+  console.log('Our ID: ', ID);
+  addIdArrToStorage(ID);
 }
 
 // ф-я яка завантажує дані в локал сторадж
