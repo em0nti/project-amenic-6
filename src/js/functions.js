@@ -2,6 +2,7 @@
 import ApiFetchService from './api_fetch_service';
 import ApiMarkupService from './api_markup_service';
 import { refs } from './constants';
+import { onWatchTrailerClick } from './watch-trailer';
 
 // create instance 'apiFetchService' for using in functions
 const apiFetchService = new ApiFetchService();
@@ -66,6 +67,7 @@ export async function markUpDayTrends(posterType) {
     let filmMarklUp = await apiMarkupService.markupFilmHeroTrendsDay(filmDataFormMarkup);
 
     refs.sectionHeroDayTrends.innerHTML = filmMarklUp;
+
     let backGroundPoster = document.querySelector('.hero');
 
     if (posterType === 'backdrop') {
@@ -74,6 +76,15 @@ export async function markUpDayTrends(posterType) {
     } else if (posterType === 'poster') {
       let backGroundBackdropPath = filmDataFormMarkup.poster_path;
       backGroundPoster.style.backgroundImage = `linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%), url(./blak-desk.a6d97ec1.png), url('https://image.tmdb.org/t/p/original/${backGroundBackdropPath}')`;
+    }
+
+    let buttonTrailer = document.querySelector('#watch-trailer-btn');
+    let FilmID = filmDataFormMarkup.id;
+    // console.log('TESTTEST', buttonTrailer);
+    buttonTrailer.addEventListener('click', watchTrailer);
+    function watchTrailer(params) {
+      console.log(params);
+      onWatchTrailerClick(FilmID);
     }
 
     //refs.sectionHeroDayTrends.insertAdjacentHTML('beforeend', filmMarklUp);
