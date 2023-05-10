@@ -19,12 +19,14 @@ import {
 import { onWatchTrailerClick } from './watch-trailer';
 import { onCardClick } from './card-handler';
 import { openModal } from './modals/open-close-modals';
+import onClickAddToLibrary from './buttons/remind-me';
 
 currentPage();
 
 // refs.watchTrailerBtn.addEventListener('click', () => onWatchTrailerClick(493529));
 refs.cards.addEventListener('click', e => onCardClick(e));
 refs.cards.addEventListener('click', () => openModal(refs.modalPopUp));
+refs.remindMeBtn.addEventListener('click', onClickAddToLibrary);
 
 // create instance 'apiFetchService' for using in functions
 const apiFetchService = new ApiFetchService(); ///////
