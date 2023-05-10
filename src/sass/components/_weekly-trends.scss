@@ -33,8 +33,7 @@
   line-height: 1.2;
 
   @extend %link;
-
-  color: var(--color-primary);
+  color: var(--color-OrangText);
 
   @include mq(tablet) {
     font-size: 24px;
@@ -45,7 +44,7 @@
   }
 
   &:hover {
-    color: rgb(206, 157, 97);
+    color: var(--color-titleAll);
   }
 }
 
