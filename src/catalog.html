@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Catalog - Cinemania</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <link rel="shortcut icon" type="image/png" href="./images/favicon.png" />
-  </head>
-  <body class="page dark">
-    <include src="./partials/modals/modal-mobile.html"></include>
-    <include src="./partials/header.html"></include>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Catalog - Cinemania</title>
+        <link rel="stylesheet" href="./sass/index.scss" />
+        <link
+            rel="shortcut icon"
+            type="image/png"
+            href="./images/favicon.png"
+        />
+    </head>
+    <body class="page dark">
+        <include
+            src="./partials/modals/modal-mobile.html"
+        ></include>
+        <include src="./partials/header.html"></include>
 
-    <include src="./partials/hero-catalog.html"></include>
-    <include src="./partials/search-form.html"></include>
-    <include src="./partials/catalog-list.html"></include>
-    <include src="./partials/footer.html"></include>
+        <include
+            src="./partials/hero-catalog.html"
+        ></include>
+        <include
+            src="./partials/search-form.html"
+        ></include>
+        <include
+            src="./partials/catalog-list.html"
+        ></include>
+        <include src="./partials/footer.html"></include>
 
-    <!--    Modals-->
-    <include src="./partials/modals.html"></include>
+        <!--    Modals-->
+        <include src="./partials/modals.html"></include>
 
-    <script type="module" src="js/catalog.js"></script>
-    <script src="./js/theme.js" type="module"></script>
-  </body>
+        <!-- <script type="module" src="js/catalog.js"></script> -->
+        <script
+            type="module"
+            src="./js/catalog-new.js"
+        ></script>
+        <script src="./js/theme.js" type="module"></script>
+    </body>
 </html>
