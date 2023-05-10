@@ -14,7 +14,7 @@ export const refs = {
   sectionHeroDayTrends: document.querySelector('.hero'),
   modalPopUp: document.querySelector('#modal-pop-up'),
   cards: document.querySelector('.js-cards'),
-  popUpModal: document.querySelector('.popup-modal-win'),
+  popUpModal: document.querySelector('.modal__popup'),
   sectionCatalogCardSet: document.querySelector('.catalog__movi-catalog-list'),
 
   //Forms
