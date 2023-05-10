@@ -106,10 +106,8 @@ ${starsRating}
 
     let truncatePopularity = popularity.toFixed(1);
 
-    return `  <div class="modal backdrop__modal popup-modal-win">
-    <include src="./partials/modals/close-button.html"></include>
-    <div class="modal__popup filmpage">
-      <div class="filmpage__poster">
+    return `
+  <div class="filmpage__poster">
         <img class="filmpage__img" src="https://image.tmdb.org/t/p/original${poster_path}" alt="film" />
       </div>
       <div class="filmpage__content">
@@ -138,9 +136,7 @@ ${starsRating}
         <button type="button" class="button button-add" data-id=“btn-${id} id="add-to-library-btn">
           <span>Add to my library</span>
         </button>
-      </div>
-    </div>
-  </div>`;
+      </div>`;
   }
   // method for markup film card from fetch by Upcoming
   markupFilmCardUpcoming(
