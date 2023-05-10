@@ -1,8 +1,14 @@
 import { tmdbApi } from './components/tmdbApi';
+import { genresNames } from './components/genresListNames';
+
+console.log("🚀 ~ tmdbApi:", tmdbApi)
+console.log("🚀 ~ genresNames:", genresNames)
+
 import scrollToTop from './components/scroll-to-top';
 import intersection from './components/infinite-scroll'
 import appendMovieCards from './components/append-movie-cards';
 import clearPage from "./components/clear-page";
+
 
 const refs = {
     bodyRef: document.querySelector('body'),

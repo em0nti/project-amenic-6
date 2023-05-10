@@ -2,9 +2,6 @@
 import renderCards from './render-cards';
 import { tmdbApi } from './tmdbApi'
 
-console.log("🚀 ~ tmdbApi:", tmdbApi)
-
-
 export default async function appendMovieCards() {
     try {
         renderCards(await tmdbApi.fetchMovieCards());

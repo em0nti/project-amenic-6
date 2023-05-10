@@ -1,17 +1,35 @@
+import { genresNames } from '../components/genresListNames';
 import renderRating from '../rating';
+
+
+
 export default function createMarkup(cards) {
+    try {
+        const genres =  genresNames.getGenresNames();
+
+        console.log("🚀 ~ createMarkup ~ genres:", genres)
+
+    } catch (error) {
+        console.log("ошибка в createMarkup", error);
+     }
+
   return cards.map(({ poster_path, title, genre_ids, release_date, vote_average, id }) => {
 
-    let listOfGenres = '';
-    // if (genre_ids.length === 0) {
+      function getNameGenre(idGenre) {
+          let nameGenre = genres.find(genre => genre.id === idGenre);
+          return nameGenre.name;
+        }
+
+    let listOfGenres = 'unknown genre';
+    // if (genres.length === 0) {
     //   listOfGenres = '';
-    // } else if (genre_ids.length < 2) {
-    //   listOfGenres = this.getNameGenre(genre_ids[0]);
+    // } else if (genres.length < 2) {
+    //   listOfGenres = getNameGenre(genres[0]);
     // } else {
-    //   listOfGenres = this.getNameGenre(genre_ids[0]) + ', ' + this.getNameGenre(genre_ids[1]);
+    //   listOfGenres = getNameGenre(genres[0]) + ', ' + getNameGenre(genres[1]);
     // }
 
-    // let yearOfRelease = release_date.slice(0, 4);
+    let yearOfRelease = release_date.slice(0, 4);
     let element = 'card';
     let starsRating = renderRating(vote_average, element);
 
@@ -27,7 +45,7 @@ export default function createMarkup(cards) {
     <div class="card__descr">
       <p class="card__name">${title}</p>
       <p class="card__details">
-        <span>${listOfGenres}</span><span> | </span><span>${release_date}</span>
+        <span>${listOfGenres}</span><span> | </span><span>${yearOfRelease}</span>
       </p>
     </div>
     <div class="card__rate">
