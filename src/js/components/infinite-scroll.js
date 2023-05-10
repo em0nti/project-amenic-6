@@ -11,6 +11,7 @@ export default function intersection() {
 
     async function callback(entries, observer) {
         if (entries[0].isIntersecting) {
+            console.log(target.dataset);
             updateTarget();
         }
 };
@@ -19,9 +20,10 @@ export default function intersection() {
         try {
             observer.unobserve(target);
             await appendMovieCards();
-            target = refs.cardSetRef.lastElementChild;
-            console.log("new target:", target);
-            observer.observe(target);
+            let newTarget = refs.cardSetRef.lastElementChild;
+            console.log("new target:", newTarget.dataset);
+            observer.observe(newTarget);
+            return newTarget;
         } catch {
             observer.unobserve(target);
             throw "stop"

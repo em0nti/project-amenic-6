@@ -20,7 +20,7 @@ export default class TmdbApi {
             const response = await axios.get(url, axiosParams);
             console.log(response.data.results.length);
             if (response.data.results.length === 0) {
-                // Notify.failure("Sorry, there are no more movies available");
+                Notify.failure("Sorry, there are no more movies available");
                 throw new Error(error.message);
                 }
             this.page += 1;            
