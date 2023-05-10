@@ -33,6 +33,7 @@
   line-height: 1.2;
 
   @extend %link;
+
   color: var(--color-OrangText);
 
   @include mq(tablet) {
