@@ -1,10 +1,15 @@
 
-import { refs } from "../constants";
+import { refs, state } from "../constants";
+
 import { save, load, remove } from "../local-storage-service";
 // import ApiFetchService from '../api_fetch_service';
 
-
+// console.log(activeCardState);
 const STORAGE_KEY = 'movie-id';
+
+let id = state.activeCard.id;
+
+console.log(id)
 // const apiFetchService = new ApiFetchService();
 // const id = apiFetchService.getID;
 
@@ -13,19 +18,53 @@ refs.addToLibraryBtn.addEventListener('click', onClickAddRemoveFromLibrary);
 
 // ! Як отримати ID на цьому етапі
 
-// перевіряємо чи є фільм з таким id в локал сторадж, якщо є змінюю назву кнопки
+// функція, яка по натисканню на картку видає id
+
+//   function showIdOnCardClick(e) {
+//        const id = e.target.dataset.id
+       
+//         console.log(id);
+//         return id;
+  
+// }
+// ? переписіваю ф-ю
+  function showIdOnCardClick(e) {
+      id = e.target.dataset.id
+       
+        console.log(id);
+      verifyIdOnCardOpen(id); 
+  
+}
+
+
+
+//? перевіряємо чи є фільм з таким id в локал сторадж, якщо є змінюю назву кнопки
 let storageValue = showStorageValue(STORAGE_KEY);
-console.log(storageValue);
-if (storageValue !== undefined && verifycontainsId(storageValue, id)) {
+// console.log(storageValue);
+// if (storageValue !== undefined && verifycontainsId(storageValue, id)) {
+//     renamBtnToRemove();
+// }
+
+function verifyIdOnCardOpen(id) {
+    // let storageValue = showStorageValue(STORAGE_KEY);
+    console.log(storageValue);
+    if (storageValue !== undefined && verifycontainsId(storageValue, id)) {
     renamBtnToRemove();
 }
+}
+// verifyIdOnCardOpen(id);
+
+
 
 
 // функція яка по натисканню кнопки додає значення в масив
 
-function onClickAddRemoveFromLibrary(e) { 
-    id = Number(e.currentTarget.dataset.id)
+function onClickAddRemoveFromLibrary() { 
+    // id = 1555
+    // id = Number(e.currentTarget.dataset.id)
+    
     console.log('Our ID: ', id)
+
     addIdArrToStorage(id);
 }
 
@@ -71,3 +110,6 @@ function renamBtnToAdd() {
 function showStorageValue(STORAGE_KEY) {
     return load(STORAGE_KEY);
 }
+
+
+export { verifyIdOnCardOpen,  onClickAddRemoveFromLibrary, showIdOnCardClick };
