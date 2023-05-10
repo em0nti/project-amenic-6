@@ -1,10 +1,16 @@
 .modal__popup {
   width: 280px;
   height: 878px;
-  background-color: var(--color-upcomingValueVotes);
+  background-color: var(--color-body);
   padding: 55px 16px;
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   border-radius: 20px;
+}
+
+.popup-modal-win {
+  top: 0;
+  left: 25%;
+  transform: translate(0, 0);
 }
 
 .filmpage__poster {
@@ -125,6 +131,12 @@
     padding: 44px;
   }
 
+  .popup-modal-win {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
   .filmpage {
     display: flex;
     align-items: flex-start;
@@ -162,6 +174,12 @@
     width: 844px;
     height: 598px;
     padding: 57px 59px;
+  }
+
+  .popup-modal-win {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
   }
 
   .filmpage {
