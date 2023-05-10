@@ -270,11 +270,11 @@ export async function onShowPopUpModal(ID) {
     await apiFetchService.fetchFilmGenres();
     let dataFilmFromID = await apiFetchService.fetchFilmByID(ID);
     apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
-    console.log(refs.popUpModal);
+    // console.log(refs.popUpModal);
     // apiMarkupService.setFilmsForMarkup = await dataFilmFromID;
     let markupFilmByID = apiMarkupService.markupFilmCardPopUpByID(dataFilmFromID);
-    console.log(markupFilmByID);
-    
+    // console.log(markupFilmByID);
+
     refs.popUpModal.innerHTML = markupFilmByID;
   } catch (error) {
     console.log(error);
