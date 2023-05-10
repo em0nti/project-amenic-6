@@ -3,6 +3,7 @@ import ApiFetchService from './api_fetch_service';
 import ApiMarkupService from './api_markup_service';
 import { refs } from './constants';
 import { onWatchTrailerClick } from './watch-trailer';
+import { onClickAddToLibrary } from './buttons/remind-me';
 
 // create instance 'apiFetchService' for using in functions
 const apiFetchService = new ApiFetchService();
@@ -68,15 +69,15 @@ export async function markUpDayTrends(posterType) {
 
     refs.sectionHeroDayTrends.innerHTML = filmMarklUp;
 
-    let backGroundPoster = document.querySelector('.hero');
+    // let backGroundPoster = document.querySelector('.hero');
 
-    if (posterType === 'backdrop') {
-      let backGroundPosterPath = filmDataFormMarkup.backdrop_path;
-      backGroundPoster.style.backgroundImage = `linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%), url(./blak-desk.a6d97ec1.png), url('https://image.tmdb.org/t/p/original/${backGroundPosterPath}')`;
-    } else if (posterType === 'poster') {
-      let backGroundBackdropPath = filmDataFormMarkup.poster_path;
-      backGroundPoster.style.backgroundImage = `linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%), url(./blak-desk.a6d97ec1.png), url('https://image.tmdb.org/t/p/original/${backGroundBackdropPath}')`;
-    }
+    // if (posterType === 'backdrop') {
+    //   let backGroundPosterPath = filmDataFormMarkup.backdrop_path;
+    //   backGroundPoster.style.backgroundImage = `linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%), url(./blak-desk.a6d97ec1.png), url('https://image.tmdb.org/t/p/original/${backGroundPosterPath}')`;
+    // } else if (posterType === 'poster') {
+    //   let backGroundBackdropPath = filmDataFormMarkup.poster_path;
+    //   backGroundPoster.style.backgroundImage = `linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%), url(./blak-desk.a6d97ec1.png), url('https://image.tmdb.org/t/p/original/${backGroundBackdropPath}')`;
+    // }
 
     let buttonTrailer = document.querySelector('#watch-trailer-btn');
     let FilmID = filmDataFormMarkup.id;
@@ -143,6 +144,19 @@ export async function markupFilmUpcoming(posterType) {
     // console.log(markupFilmUpcoming);
 
     refs.sectionUpcoming.innerHTML = markupFilmUpcoming;
+    const buttonRemindMe = document.getElementById('remind-btn');
+    const FilmID = dataFilmUpcomingForMarkup.id;
+    // console.log(dataFilmUpcomingForMarkup.id);
+    console.log(buttonRemindMe);
+
+    // console.log('TESTTEST', buttonTrailer);
+
+    buttonRemindMe.addEventListener('click', setIDOnclickLibrary);
+    function setIDOnclickLibrary(params) {
+      // console.log(params);
+      console.log('setIDOnclickLibrary');
+      onClickAddToLibrary(FilmID);
+    }
     // refs.sectionUpcoming.insertAdjacentHTML('beforeend', markupFilmUpcoming);
   } catch (error) {
     console.log(error);
