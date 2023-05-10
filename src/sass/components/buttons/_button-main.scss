@@ -46,20 +46,14 @@
 // }
 
 .button-main--color-primary {
-  color: var(--color-primary);
+  color: var(--color-OrangText);
   border: 1px solid #0000;
 
-  background: linear-gradient(141.22deg, var(--color-white), var(--color-white))
-      padding-box,
+  background: linear-gradient(141.22deg, var(--color-white), var(--color-white)) padding-box,
     var(--linear-gradient-1) border-box;
 
   &:hover {
-    background: linear-gradient(
-          141.22deg,
-          var(--color-white),
-          var(--color-white)
-        )
-        padding-box,
+    background: linear-gradient(141.22deg, var(--color-white), var(--color-white)) padding-box,
       var(--linear-gradient-2) border-box;
   }
 }
