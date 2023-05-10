@@ -1,69 +1,44 @@
 function openModal(modalElement, videoPlayer = null) {
   modalElement.classList.remove('backdrop--hidden');
-  if (videoPlayer) {
-    addEventListenersTrailer(modalElement, videoPlayer);
-  } else {
-    addEventListeners(modalElement);
-  }
+  addEventListeners(modalElement, videoPlayer);
 }
 
 function closeModal(modalElement, videoPlayer = null) {
   modalElement.classList.add('backdrop--hidden');
+  removeEventListeners(modalElement, videoPlayer);
 
   if (videoPlayer) {
-    removeEventListenersTrailer(modalElement, videoPlayer);
     stopVideoPlayer(videoPlayer);
-  } else {
-    removeEventListeners(modalElement);
   }
   console.log(`Modal is closed. Player is ${videoPlayer}`);
 }
 
-function addEventListeners(modalElement) {
-  modalElement.addEventListener('click', e => handleOverlayClick(e, modalElement));
-  modalElement.addEventListener('keydown', e => handleKeyDown(e, modalElement));
-  modalElement
-    .querySelector('[data-modal-close]')
-    .addEventListener('click', () => closeModal(modalElement));
-}
-
-function addEventListenersTrailer(modalElement, videoPlayer) {
+function addEventListeners(modalElement, videoPlayer = null) {
   modalElement.addEventListener('click', e => handleOverlayClick(e, modalElement, videoPlayer));
-  modalElement.addEventListener('keydown', e => handleKeyDown(e, modalElement, videoPlayer));
+  document.addEventListener('keydown', e => handleKeyDown(e, modalElement, videoPlayer));
   modalElement
     .querySelector('[data-modal-close]')
     .addEventListener('click', () => closeModal(modalElement, videoPlayer));
 }
 
-function removeEventListeners(modalElement) {
-  modalElement.removeEventListener('click', e => handleOverlayClick(e, modalElement));
-  modalElement.removeEventListener('keydown', e => handleKeyDown(e, modalElement));
-  modalElement
-    .querySelector('[data-modal-close]')
-    .removeEventListener('click', () => closeModal(modalElement));
-}
-
-function removeEventListenersTrailer(modalElement, videoPlayer) {
+function removeEventListeners(modalElement, videoPlayer = null) {
   modalElement.removeEventListener('click', e => handleOverlayClick(e, modalElement, videoPlayer));
-  modalElement.removeEventListener('keydown', e => handleKeyDown(e, modalElement, videoPlayer));
+  document.removeEventListener('keydown', e => handleKeyDown(e, modalElement, videoPlayer));
   modalElement
     .querySelector('[data-modal-close]')
     .removeEventListener('click', () => closeModal(modalElement, videoPlayer));
 }
 
 function handleKeyDown(event, modalElement, videoPlayer = null) {
-  if (event.key === 'Escape' && videoPlayer) {
+  console.log('event.key: ', event.key);
+  if (event.key === 'Escape') {
     closeModal(modalElement, videoPlayer);
-  } else {
-    closeModal(modalElement);
   }
 }
 
 function handleOverlayClick(event, modalElement, videoPlayer = null) {
-  if (event.target === modalElement && videoPlayer) {
+  if (event.target === modalElement) {
     closeModal(modalElement, videoPlayer);
-  } else {
-    closeModal(modalElement);
   }
 }
 
@@ -74,3 +49,4 @@ function stopVideoPlayer(videoPlayer) {
 }
 
 export { openModal, closeModal };
+
