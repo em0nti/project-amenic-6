@@ -3,6 +3,7 @@ import ApiFetchService from './api_fetch_service';
 import ApiMarkupService from './api_markup_service';
 import { refs } from './constants';
 import { onWatchTrailerClick } from './watch-trailer';
+import { onClickAddToLibrary } from './buttons/remind-me';
 
 // create instance 'apiFetchService' for using in functions
 const apiFetchService = new ApiFetchService();
@@ -144,6 +145,19 @@ export async function markupFilmUpcoming(posterType) {
 
     refs.sectionUpcoming.innerHTML = markupFilmUpcoming;
     // refs.sectionUpcoming.insertAdjacentHTML('beforeend', markupFilmUpcoming);
+    const buttonRemindMe = document.getElementById('remind-btn');
+    const FilmID = dataFilmUpcomingForMarkup.id;
+    // console.log(dataFilmUpcomingForMarkup.id);
+    console.log(buttonRemindMe);
+
+    // console.log('TESTTEST', buttonTrailer);
+
+    buttonRemindMe.addEventListener('click', setIDOnclickLibrary);
+    function setIDOnclickLibrary(params) {
+      console.log(params);
+      console.log('setIDOnclickLibrary');
+      onClickAddToLibrary(FilmID);
+    }
   } catch (error) {
     console.log(error);
   }
