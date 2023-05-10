@@ -1,7 +1,6 @@
 .modal {
   transform: translate(-50%, -50%) scale(1);
-  transition: transform var(--transition-duration)
-      var(--transition-timing-function),
+  transition: transform var(--transition-duration) var(--transition-timing-function),
     opacity var(--transition-duration) var(--transition-timing-function);
 }
 
@@ -9,8 +8,7 @@
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.3);
 
-  transition: transform var(--transition-duration)
-      var(--transition-timing-function),
+  transition: transform var(--transition-duration) var(--transition-timing-function),
     opacity var(--transition-duration) var(--transition-timing-function);
 }
 
@@ -29,7 +27,7 @@
   height: 16px;
 
   background-color: inherit;
-  color: var(--color-light-grey-1);
+  color: var(--color-heroPage);
   border: none;
 
   transition: color var(--transition-duration) var(--transition-timing-function);
