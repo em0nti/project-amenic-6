@@ -1,4 +1,8 @@
-import tmdbApi from "./api_tmdb/api_fetch-by-query";
+import { tmdbApi } from './components/tmdbApi';
+import scrollToTop from './components/scroll-to-top';
+import intersection from './components/infinite-scroll'
+import appendMovieCards from './components/append-movie-cards';
+import clearPage from "./components/clear-page";
 
 const refs = {
     bodyRef: document.querySelector('body'),
@@ -7,8 +11,6 @@ const refs = {
     cardSetRef: document.querySelector('.card-set'),
 }
 
-const tmdbApi = new tmdbApi();
-
 refs.formRef.addEventListener('submit', onSearch);
 
 function onSearch(event) {
@@ -16,10 +18,6 @@ function onSearch(event) {
 
     tmdbApi.form = refs.formRef;
     tmdbApi.query = event.currentTarget.elements.query.value.trim();
-
-    console.log("🚀 ~ onSearch ~ tmdbApi.query:", tmdbApi.query)
-
-    console.log(tmdbApi.fetchCards());
 
     handleSearch(tmdbApi.query);
 }; 
@@ -31,30 +29,9 @@ async function handleSearch() {
     clearPage();
     await appendMovieCards()    
     scrollToTop();
-    // intersection()    
+    intersection()    
     } catch (error) {
         console.log(error.message);
-        return;     
+        
     }
-}
-async function appendMovieCards() {
-    try {
-        const movieCards = await tmdbApi.fetchMovieCards();
-        console.log(movieCards);
-        renderCards(movieCards);
-    } catch (error) {
-        console.log(error);
-     }
-}
-function renderCards(cards) {
-    refs.cardSetRef.insertAdjacentHTML('beforeend', createMarkup(cards));
-};
-function scrollToTop() {
-    scrollTo({
-        top: 0,
-        behavior:"smooth"
-    })
-}
-function clearPage() {
-    refs.cardSetRef.innerHTML = '';
 }

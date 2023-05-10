@@ -1,12 +1,13 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import axios from 'axios';
-export default class tmdbApi {
+export default class TmdbApi {
     constructor() {
         this.searchQuery = '';
         this.page = 1;
         this.form;
     }
     async fetchMovieCards() {
-        const url = 'https://api.themoviedb.org/3/'; 
+        const url = 'https://api.themoviedb.org/3/search/movie'; 
         const axiosParams = {
             params: {
             api_key: "91ae85947dca7203ec2b4d7841a3c73b",
@@ -15,23 +16,19 @@ export default class tmdbApi {
             }
         
         };
-        console.log(params);
         try {
-            const response = await axios.get(url, axiosParams);   
-            console.log(response);
-            // if (response.data.hits.length === 0) {
-            //     Notify.failure("Sorry, there are no images matching your search query. Please try again.");
-            //     throw new Error(response)
-            //     };
-            // if (totalPages === this.page) {
-            //     Notify.warning("We're sorry, but you've reached the end of search results.");
-            //    ButtonLoadMore.disable();
-            // }
-            // Notify.info(`Hooray! We found ${response.data.totalHits} images on ${totalPages} pages. Current page: ${this.page}`);
-            //     this.page += 1;            
-                return response;
+            const response = await axios.get(url, axiosParams);
+            console.log(response.data.results.length);
+            if (response.data.results.length === 0) {
+                // Notify.failure("Sorry, there are no more movies available");
+                throw new Error(error.message);
+                }
+            this.page += 1;            
+            return response.data.results;
         } catch (error) {
-            this.searchQuery = "";
+            // this.searchQuery = "";
+            console.log("закончились фильмы");
+            // throw "stop";
          }
     }
     get query() {
