@@ -1,5 +1,5 @@
 
-import { refs, state } from "../constants";
+import { refs, state } from "../constants.js";
 
 import { save, load, remove } from "../local-storage-service";
 // import ApiFetchService from '../api_fetch_service';
@@ -22,17 +22,17 @@ refs.addToLibraryBtn.addEventListener('click', onClickAddRemoveFromLibrary);
 
 //   function showIdOnCardClick(e) {
 //        const id = e.target.dataset.id
-       
+
 //         console.log(id);
 //         return id;
-  
+
 // }
 // ? переписіваю ф-ю
 //   function showIdOnCardClick() {
-             
+
 //         console.log(id);
-//       verifyIdOnCardOpen(id); 
-  
+//       verifyIdOnCardOpen(id);
+
 // }
 
 
@@ -58,10 +58,10 @@ verifyIdOnCardOpen(id);
 
 // функція яка по натисканню кнопки додає значення в масив
 
-function onClickAddRemoveFromLibrary() { 
+function onClickAddRemoveFromLibrary() {
     // id = 1555
     // id = Number(e.currentTarget.dataset.id)
-    
+
     console.log('Our ID: ', id)
 
     addIdArrToStorage(id);
@@ -78,7 +78,7 @@ function addIdArrToStorage(id) {
         save(STORAGE_KEY, id);
         renamBtnToRemove();
     } else if (verifycontainsId(storageValue, id)) {
-        //первіряємо якщо id вже є повідомлення і виходимо 
+        //первіряємо якщо id вже є повідомлення і виходимо
         remove(STORAGE_KEY, id);
         renamBtnToAdd();
         storageValue = showStorageValue(STORAGE_KEY);
@@ -98,7 +98,7 @@ function verifycontainsId(arr, id) {
         return hasId = arr.includes(id);
 }
 
-// 
+//
 function renamBtnToRemove() {
     refs.addToLibraryBtn.textContent = 'Remove from my library';
 }

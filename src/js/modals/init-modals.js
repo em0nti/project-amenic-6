@@ -1,7 +1,7 @@
-import { refs } from '../constants';
+import { refs } from '../constants.js';
 import { openModal } from './open-close-modals';
 import { onWatchTrailerClick } from '../watch-trailer';
-import { onCardClick } from '../card-handler';
+import { onCardClick } from '../card-handler.js';
 
 export function initModals() {
   // add an event listener to open the modals

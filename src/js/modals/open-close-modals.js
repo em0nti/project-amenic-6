@@ -13,24 +13,46 @@ function closeModal(modalElement, videoPlayer = null) {
   console.log(`Modal is closed. Player is ${videoPlayer}`);
 }
 
+function handleOverlayClickWrapper(modalElement, videoPlayer = null) {
+  return function (event) {
+    handleOverlayClick(event, modalElement, videoPlayer);
+  };
+}
+
+function handleKeyDownWrapper(modalElement, videoPlayer = null) {
+  return function (event) {
+    handleKeyDown(event, modalElement, videoPlayer);
+  };
+}
+
 function addEventListeners(modalElement, videoPlayer = null) {
-  modalElement.addEventListener('click', e => handleOverlayClick(e, modalElement, videoPlayer));
-  document.addEventListener('keydown', e => handleKeyDown(e, modalElement, videoPlayer));
+  const overlayClickHandler = handleOverlayClickWrapper(modalElement, videoPlayer);
+  const keyDownHandler = handleKeyDownWrapper(modalElement, videoPlayer);
+
+  modalElement.overlayClickHandler = overlayClickHandler;
+  modalElement.keyDownHandler = keyDownHandler;
+
+  modalElement.addEventListener('click', overlayClickHandler);
+  document.addEventListener('keydown', keyDownHandler);
+
   modalElement
     .querySelector('[data-modal-close]')
     .addEventListener('click', () => closeModal(modalElement, videoPlayer));
 }
 
 function removeEventListeners(modalElement, videoPlayer = null) {
-  modalElement.removeEventListener('click', e => handleOverlayClick(e, modalElement, videoPlayer));
-  document.removeEventListener('keydown', e => handleKeyDown(e, modalElement, videoPlayer));
+  const overlayClickHandler = modalElement.overlayClickHandler;
+  const keyDownHandler = modalElement.keyDownHandler;
+
+  modalElement.removeEventListener('click', overlayClickHandler);
+  document.removeEventListener('keydown', keyDownHandler);
+
   modalElement
     .querySelector('[data-modal-close]')
     .removeEventListener('click', () => closeModal(modalElement, videoPlayer));
 }
 
 function handleKeyDown(event, modalElement, videoPlayer = null) {
-  console.log('event.key: ', event.key);
   if (event.key === 'Escape') {
     closeModal(modalElement, videoPlayer);
   }
@@ -49,4 +71,3 @@ function stopVideoPlayer(videoPlayer) {
 }
 
 export { openModal, closeModal };
-

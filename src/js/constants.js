@@ -24,6 +24,6 @@ export const refs = {
 export const state = {
   activeCard: { id: null },
   homeHero: { id: null },
-  catalogHero: { id: null },
+  heroSectionFilmId: { id: null },
   player: null,
 };

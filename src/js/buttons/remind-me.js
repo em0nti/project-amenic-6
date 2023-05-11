@@ -1,6 +1,6 @@
 import Notiflix from 'notiflix';
 
-import { refs, state } from '../constants';
+import { state } from '../constants.js';
 import { save, load } from '../local-storage-service';
 
 const STORAGE_KEY = 'movie-id';

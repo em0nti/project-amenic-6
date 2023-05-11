@@ -1,5 +1,5 @@
 import YouTubePlayer from 'youtube-player';
-import { refs } from './constants';
+import { refs } from './constants.js';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { openModal } from './modals/open-close-modals';
 

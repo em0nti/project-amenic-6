@@ -1,7 +1,7 @@
 // import initChoices from './search-styling';
 import ApiFetchService from './api_fetch_service';
 import ApiMarkupService from './api_markup_service';
-import { refs } from './constants';
+import { refs } from './constants.js';
 import { currentPage } from './show-current-page';
 //import { markupFilmByQuery } from '.';
 
@@ -18,7 +18,7 @@ import {
   onShowPopUpModal,
 } from './functions';
 import { onWatchTrailerClick } from './watch-trailer';
-import { onCardClick } from './card-handler';
+import { onCardClick } from './card-handler.js';
 import { openModal } from './modals/open-close-modals';
 
 currentPage();
