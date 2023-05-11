@@ -1,28 +1,52 @@
-import { tmdbApi } from './components/tmdbApi';
-import { genresNames } from './components/genresListNames';
 
-console.log("🚀 ~ tmdbApi:", tmdbApi)
-console.log("🚀 ~ genresNames:", genresNames)
+import { tmdbApi } from './components/tmdbApi';
 
 import scrollToTop from './components/scroll-to-top';
 import intersection from './components/infinite-scroll'
 import appendMovieCards from './components/append-movie-cards';
 import clearPage from "./components/clear-page";
+// import initChoices from './search-styling';
+import ApiFetchService from './api_fetch_service';
+import ApiMarkupService from './api_markup_service';
+import { refs } from './constants';
+import { currentPage } from './show-current-page';
+//import { markupFilmByQuery } from '.';
+
+import {
+  markupFilmByQuery,
+  markUpWeeklyTrends,
+  markUpDayTrends,
+  markupFilmByID,
+  markupFilmByIDArray,
+  markupFilmUpcoming,
+  getRandomInt,
+  onChangeWeeklyTrendsByResizeViewport,
+  onChangeWeeklyTrendsByScreenWidth,
+  onShowPopUpModal,
+} from './functions';
+import { onWatchTrailerClick } from './watch-trailer';
+import { onCardClick } from './card-handler';
+import { openModal } from './modals/open-close-modals';
+
+currentPage();
 
 
-const refs = {
-    bodyRef: document.querySelector('body'),
-    formRef: document.querySelector('.search-form'),
-    inputRef: document.querySelector('input'),
-    cardSetRef: document.querySelector('.card-set'),
-}
+const bodyRef = document.querySelector('body'),
 
-refs.formRef.addEventListener('submit', onSearch);
+const inputRef = document.querySelector('input'),
+const cardSetRef = document.querySelector('.card-set'),
+
+const formRef = document.querySelector('.search-form'),
+
+refs.cards.addEventListener('click', e => onCardClick(e));
+refs.cards.addEventListener('click', () => openModal(refs.modalPopUp));
+
+formRef.addEventListener('submit', onSearch);
 
 function onSearch(event) {
     event.preventDefault();
 
-    tmdbApi.form = refs.formRef;
+    tmdbApi.form = formRef;
     tmdbApi.query = event.currentTarget.elements.query.value.trim();
 
     handleSearch(tmdbApi.query);
