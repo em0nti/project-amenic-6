@@ -6,6 +6,7 @@ import { CardStorage } from './classes/card-storage';
 
 refs.cards.addEventListener('click', () => openModal(refs.modalPopUp));
 refs.cards.addEventListener('click', e => onCardClick(e));
+refs.mobileMenuToggler.addEventListener('click', () => openModal(refs.mobileMenu));
 
 currentPage();
 
