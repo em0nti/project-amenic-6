@@ -4,6 +4,7 @@ import { onCardClick } from './card-handler';
 import { openModal } from './modals/open-close-modals';
 import { CardStorage } from './classes/card-storage';
 
+refs.cards.addEventListener('click', e => onCardClick(e));
 refs.mobileMenuToggler.addEventListener('click', () => openModal(refs.mobileMenu));
 
 currentPage();

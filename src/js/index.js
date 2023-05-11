@@ -13,6 +13,7 @@ import { CardStorage } from './classes/card-storage';
 
 currentPage();
 
+refs.cards.addEventListener('click', e => onCardClick(e));
 refs.mobileMenuToggler.addEventListener('click', () => openModal(refs.mobileMenu));
 
 //Init storage for IDs on startup

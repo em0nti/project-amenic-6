@@ -31,6 +31,8 @@ import { openModal } from './modals/open-close-modals';
 
 currentPage();
 
+refs.cards.addEventListener('click', e => onCardClick(e));
+refs.mobileMenuToggler.addEventListener('click', () => openModal(refs.mobileMenu));
 //Init storage for IDs on startup
 const cardStorage = new CardStorage();
 cardStorage.init();
