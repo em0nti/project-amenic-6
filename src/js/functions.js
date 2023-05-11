@@ -151,11 +151,13 @@ export async function markupFilmUpcoming(posterType) {
 
     // console.log('TESTTEST', buttonTrailer);
 
-    buttonRemindMe.addEventListener('click', setIDOnclickLibrary);
-    function setIDOnclickLibrary(params) {
+    buttonRemindMe.addEventListener('click', e => {
+      setIDOnclickLibrary(FilmID);
+    });
+    function setIDOnclickLibrary(ID) {
       // console.log(params);
       console.log('setIDOnclickLibrary');
-      onClickAddToLibrary(FilmID);
+      onClickAddToLibrary(ID);
     }
     // refs.sectionUpcoming.insertAdjacentHTML('beforeend', markupFilmUpcoming);
   } catch (error) {
@@ -276,7 +278,9 @@ export async function onShowPopUpModal(ID) {
     // console.log(markupFilmByID);
 
     refs.popUpModal.innerHTML = markupFilmByID;
+
     return ID;
+
   } catch (error) {
     console.log(error);
   }
