@@ -12,7 +12,8 @@
   }
   background: var(--bcgr-main-1);
 
-  &:hover {
+  &:hover,
+  &:focus {
     background: var(--bcgr-main-2);
   }
 }
@@ -53,7 +54,8 @@
   background: linear-gradient(141.22deg, var(--color-white), var(--color-white)) padding-box,
     var(--linear-gradient-1) border-box;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background: linear-gradient(141.22deg, var(--color-white), var(--color-white)) padding-box,
       var(--linear-gradient-2) border-box;
   }

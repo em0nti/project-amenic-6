@@ -12,7 +12,8 @@
 
   color: var(--color-titleAll);
 
-  &:hover {
+  &:hover,
+  &:focus {
     background: var(--color-titleAll);
     color: var(--color-OrangText);
     border: transparent;
@@ -40,7 +41,8 @@
 
   color: var(--color-dark-grey-1);
 
-  &:hover {
+  &:hover,
+  &:focus {
     background: var(--color-dark-grey-1);
     color: var(--color-primary);
     border: transparent;
