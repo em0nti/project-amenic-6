@@ -9,7 +9,7 @@
   }
 
   @include mq(desktop) {
-      height: 215px;
+    height: 215px;
   }
 }
 
@@ -42,5 +42,13 @@
 
   @include mq(desktop) {
     padding-bottom: 8px;
+  }
+}
+
+.not-found-film--popup {
+  top: 100px;
+  @media screen and (max-width: 768px) {
+    left: -35px;
+    top: 150px;
   }
 }
