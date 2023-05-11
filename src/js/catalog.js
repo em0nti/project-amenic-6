@@ -1,7 +1,7 @@
 // import initChoices from './search-styling';
 import ApiFetchService from './api_fetch_service';
 import ApiMarkupService from './api_markup_service';
-import { refs } from './constants';
+import { refs, state } from './constants';
 import { currentPage } from './show-current-page';
 //import { markupFilmByQuery } from '.';
 
@@ -20,13 +20,18 @@ import {
 import { onWatchTrailerClick } from './watch-trailer';
 import { onCardClick } from './card-handler';
 import { openModal } from './modals/open-close-modals';
+import { CardStorage } from './classes/card-storage';
 
 currentPage();
 
-// refs.watchTrailerBtn.addEventListener('click', () => onWatchTrailerClick(493529));
+const cardStorage = new CardStorage();
+cardStorage.init();
+state.cardStorage = cardStorage;
+
 refs.cards.addEventListener('click', e => onCardClick(e));
 refs.cards.addEventListener('click', () => openModal(refs.modalPopUp));
 // initChoices();
+
 // create instance 'apiFetchService' for using in functions
 const apiFetchService = new ApiFetchService();
 const apiMarkupService = new ApiMarkupService();
