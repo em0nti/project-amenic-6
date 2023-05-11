@@ -17,11 +17,9 @@ const apiFetchService = new ApiFetchService();
 const apiMarkupService = new ApiMarkupService();
 
 window.addEventListener('load', () => {
-  // console.log(e);
   onChangeWeeklyTrendsByScreenWidth(refs.sectionWeeklyTrends, 3);
 });
 window.addEventListener('load', () => {
-  // console.log(e);
   onChangemarkupFilmUpcomingsByScreenWidth(refs.sectionUpcoming, 3);
 });
 

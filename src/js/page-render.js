@@ -9,7 +9,7 @@ export async function onChangeWeeklyTrendsByScreenWidth(blockInnerHTML, pageNum)
     if (screenWidth < 768 && pageNum === 3) {
       markUpWeeklyTrends(1)
         .then(data => {
-          console.log(blockInnerHTML);
+          // console.log(blockInnerHTML);
           blockInnerHTML.innerHTML = data;
         })
         .catch(err => console.log(err));
