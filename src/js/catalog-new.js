@@ -1,5 +1,5 @@
-import { tmdbApi, trendsApi } from './components/tmdbApi';
-
+import { tmdbApi } from './components/tmdbApi';
+import { trendsApi } from './components/trendsApi';
 import scrollToTop from './components/scroll-to-top';
 import intersection from './components/infinite-scroll';
 import appendMovieCards from './components/append-movie-cards';
