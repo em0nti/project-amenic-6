@@ -9,7 +9,7 @@ export default function intersection() {
     }
     let target = refs.cardSetRef.lastElementChild;
 
-    async function callback(entries, observer) {
+    async function callback(entries) {
         if (entries[0].isIntersecting) {
             console.log(target.dataset);
             updateTarget();

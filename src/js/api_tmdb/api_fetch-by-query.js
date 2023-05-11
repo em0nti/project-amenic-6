@@ -11,7 +11,7 @@ export default class TmdbApi {
         const axiosParams = {
             params: {
             api_key: "91ae85947dca7203ec2b4d7841a3c73b",
-            query: encodeQuery(this.searchQuery),
+            query: this.searchQuery,
             page: this.page,
             }
         
@@ -39,6 +39,6 @@ export default class TmdbApi {
         this.searchQuery = newQuery;
      }
 };
-function encodeQuery(searchQuery) {
-    return encodeURIComponent(searchQuery).replace(/%20/g, "+");
-};
+// function encodeQuery(searchQuery) {
+//     return encodeURIComponent(searchQuery).replace(/%20/g, "+");
+// };
