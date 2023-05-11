@@ -31,6 +31,16 @@ $container-width-desktop: 1280px;
   --linear-gradient-1: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   --linear-gradient-2: linear-gradient(141.22deg, #f84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
 
+  // buttons
+  --btn-main-color: #111111;
+  --border-main-btn-1: none;
+  --bcgr-main-1: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  --bcgr-main-2: linear-gradient(141.22deg, #f84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
+  --border-main-btn-1: none;
+  --bcgr-color-search-2: #fff;
+
+  
+
   --transition-duration: 250ms;
   --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -60,6 +70,17 @@ $container-width-desktop: 1280px;
   --bagroundModal: #fff;
   --linear-gradient-1: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   --linear-gradient-2: linear-gradient(141.22deg, #f84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
+
+  // buttons
+  // --btn-main-color: #f87719;
+  
+  // --bcgr-main-1: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  //   --bcgr-main-2: linear-gradient(141.22deg, #f84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
+  //   --border-main-btn-1: none;  
+    // --bcgr-main-2: linear-gradient(141.22deg, #fff, #fff) padding-box,
+  //   linear-gradient(141.22deg, #f84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%) border-box;
+  
+  // --border-main-btn-2: none;
 
   --transition-duration: 250ms;
   --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

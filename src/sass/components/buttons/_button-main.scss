@@ -1,6 +1,7 @@
 .button-main {
+  color: var(--btn-main-color);
   @include font(12, 1.2, null);
-  border: none;
+  border: var(--border-btn-1);
 
   @include mq(tablet) {
     @include font(14, 1.15, null);
@@ -9,10 +10,11 @@
     height: 48px;
     @include font(16, 1.5, null);
   }
-  background: var(--linear-gradient-1);
+  background: var(--bcgr-main-1);
 
-  &:hover {
-    background: var(--linear-gradient-2);
+  &:hover,
+  &:focus {
+    background: var(--bcgr-main-2);
   }
 }
 
@@ -52,7 +54,8 @@
   background: linear-gradient(141.22deg, var(--color-white), var(--color-white)) padding-box,
     var(--linear-gradient-1) border-box;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background: linear-gradient(141.22deg, var(--color-white), var(--color-white)) padding-box,
       var(--linear-gradient-2) border-box;
   }
