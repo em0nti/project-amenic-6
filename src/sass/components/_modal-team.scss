@@ -1,87 +1,68 @@
 ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.team-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  @media screen and (min-width: $container-width-mobile) {
+    margin-top: 70px;
+    width: 240px;
+    border-radius: 15px;
   }
-  
-  .team-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -20px;
-    justify-content: center;
+
+  @media screen and (min-width: $container-width-tablet) {
+    width: 600px;
+    border-radius: 25px;
   }
-  @media screen and (min-width: 320px) {
-    .team-wrapper {
-      margin-top: 70px;
-      width: 240px;
-      /* background-color: white; */
-      border-radius: 15px;
-    }
+  @media screen and (min-width: $container-width-desktop) {
+    margin: -30px;
+    width: 800px;
   }
-  @media screen and (min-width: 768px) {
-    .team-wrapper {
-      width: 600px;
-      border-radius: 25px;
-    }
+}
+
+.team-card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: calc((100% - 80px) / 3);
+  @media screen and (min-width: $container-width-tablet) {
+    margin: 10px;
+    flex-basis: calc((100% - 160px) / 4);
   }
-  
-  @media screen and (min-width: 1024px) {
-    .team-wrapper {
-      margin: -30px;
-      width: 800px;
-    }
+  @media screen and (min-width: $container-width-desktop) {
+    flex-basis: calc((100% - 160px) / 4);
   }
-  
-  .team-card {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-    width: calc((100% - 80px) / 2);
+}
+
+.team-image {
+  margin-bottom: 10px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 30%;
+  box-shadow: 5px 5px 11px -2px dark;
+}
+.team-name {
+  margin-bottom: 5px;
+  font-family: Roboto;
+  font-weight: 700;
+}
+.team-role {
+  font-family: Roboto;
+  color: orange;
+  @media screen and (min-width: $container-width-tablet) {
+    font-size: 16px;
   }
-  
-  @media screen and (min-width: 768px) {
-    .team-card {
-      width: calc((100% - 160px) / 4);
-    }
-  
-    @media screen and (min-width: 1024px) {
-      .team-card {
-        margin: 30px;
-        width: calc((100% - 240px) / 4);
-      }
-    }
-  }
-  
-  .team-image {
-    margin-bottom: 10px;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 30%;
-    box-shadow: 5px 5px 11px -2px dark;
-  }
-  
-  .team-name {
-    margin-bottom: 5px;
-    font-family: Roboto;
-    font-weight: 700;
-  }
-  
-  .team-role {
-    font-family: Roboto;
-    color: orange;
-  }
-  @media screen and (min-width: 768px) {
-    .team-role {
-      font-size: 16px;
-    }
-  }
-  
-  .team-modal {
-    text-decoration: underline;
-    cursor: pointer;
-  }
+}
+
+.team-modal {
+  text-decoration: underline;
+  cursor: pointer;
+}
