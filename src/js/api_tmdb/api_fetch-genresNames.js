@@ -12,7 +12,7 @@ export default class TmdbApiGenresNames {
         };
         try {
             const response = await axios.get(url, axiosParams);
-            console.log(response.data.genres);
+            // console.log(response.data.genres);
             this.genres = response.data.genres;
             return response.data.genres;
         } catch (error) {

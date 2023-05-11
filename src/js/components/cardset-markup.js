@@ -1,22 +1,28 @@
 import { genresNames } from '../components/genresListNames';
 import renderRating from '../rating';
+import { basicCardTemplate } from './card-markup-templates';
+
+async function getNameGenre() {
+  try {
+    const genreList = await genresNames.getGenresNames();
+
+    console.log("🚀 ~ createMarkup ~ genres:", genresNames.genres)
+    return genreList.genres;
+        
+  } catch (error) {
+    console.log("ошибка в createMarkup", error);
+  }
+}
 
 export default function createMarkup(cards) {
-    try {
-        const genres =  genresNames.getGenresNames();
-
-        console.log("🚀 ~ createMarkup ~ genres:", genres)
-
-    } catch (error) {
-        console.log("ошибка в createMarkup", error);
-     }
+ console.log(getNameGenre());
 
   return cards.map(({ poster_path, title, genre_ids, release_date, vote_average, id }) => {
 
-      function getNameGenre(idGenre) {
-          let nameGenre = genres.find(genre => genre.id === idGenre);
-          return nameGenre.name;
-        }
+    //   function getNameGenre(idGenre) {
+    //       let nameGenre = genres.find(genre => genre.id === idGenre);
+    //       return nameGenre.name;
+    //     }
 
     let listOfGenres = 'unknown genre';
     // if (genres.length === 0) {
