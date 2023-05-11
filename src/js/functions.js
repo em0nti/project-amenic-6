@@ -4,6 +4,11 @@ import ApiMarkupService from './api_markup_service';
 import { refs } from './constants';
 import { onWatchTrailerClick } from './watch-trailer';
 import { onClickAddToLibrary } from './buttons/remind-me';
+import {
+  verifyIdOnCardOpen,
+  onClickAddRemoveFromLibrary,
+  showIdOnCardClick,
+} from './buttons/add-remove-id-storage';
 
 // create instance 'apiFetchService' for using in functions
 const apiFetchService = new ApiFetchService();
@@ -283,6 +288,7 @@ export async function onShowPopUpModal(ID) {
     const FilmID = dataFilmFromID.id;
     // console.log(dataFilmUpcomingForMarkup.id);
     console.log(buttonAddToMyLibrary);
+    showIdOnCardClick(FilmID);
 
     // console.log('TESTTEST', buttonTrailer);
 
@@ -292,6 +298,9 @@ export async function onShowPopUpModal(ID) {
     function setIDOnclickLibrary(ID) {
       // console.log(params);
       console.log('setIDOnclickLibrary');
+
+      const STORAGE_KEY = 'movie-id';
+
       onClickAddToLibrary(ID);
     }
   } catch (error) {
