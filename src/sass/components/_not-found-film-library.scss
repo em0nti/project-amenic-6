@@ -60,5 +60,6 @@
 
 .not-found-film-library__link {
     @extend %link;
-    color: var(--color-battonText)
+    color: var(--color-battonText);
+    display: block;
 }
