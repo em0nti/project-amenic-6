@@ -54,7 +54,8 @@ async function handleSearch() {
     if (tmdbApi.query === '') {
       throw new Error();
     }
-    clearPage();
+      clearPage();
+      
     await appendMovieCards();
     scrollToTop();
     intersection();
