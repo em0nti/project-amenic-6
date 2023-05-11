@@ -4,6 +4,8 @@ import scrollToTop from './components/scroll-to-top';
 import intersection from './components/infinite-scroll';
 import appendMovieCards from './components/append-movie-cards';
 import clearPage from './components/clear-page';
+import { CardStorage } from './classes/card-storage';
+import { refs, state } from './constants';
 // import initChoices from './search-styling';
 import ApiFetchService from './api_fetch_service';
 import ApiMarkupService from './api_markup_service';
@@ -29,15 +31,17 @@ import { openModal } from './modals/open-close-modals';
 
 currentPage();
 
+//Init storage for IDs on startup
+const cardStorage = new CardStorage();
+cardStorage.init();
+state.cardStorage = cardStorage;
+
 const bodyRef = document.querySelector('body');
 
 const inputRef = document.querySelector('input');
 const cardSetRef = document.querySelector('.card-set');
 
 const formRef = document.querySelector('.search-form');
-
-refs.cards.addEventListener('click', e => onCardClick(e));
-refs.cards.addEventListener('click', () => openModal(refs.modalPopUp));
 
 formRef.addEventListener('submit', onSearch);
 
@@ -55,7 +59,7 @@ async function handleSearch() {
       throw new Error();
     }
       clearPage();
-      
+
     await appendMovieCards();
     scrollToTop();
     intersection();
