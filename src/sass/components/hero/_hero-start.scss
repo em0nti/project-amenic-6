@@ -15,35 +15,47 @@
 
 @media screen and (min-width: $container-width-mobile) {
   .hero {
-    padding-top: 40px;
-    padding-bottom: 84px;
     background-image: linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
       url('/src/images/mobile-heroy.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
+  .hero__bagraundTwo {
+    padding-top: 40px;
+    padding-bottom: 84px;
+  }
 }
 @media screen and (min-width: $container-width-tablet) {
   .hero {
-    padding-top: 62px;
-    padding-bottom: 62px;
     background-image: linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
-      url('/src/images/blak-tablet.png'), url('/src/images/tabllet-heroy.png');
+      url('/src/images/tabllet-heroy.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
+  .hero__bagraundTwo {
+    background-image: url('/src/images/blak-tablet.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 62px;
+    padding-bottom: 62px;
+  }
 }
 @media screen and (min-width: $container-width-desktop) {
   .hero {
-    padding-top: 169px;
-    padding-bottom: 169px;
     background-image: linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%),
-      url('/src/images/blak-desk.png'), url('/src/images/gesk-heroy.png');
+      url('/src/images/gesk-heroy.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+  .hero__bagraundTwo {
+    background-image: url('/src/images/blak-desk.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 169px;
+    padding-bottom: 169px;
   }
 }
 
@@ -122,11 +134,11 @@
 
 @media screen and (min-width: $container-width-tablet) {
   .hero-white {
-    background-image: url('/src/images/SubtractWhite.png'), url('/src/images/tabllet-heroy.png');
+    background-image: url('/src/images/SubtractWhite.png');
   }
 }
 @media screen and (min-width: $container-width-desktop) {
   .hero-white {
-    background-image: url('/src/images/desk-white.png'), url('/src/images/gesk-heroy.png');
+    background-image: url('/src/images/desk-white.png');
   }
 }
