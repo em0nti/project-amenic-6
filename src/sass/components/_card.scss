@@ -2,6 +2,15 @@
   position: relative;
   height: auto;
   cursor: pointer;
+
+  scale: 1;
+
+  transition: scale var(--transition-duration) var(--transition-timing-function);
+
+  &:hover,
+  &:focus {
+    scale: 1.03;
+  }
 }
 .card__image {
   border-radius: 5px;
@@ -59,20 +68,20 @@
 }
 .card__rate--item {
   margin-right: 5.5px;
-    @media screen and (min-width: $container-width-tablet) {
-      margin-right: 1px;
-      }
+  @media screen and (min-width: $container-width-tablet) {
+    margin-right: 1px;
+  }
 }
 .card__rate--img {
   width: 13.12px;
   height: 12.25px;
-    @media screen and (min-width: $container-width-tablet) {
-  width: 9.37px;
-  height: 8.75px;
+  @media screen and (min-width: $container-width-tablet) {
+    width: 9.37px;
+    height: 8.75px;
   }
   @media screen and (min-width: $container-width-desktop) {
-   width: 16.87px;
-  height: 15.75px;
+    width: 16.87px;
+    height: 15.75px;
   }
 }
 .card__rate--img-hero {
@@ -80,8 +89,8 @@
   height: 14px;
 
   @media screen and (min-width: $container-width-tablet) {
-width: 18.75px;
-  height: 17.5px;
+    width: 18.75px;
+    height: 17.5px;
   }
 
   @media screen and (min-width: $container-width-desktop) {

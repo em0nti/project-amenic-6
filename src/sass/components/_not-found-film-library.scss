@@ -1,0 +1,59 @@
+.not-found-film-library {
+  height: 213px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  @include mq(tablet) {
+    height: 243px;
+  }
+
+  @include mq(desktop) {
+    height: 326px;
+  }
+}
+
+.not-found-film-library__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--color-titleAll);
+  position: absolute;
+  top: -11px;
+
+  @include mq(tablet) {
+    font-size: 24px;
+    line-height: 32px;
+    top: 28px;
+  }
+
+  @include mq(desktop) {
+    font-size: 32px;
+    line-height: 36px;
+    top: 80px;
+  }
+}
+
+.not-found-film__button {
+  position: absolute;
+  top: 129px;
+
+  @include mq(tablet) {
+    top: 156px;
+  }
+
+  @include mq(desktop) {
+    top: 232px;
+  }
+}
+
+.not-found-film-library__text-item:nth-child(-n + 2) {
+  padding-bottom: 4px;
+
+  @include mq(desktop) {
+    padding-bottom: 8px;
+  }
+}
