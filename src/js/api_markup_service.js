@@ -309,6 +309,36 @@ ${starsRating}
     let nameGenre = this.genresAll.find(genre => genre.id === idGenre);
     return nameGenre.name;
   }
+  //markup error library
+  markupErrorLibrary() {
+    return `<div class="not-found-film-library">
+    <p class="not-found-film-library__text">
+      <span class="not-found-film-library__text-item">OOPS...</span>
+      <span class="not-found-film-library__text-item">We are very sorry!</span>
+      <span class="not-found-film-library__text-item">You don’t have any movies at your library.</span>
+    </p>
+    <button
+      type="button"
+      class="not-found-film__button button button-main button-main--height-desktop-52"
+      id="search-movie-btn"
+    >
+      <span>Search movie</span>
+    </button>
+  </div>`;
+  }
+  //markup error catalog
+  markupErrorCatalog() {
+    return `  <div class="container">
+  <div class="not-found-film">
+    <p class="not-found-film__text">
+      <span class="not-found-film__text-item">OOPS...</span>
+      <span class="not-found-film__text-item">We are very sorry!</span>
+      <span class="not-found-film__text-item">We don’t have any results due to your search.</span>
+    </p>
+  </div>
+</div>`;
+  }
+
   //getter for array of films to markup
   get getFilmsForMarkup() {
     return this.filmsForMarkupArray;

@@ -48,9 +48,19 @@ form.addEventListener('submit', e => {
   console.log(searchQuery);
   let filmMarkup = markupFilmByQuery(searchQuery)
     .then(data => {
-      refs.sectionCatalogCardSet.innerHTML = data;
+      if (data === '') {
+        document.querySelector('.catalog__movi-catalog-list').innerHTML =
+          apiMarkupService.markupErrorCatalog();
+        return;
+      } else {
+        refs.sectionCatalogCardSet.innerHTML = data;
+      }
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err);
+      document.querySelector('.catalog__movi-catalog-list').innerHTML =
+        apiMarkupService.markupErrorCatalog();
+    });
   // refs.sectionCatalogCardSet.innerHTML = filmMarkup;
 
   // refs.sectionCatalogCardSet.innerHTML = filmMarkup;
@@ -66,3 +76,5 @@ const viewportData = window.matchMedia('(max-width: 767px)');
 window.addEventListener('load', e => {
   onChangeWeeklyTrendsByScreenWidth(refs.sectionCatalogCardSet, 12);
 });
+
+const observer = new IntersectionObserver();
