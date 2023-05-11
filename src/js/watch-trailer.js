@@ -1,5 +1,5 @@
 import YouTubePlayer from 'youtube-player';
-import { refs } from './constants.js';
+import { refs, state } from './constants.js';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { openModal } from './modals/open-close-modals';
 
@@ -12,6 +12,7 @@ let player;
 
 export async function onWatchTrailerClick(movieId){
   Loading.standard();
+  // const movieId = state.heroSectionFilm.id
   await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=91ae85947dca7203ec2b4d7841a3c73b&language=en-US`)
 
     .then(response => {

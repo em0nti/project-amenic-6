@@ -16,7 +16,7 @@ import {
   onChangeWeeklyTrendsByResizeViewport,
   onChangeWeeklyTrendsByScreenWidth,
   onShowPopUpModal,
-} from './functions';
+} from './markup-functions';
 import { onWatchTrailerClick } from './watch-trailer';
 import { onCardClick } from './card-handler.js';
 import { openModal } from './modals/open-close-modals';

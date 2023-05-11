@@ -1,5 +1,5 @@
 import { state } from './constants.js';
-import { onShowPopUpModal } from './functions.js';
+import { onShowPopUpModal } from './markup-functions.js';
 
 // refs.cards.addEventListener('click', onCardClick);
 export function onCardClick(e) {

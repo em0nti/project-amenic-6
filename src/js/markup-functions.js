@@ -1,7 +1,7 @@
 //this is class for fetching data
 import ApiFetchService from './api_fetch_service';
 import ApiMarkupService from './api_markup_service';
-import { refs } from './constants.js';
+import { refs, state } from './constants.js';
 import { onWatchTrailerClick } from './watch-trailer';
 import { onClickAddToLibrary } from './buttons/remind-me';
 import { getRandomInt } from './utils/getRandom.js';
@@ -81,13 +81,7 @@ export async function markUpDayTrends(posterType) {
     // }
 
     const buttonTrailer = document.querySelector('#watch-trailer-btn');
-    const FilmID = filmDataFormMarkup.id;
-    // console.log('TESTTEST', buttonTrailer);
-    buttonTrailer.addEventListener('click', watchTrailer);
-    function watchTrailer() {
-      // console.log(params);
-      onWatchTrailerClick(FilmID);
-    }
+    buttonTrailer.addEventListener('click', () => onWatchTrailerClick(filmDataFormMarkup.id));
 
     //refs.sectionHeroDayTrends.insertAdjacentHTML('beforeend', filmMarklUp);
 
@@ -148,14 +142,14 @@ export async function markupFilmUpcoming(posterType) {
     const buttonRemindMe = document.getElementById('remind-btn');
     const FilmID = dataFilmUpcomingForMarkup.id;
     // console.log(dataFilmUpcomingForMarkup.id);
-    console.log(buttonRemindMe);
+    // console.log(buttonRemindMe);
 
     // console.log('TESTTEST', buttonTrailer);
 
     buttonRemindMe.addEventListener('click', setIDOnclickLibrary);
     function setIDOnclickLibrary(params) {
       // console.log(params);
-      console.log('setIDOnclickLibrary');
+      // console.log('setIDOnclickLibrary');
       onClickAddToLibrary(FilmID);
     }
     // refs.sectionUpcoming.insertAdjacentHTML('beforeend', markupFilmUpcoming);
