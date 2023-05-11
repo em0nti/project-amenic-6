@@ -26,4 +26,5 @@ export const state = {
   homeHero: { id: null },
   catalogHero: { id: null },
   player: null,
+  cardStorage: null
 };

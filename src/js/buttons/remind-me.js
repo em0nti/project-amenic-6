@@ -6,18 +6,6 @@ import { save, load } from '../local-storage-service';
 const STORAGE_KEY = 'movie-id';
 let id = state.activeCard.id;
 
-// ! вішав на боді
-// const body = document.body
-// console.log(body)
-// body.addEventListener('click', onClickAddToLibrary);
-// function onClickAddToLibrary(e) {
-//     console.log(e.target);
-// }
-
-//refs.remindMeBtn.addEventListener('click', onClickAddToLibrary);
-
-// функція яка по натисканню кнопки додає значення в масив
-
 export function onClickAddToLibrary(ID) {
   console.log('Our ID: ', ID);
   addIdArrToStorage(ID);

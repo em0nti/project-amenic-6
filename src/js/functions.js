@@ -279,21 +279,8 @@ export async function onShowPopUpModal(ID) {
 
     refs.popUpModal.innerHTML = markupFilmByID;
 
-    const buttonAddToMyLibrary = document.getElementById('add-to-library-btn');
-    const FilmID = dataFilmFromID.id;
-    // console.log(dataFilmUpcomingForMarkup.id);
-    console.log(buttonAddToMyLibrary);
+    return ID;
 
-    // console.log('TESTTEST', buttonTrailer);
-
-    buttonAddToMyLibrary.addEventListener('click', e => {
-      setIDOnclickLibrary(FilmID);
-    });
-    function setIDOnclickLibrary(ID) {
-      // console.log(params);
-      console.log('setIDOnclickLibrary');
-      onClickAddToLibrary(ID);
-    }
   } catch (error) {
     console.log(error);
   }

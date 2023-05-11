@@ -1,30 +1,25 @@
 //this is class for fetching data
 import ApiFetchService from './api_fetch_service'; ///////
 import ApiMarkupService from './api_markup_service'; //////
-import { refs } from './constants'; ///////
+import { refs, state } from './constants'; ///////
 import { currentPage } from './show-current-page';
 import {
-  markupFilmByQuery,
-  markUpWeeklyTrends,
-  markUpDayTrends,
-  markupFilmByID,
-  markupFilmByIDArray,
-  markupFilmUpcoming,
-  getRandomInt,
-  onChangeWeeklyTrendsByResizeViewport,
   onChangeWeeklyTrendsByScreenWidth,
-  onShowPopUpModal,
   onChangemarkupFilmUpcomingsByScreenWidth,
 } from './functions';
-import { onWatchTrailerClick } from './watch-trailer';
 import { onCardClick } from './card-handler';
 import { openModal } from './modals/open-close-modals';
+import { CardStorage } from './classes/card-storage';
 
 currentPage();
 
-// refs.watchTrailerBtn.addEventListener('click', () => onWatchTrailerClick(493529));
 refs.cards.addEventListener('click', e => onCardClick(e));
 refs.cards.addEventListener('click', () => openModal(refs.modalPopUp));
+
+//Init storage for IDs on startup
+const cardStorage = new CardStorage();
+cardStorage.init();
+state.cardStorage = cardStorage;
 
 // create instance 'apiFetchService' for using in functions
 const apiFetchService = new ApiFetchService(); ///////
