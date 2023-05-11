@@ -30,6 +30,7 @@ state.cardStorage = cardStorage;
 
 refs.cards.addEventListener('click', e => onCardClick(e));
 refs.cards.addEventListener('click', () => openModal(refs.modalPopUp));
+refs.mobileMenuToggler.addEventListener('click', () => openModal(refs.mobileMenu));
 // initChoices();
 
 // create instance 'apiFetchService' for using in functions

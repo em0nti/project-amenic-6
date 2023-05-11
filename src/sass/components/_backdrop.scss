@@ -10,7 +10,7 @@
   visibility: visible;
   opacity: 1;
 
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: var(--bagrBagdrop);
 
   transition: visibility var(--transition-duration) var(--transition-timing-function),
     opacity var(--transition-duration) var(--transition-timing-function);
