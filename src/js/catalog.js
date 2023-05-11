@@ -1,7 +1,7 @@
 // import initChoices from './search-styling';
 import ApiFetchService from './api_fetch_service';
 import ApiMarkupService from './api_markup_service';
-import { refs } from './constants';
+import { refs, state } from './constants';
 import { currentPage } from './show-current-page';
 //import { markupFilmByQuery } from '.';
 
@@ -20,13 +20,19 @@ import {
 import { onWatchTrailerClick } from './watch-trailer';
 import { onCardClick } from './card-handler';
 import { openModal } from './modals/open-close-modals';
+import { CardStorage } from './classes/card-storage';
 
 currentPage();
 
-// refs.watchTrailerBtn.addEventListener('click', () => onWatchTrailerClick(493529));
+const cardStorage = new CardStorage();
+cardStorage.init();
+state.cardStorage = cardStorage;
+
 refs.cards.addEventListener('click', e => onCardClick(e));
 refs.cards.addEventListener('click', () => openModal(refs.modalPopUp));
+refs.mobileMenuToggler.addEventListener('click', () => openModal(refs.mobileMenu));
 // initChoices();
+
 // create instance 'apiFetchService' for using in functions
 const apiFetchService = new ApiFetchService();
 const apiMarkupService = new ApiMarkupService();
@@ -43,9 +49,19 @@ form.addEventListener('submit', e => {
   console.log(searchQuery);
   let filmMarkup = markupFilmByQuery(searchQuery)
     .then(data => {
-      refs.sectionCatalogCardSet.innerHTML = data;
+      if (data === '') {
+        document.querySelector('.catalog__movi-catalog-list').innerHTML =
+          apiMarkupService.markupErrorCatalog();
+        return;
+      } else {
+        refs.sectionCatalogCardSet.innerHTML = data;
+      }
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err);
+      document.querySelector('.catalog__movi-catalog-list').innerHTML =
+        apiMarkupService.markupErrorCatalog();
+    });
   // refs.sectionCatalogCardSet.innerHTML = filmMarkup;
 
   // refs.sectionCatalogCardSet.innerHTML = filmMarkup;
@@ -59,5 +75,7 @@ console.log('catalog.js is loaded', form);
 const viewportData = window.matchMedia('(max-width: 767px)');
 //viewportData.addEventListener('change', onChangeWeeklyTrendsByResizeViewport);
 window.addEventListener('load', e => {
-  onChangeWeeklyTrendsByScreenWidth(refs.sectionCatalogCardSet, 10);
+  onChangeWeeklyTrendsByScreenWidth(refs.sectionCatalogCardSet, 12);
 });
+
+const observer = new IntersectionObserver();

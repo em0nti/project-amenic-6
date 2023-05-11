@@ -16,6 +16,8 @@ export const refs = {
   cards: document.querySelector('.js-cards'),
   popUpModal: document.querySelector('.modal__popup'),
   sectionCatalogCardSet: document.querySelector('.catalog__movi-catalog-list'),
+  mobileMenuToggler: document.querySelector('.header__menu-toggle'),
+  mobileMenu: document.querySelector('.mobile-menu-backdrop'),
 
   //Forms
   form: document.querySelector('#search-form'),
@@ -26,4 +28,5 @@ export const state = {
   homeHero: { id: null },
   catalogHero: { id: null },
   player: null,
+  cardStorage: null
 };

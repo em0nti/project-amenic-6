@@ -35,7 +35,7 @@
 
   &:hover,
   &:focus {
-    color: var(--color-primary);
+    color: var(--color-OrangText);
   }
 
   @include mq(tablet) {

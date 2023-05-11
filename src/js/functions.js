@@ -151,11 +151,13 @@ export async function markupFilmUpcoming(posterType) {
 
     // console.log('TESTTEST', buttonTrailer);
 
-    buttonRemindMe.addEventListener('click', setIDOnclickLibrary);
-    function setIDOnclickLibrary(params) {
+    buttonRemindMe.addEventListener('click', e => {
+      setIDOnclickLibrary(FilmID);
+    });
+    function setIDOnclickLibrary(ID) {
       // console.log(params);
       console.log('setIDOnclickLibrary');
-      onClickAddToLibrary(FilmID);
+      onClickAddToLibrary(ID);
     }
     // refs.sectionUpcoming.insertAdjacentHTML('beforeend', markupFilmUpcoming);
   } catch (error) {
@@ -221,8 +223,8 @@ export async function onChangeWeeklyTrendsByScreenWidth(blockInnerHTML, pageNum)
       markUpDayTrends('poster');
       return;
     }
-    if (pageNum === 10) {
-      markUpWeeklyTrends(10)
+    if (pageNum === 12) {
+      markUpWeeklyTrends(12)
         .then(data => {
           console.log(blockInnerHTML);
           blockInnerHTML.innerHTML = data;
@@ -270,11 +272,15 @@ export async function onShowPopUpModal(ID) {
     await apiFetchService.fetchFilmGenres();
     let dataFilmFromID = await apiFetchService.fetchFilmByID(ID);
     apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
-    // console.log(dataFilmFromID);
+    // console.log(refs.popUpModal);
     // apiMarkupService.setFilmsForMarkup = await dataFilmFromID;
     let markupFilmByID = apiMarkupService.markupFilmCardPopUpByID(dataFilmFromID);
     // console.log(markupFilmByID);
-    refs.popUpModal.insertAdjacentHTML('afterbegin', markupFilmByID);
+
+    refs.popUpModal.innerHTML = markupFilmByID;
+
+    return ID;
+
   } catch (error) {
     console.log(error);
   }

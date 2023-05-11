@@ -1,6 +1,6 @@
 .mobile_modal-conainer {
   width: 65vw;
-  height: 65vh;
+  height: 100vh;
   background-color: var(--color-bagrMob);
   border-radius: 0px 8px 8px 0px;
   position: fixed;
@@ -12,7 +12,8 @@
   visibility: visible;
   opacity: 1;
   -webkit-transition: -webkit-transform 200ms linear;
-  transition: transform 200ms linear, -webkit-transform 200ms linear;
+  transform: translateX(0);
+  transition: transform var(--transition-duration) var(--transition-timing-function);
   animation: 0.5s show ease;
 
   @keyframes show {
@@ -25,8 +26,10 @@
   }
 }
 
-.backdrop {
-  background-color: var(--bagrBagdrop);
+.backdrop--hidden .mobile_modal-conainer {
+  transform: translateX(-100%);
+  transition: transform var(--transition-duration) var(--transition-timing-function);
+  opacity: 1;
 }
 
 .mobile-modal__item:not(:last-child) {

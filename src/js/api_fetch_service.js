@@ -1,4 +1,6 @@
 import axios from 'axios';
+import ApiMarkupService from './api_markup_service';
+const apiMarkupService = new ApiMarkupService();
 
 export default class ApiFetchService {
   constructor() {
@@ -119,6 +121,8 @@ export default class ApiFetchService {
       return data.results;
     } catch (error) {
       console.log(error.message);
+      document.querySelector('.catalog__movi-catalog-list').innerHTML =
+        await apiMarkupService.markupErrorCatalog();
     }
   }
   //fetch trend films. set parametres to 'week' or 'day' in setter
@@ -133,6 +137,8 @@ export default class ApiFetchService {
       this.filmsTrends = data.results;
       return data.results;
     } catch (error) {
+      document.querySelector('.catalog__movi-catalog-list').innerHTML =
+        await apiMarkupService.markupErrorCatalog();
       console.log(error);
     }
   }
