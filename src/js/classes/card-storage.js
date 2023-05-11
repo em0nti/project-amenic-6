@@ -16,7 +16,7 @@ export class CardStorage {
 
   getCardIds() {
     try {
-      return JSON.parse(localStorage.getItem(this.storageKey));
+      return JSON.parse(localStorage.getItem(this.storageKey)).map(Number);
     } catch (error) {
       console.error('Failed to get card IDs from local storage: ', error);
       return [];
@@ -28,7 +28,7 @@ export class CardStorage {
       const cardIds = this.getCardIds();
 
       if (!cardIds.includes(id)) {
-        cardIds.push(id);
+        cardIds.push(Number(id));
         localStorage.setItem(this.storageKey, JSON.stringify(cardIds));
       }
     } catch (error) {
