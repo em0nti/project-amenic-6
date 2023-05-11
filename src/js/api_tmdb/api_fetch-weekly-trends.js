@@ -2,7 +2,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import axios from 'axios';
 export default class TrendsApi {
   constructor() {
-    this.trendsType = '';
+    this._trendsType = '';
     this.page = 1;
     this.form;
   }
@@ -31,11 +31,11 @@ export default class TrendsApi {
     // }
   }
   get trendsType() {
-    return this.trendsType;
+    return this._trendsType;
   }
   set trendsType(type) {
     // this.page = 1;
-    this.trendsType = type;
+    this._trendsType = type;
   }
 }
 // function encodeQuery(searchQuery) {
