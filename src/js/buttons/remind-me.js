@@ -45,6 +45,6 @@ export function onClickAddToLibrary(ID) {
   }
 
   function verifycontainsId(arr, x) {
-    return (hasId = arr.includes(x));
+    return arr.includes(x);
   }
 }
