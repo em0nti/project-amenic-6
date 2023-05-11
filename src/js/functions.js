@@ -276,7 +276,7 @@ export async function onShowPopUpModal(ID) {
     // console.log(markupFilmByID);
 
     refs.popUpModal.innerHTML = markupFilmByID;
-    document.getElementById('add-to-library-btn').addEventListener('click', () => console.log('Add to my Library Listener works'));
+    // document.getElementById('add-to-library-btn').addEventListener('click', () => console.log('Add to my Library Listener works'));
   } catch (error) {
     console.log(error);
   }

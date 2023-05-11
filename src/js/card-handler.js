@@ -8,5 +8,7 @@ export function onCardClick(e) {
   const movieId = card.dataset.id;
   state.activeCard.id = movieId;
   console.log(movieId);
-  onShowPopUpModal(movieId);
+  onShowPopUpModal(movieId).then(() => {
+    document.getElementById('add-to-library-btn').addEventListener('click', () => console.log('Add to my Library Listener works'));
+  });
 }
