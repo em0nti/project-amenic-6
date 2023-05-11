@@ -1,4 +1,4 @@
-import { refs, state } from './constants';
+import { state } from './constants';
 
 
 export function onClickAddToLibrary(cardID) {

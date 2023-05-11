@@ -1,9 +1,10 @@
 //this is class for fetching data
 import ApiFetchService from './api_fetch_service';
 import ApiMarkupService from './api_markup_service';
-import { refs } from './constants';
+import { refs, state } from './constants';
 import { onWatchTrailerClick } from './watch-trailer';
 import { onClickAddToLibrary } from './buttons/remind-me';
+import { Notify } from 'notiflix';
 
 // create instance 'apiFetchService' for using in functions
 const apiFetchService = new ApiFetchService();
@@ -23,7 +24,6 @@ export async function markupFilmByQuery(searchQuery) {
     // let filmMarklUp = await apiMarkupService.markupFilmCard(apiMarkupService.getFilmsForMarkup);
     let filmMarkUp = await apiMarkupService.markupGallery();
 
-    // console.log(filmMarkUp);
     return filmMarkUp;
   } catch (error) {
     console.log(error);
@@ -44,7 +44,6 @@ export async function markUpWeeklyTrends(numOfArray) {
     // refs.sectionWeeklyTrends.innerHTML = filmMarklUp;
     // refs.sectioWeeklyTrends.insertAdjacentHTML('beforeend', filmMarklUp);
     return filmMarkUp;
-    // console.log(filmMarklUp);
   } catch (error) {
     console.log(error);
   }
@@ -61,10 +60,6 @@ export async function markUpDayTrends(posterType) {
     // apiMarkupService.setFilmsForMarkup = '';
     apiMarkupService.setFilmsForMarkup = await dataFromTrends[filmArrayIDtoMarkup];
     let filmDataFormMarkup = apiMarkupService.getFilmsForMarkup;
-    // console.log(
-    //   'filmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkupfilmDataFormMarkup',
-    //   filmDataFormMarkup,
-    // );
     let filmMarklUp = await apiMarkupService.markupFilmHeroTrendsDay(filmDataFormMarkup);
 
     refs.sectionHeroDayTrends.innerHTML = filmMarklUp;
@@ -81,16 +76,11 @@ export async function markUpDayTrends(posterType) {
 
     let buttonTrailer = document.querySelector('#watch-trailer-btn');
     let FilmID = filmDataFormMarkup.id;
-    // console.log('TESTTEST', buttonTrailer);
     buttonTrailer.addEventListener('click', watchTrailer);
     function watchTrailer(params) {
-      // console.log(params);
       onWatchTrailerClick(FilmID);
     }
 
-    //refs.sectionHeroDayTrends.insertAdjacentHTML('beforeend', filmMarklUp);
-
-    // console.log('markUpDayTrends', filmMarklUp);
   } catch (error) {
     console.log(error);
   }
@@ -101,10 +91,10 @@ export async function markupFilmByID(ID) {
     await apiFetchService.fetchFilmGenres();
     let dataFilmFromID = await apiFetchService.fetchFilmByID(ID);
     apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
-    // console.log(dataFilmFromID);
+
     // apiMarkupService.setFilmsForMarkup = await dataFilmFromID;
     let markupFilmByID = await apiMarkupService.markupFilmCardByID(dataFilmFromID);
-    // console.log(markupFilmByID);
+
   } catch (error) {
     console.log(error);
   }
@@ -118,47 +108,38 @@ export async function markupFilmByIDArray(arrayID) {
     await apiFetchService.fetchFilmByIDArray();
     apiMarkupService.setFilmsForMarkup = apiFetchService.getFilmsArrayByID;
     let filmMarklUp = await apiMarkupService.markupGalleryByID();
-    // console.log(filmMarklUp);
 
     refs.sectionGallery.insertAdjacentHTML('beforeend', filmMarklUp);
 
-    // console.log(filmMarklUp);
   } catch (error) {
     console.log(error);
   }
 }
 //function to markup filmUpcoming with randomizer
-export async function markupFilmUpcoming(posterType) {
+export async function markupFilmUpcoming(posterType = null) {
   try {
     let filmArrayIDtoMarkup = getRandomInt(18);
     await apiFetchService.fetchFilmGenres();
     apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
     let dataFilmUpcoming = await apiFetchService.fetchFilmUpcoming();
     let dataFilmUpcomingForMarkup = await dataFilmUpcoming[filmArrayIDtoMarkup];
-    //console.log(dataFilmUpcomingForMarkup);
 
-    let markupFilmUpcoming = await apiMarkupService.markupFilmCardUpcoming(
+    refs.sectionUpcoming.innerHTML = apiMarkupService.markupFilmCardUpcoming(
       dataFilmUpcomingForMarkup,
       posterType,
     );
-    // console.log(markupFilmUpcoming);
-
-    refs.sectionUpcoming.innerHTML = markupFilmUpcoming;
-    const buttonRemindMe = document.getElementById('remind-btn');
-    const FilmID = dataFilmUpcomingForMarkup.id;
-    // console.log(dataFilmUpcomingForMarkup.id);
-    console.log(buttonRemindMe);
-
-    // console.log('TESTTEST', buttonTrailer);
-
-    buttonRemindMe.addEventListener('click', e => {
-      setIDOnclickLibrary(FilmID);
+    document.getElementById('remind-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      const cardStorage = state.cardStorage;
+      if (!cardStorage.hasCardId(dataFilmUpcomingForMarkup.id)) {
+        cardStorage.addCardId(dataFilmUpcomingForMarkup.id);
+        Notify.success('The film added into your Library')
+      } else {
+        Notify.info('The film already in your Library');
+      }
     });
-    function setIDOnclickLibrary(ID) {
-      // console.log(params);
-      console.log('setIDOnclickLibrary');
-      onClickAddToLibrary(ID);
-    }
+    return dataFilmUpcomingForMarkup.id;
+
     // refs.sectionUpcoming.insertAdjacentHTML('beforeend', markupFilmUpcoming);
   } catch (error) {
     console.log(error);
@@ -201,37 +182,31 @@ export function getRandomInt(max) {
 export async function onChangeWeeklyTrendsByScreenWidth(blockInnerHTML, pageNum) {
   try {
     let screenWidth = window.innerWidth;
-    console.log(pageNum);
-    console.log('current Width Screen in px is: ', screenWidth);
     if (screenWidth < 768 && pageNum === 3) {
       markUpWeeklyTrends(1)
         .then(data => {
-          console.log(blockInnerHTML);
           blockInnerHTML.innerHTML = data;
         })
         .catch(err => console.log(err));
-      markUpDayTrends('poster');
+      await markUpDayTrends('poster');
       return;
     }
     if (screenWidth >= 768 && pageNum === 3) {
       markUpWeeklyTrends(3)
         .then(data => {
-          console.log(blockInnerHTML);
           blockInnerHTML.innerHTML = data;
         })
         .catch(err => console.log(err));
-      markUpDayTrends('poster');
+      await markUpDayTrends('poster');
       return;
     }
     if (pageNum === 12) {
       markUpWeeklyTrends(12)
         .then(data => {
-          console.log(blockInnerHTML);
           blockInnerHTML.innerHTML = data;
         })
         .catch(err => console.log(err));
-      markUpDayTrends('poster');
-      return;
+      await markUpDayTrends('poster');
     }
 
     // else {
@@ -253,15 +228,12 @@ export async function onChangeWeeklyTrendsByScreenWidth(blockInnerHTML, pageNum)
 export async function onChangemarkupFilmUpcomingsByScreenWidth(blockInnerHTML, pageNum) {
   try {
     let screenWidth = window.innerWidth;
-    console.log(pageNum);
-    console.log('current Width Screen in px is: ', screenWidth);
     if (screenWidth < 768) {
-      markupFilmUpcoming('poster');
+      await markupFilmUpcoming('poster');
       return;
     }
     if (screenWidth >= 768 && pageNum === 3) {
-      markupFilmUpcoming('backdrop');
-      return;
+      await markupFilmUpcoming('backdrop');
     }
   } catch (error) {
     console.log(error);
@@ -272,10 +244,8 @@ export async function onShowPopUpModal(ID) {
     await apiFetchService.fetchFilmGenres();
     let dataFilmFromID = await apiFetchService.fetchFilmByID(ID);
     apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
-    // console.log(refs.popUpModal);
     // apiMarkupService.setFilmsForMarkup = await dataFilmFromID;
     let markupFilmByID = apiMarkupService.markupFilmCardPopUpByID(dataFilmFromID);
-    // console.log(markupFilmByID);
 
     refs.popUpModal.innerHTML = markupFilmByID;
 
