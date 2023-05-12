@@ -4,6 +4,7 @@ import scrollToTop from './components/scroll-to-top';
 import intersection from './components/infinite-scroll';
 import intersectionWeekly from './components/infinite-scroll-weekly';
 import appendMovieCards from './components/append-movie-cards';
+import renderSearchFail from './components/render-search-fail';
 import appendTrendsCards from './components/append-weekly-cards';
 import clearPage from './components/clear-page';
 import { CardStorage } from './classes/card-storage';
@@ -60,15 +61,14 @@ function onSearch(event) {
 async function handleSearch() {
   try {
     if (tmdbApi.query === '') {
-      throw new Error();
+      throw new Error(error);
     }
     clearPage();
-
     await appendMovieCards();
-    scrollToTop();
     intersection();
   } catch (error) {
-    console.log(error.message);
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!", error);
+    renderSearchFail();
   }
 }
 
