@@ -1,6 +1,5 @@
 // import genres from './genres-array';
 import renderRating from '../rating';
-import { basicCardTemplate } from './card-markup-templates';
 const genres = [
     {
         id: 28,
