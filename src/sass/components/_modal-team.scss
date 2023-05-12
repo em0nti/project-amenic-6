@@ -68,6 +68,10 @@ ul {
   background-color: var(--color-body);
   border-radius: 5%;
 }
-.light .team-modal {
+.light .modal-content {
   background-color: var(--color-white);
+}
+.modal-content {
+  background-color: var(--color-body);
+  border-radius: 5%;
 }
