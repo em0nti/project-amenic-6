@@ -105,7 +105,40 @@ ${starsRating}
     }
 
     let truncatePopularity = popularity.toFixed(1);
-
+        if (!poster_path) {
+      return `
+  <div class="filmpage__poster">
+        <img class="filmpage__img" src="https://placehold.co/500x750?text=Poster+not+available" alt="film" />
+      </div>
+      <div class="filmpage__content">
+        <h2 class="filmpage__title">${title}</h2>
+        <table class="filmpage__table">
+          <tr>
+            <td class="filmpage__table--subtitle">Vote / Votes</td>
+            <td class="filmpage__table--information">
+              <span class="filmpage__table--rating">${vote_average}</span> /
+              <span class="filmpage__table--rating2">${vote_count}</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="filmpage__table--subtitle">Popularity</td>
+            <td class="filmpage__table--information">${truncatePopularity}</td>
+          </tr>
+          <tr>
+            <td class="filmpage__table--subtitle">Genre</td>
+            <td class="filmpage__table--information">${listOfGenres}</td>
+          </tr>
+        </table>
+        <p class="filmpage__table--headline">About</p>
+        <p class="filmpage__table--description">
+          ${overview}
+        </p>
+        <button type="button" class="button button-add" data-id=“btn-${id} id="add-to-library-btn">
+          <span>Add to my library</span>
+        </button>
+      </div>`;
+      
+    }
     return `
   <div class="filmpage__poster">
         <img class="filmpage__img" src="https://image.tmdb.org/t/p/original${poster_path}" alt="film" />
