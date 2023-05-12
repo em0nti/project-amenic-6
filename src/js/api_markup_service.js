@@ -45,7 +45,7 @@ ${starsRating}
 </div>`;
   }
   // method for markup film card from fetch by ID Film
-  markupFilmCardByID({ poster_path, title, genres, release_date, vote_average }) {
+  markupFilmCardByID({ poster_path, title, genres, release_date, vote_average, id }) {
     let listOfGenres = '';
     if (genres.length === 0) {
       listOfGenres = '';
@@ -57,7 +57,7 @@ ${starsRating}
 
     let yearOfRelease = release_date.slice(0, 4);
     let starsRating = renderRating(vote_average);
-    return `<div class="card__item card-set__item movi-card-general-set">
+    return `<div class="card card__item card-set__item movi-card-general-set" data-id='${id}'>
   <img
     class="card__image"
     loading="lazy"
@@ -137,7 +137,7 @@ ${starsRating}
           <span>Add to my library</span>
         </button>
       </div>`;
-      
+
     }
     return `
   <div class="filmpage__poster">
