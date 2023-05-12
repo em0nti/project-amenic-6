@@ -56,28 +56,75 @@ ${starsRating}
     }
 
     let yearOfRelease = release_date.slice(0, 4);
-    let starsRating = renderRating(vote_average);
+    console.log(vote_average);
+    let starsRating = renderRating(vote_average, 'card');
+    console.log(starsRating);
+    //     return `<div class="card card__item card-set__item movi-card-general-set" data-id='${id}'>
+    //   <img
+    //     class="card__image"
+    //     loading="lazy"
+    //     src="https://image.tmdb.org/t/p/original${poster_path}"
+    //     alt=""
+    //   />
+    //   <div class="card__footer">
+    //     <div class="card__descr">
+    //       <p class="card__name">${title}</p>
+    //       <p class="card__details">
+    //         <span>${listOfGenres}</span><span> | </span><span>${yearOfRelease}</span>
+    //       </p>
+    //     </div>
+    //     <div class="card__rate">
+    //       <ul class="card__rate--list">
+    // ${starsRating}
+    //       </ul>
+    //     </div>
+    //   </div>
+    // </div>`;
+
+    if (!poster_path) {
+      return `<div class="card card__item card-set__item movi-card-general-set" data-id='${id}'>
+          <img
+            class="card__image"
+            loading="lazy"
+            src="https://placehold.co/500x750?text=Poster+not+available"
+            alt=""
+          />
+          <div class="card__footer">
+            <div class="card__descr">
+              <p class="card__name">${title}</p>
+              <p class="card__details">
+                <span>${listOfGenres}</span><span> | </span><span>${yearOfRelease}</span>
+              </p>
+            </div>
+            <div class="card__rate">
+              <ul class="card__rate--list">
+        ${starsRating}
+              </ul>
+            </div>
+          </div>
+        </div>`;
+    }
     return `<div class="card card__item card-set__item movi-card-general-set" data-id='${id}'>
-  <img
-    class="card__image"
-    loading="lazy"
-    src="https://image.tmdb.org/t/p/original${poster_path}"
-    alt=""
-  />
-  <div class="card__footer">
-    <div class="card__descr">
-      <p class="card__name">${title}</p>
-      <p class="card__details">
-        <span>${listOfGenres}</span><span> | </span><span>${yearOfRelease}</span>
-      </p>
-    </div>
-    <div class="card__rate">
-      <ul class="card__rate--list">
-${starsRating}
-      </ul>
-    </div>
-  </div>
-</div>`;
+          <img
+            class="card__image"
+            loading="lazy"
+            src="https://image.tmdb.org/t/p/original${poster_path}"
+            alt=""
+          />
+          <div class="card__footer">
+            <div class="card__descr">
+              <p class="card__name">${title}</p>
+              <p class="card__details">
+                <span>${listOfGenres}</span><span> | </span><span>${yearOfRelease}</span>
+              </p>
+            </div>
+            <div class="card__rate">
+              <ul class="card__rate--list">
+        ${starsRating}
+              </ul>
+            </div>
+          </div>
+        </div>`;
   }
   // method for markup film POPUP by film ID
   markupFilmCardPopUpByID({
@@ -103,9 +150,10 @@ ${starsRating}
         ' ' +
         this.getNameGenre(genres[2].id);
     }
-
+    let voteAverageTrunc = vote_average.toFixed(1);
+    // console.log(voteAverageTrunc);
     let truncatePopularity = popularity.toFixed(1);
-        if (!poster_path) {
+    if (!poster_path) {
       return `
   <div class="filmpage__poster">
         <img class="filmpage__img" src="https://placehold.co/500x750?text=Poster+not+available" alt="film" />
@@ -116,7 +164,7 @@ ${starsRating}
           <tr>
             <td class="filmpage__table--subtitle">Vote / Votes</td>
             <td class="filmpage__table--information">
-              <span class="filmpage__table--rating">${vote_average}</span> /
+              <span class="filmpage__table--rating">${voteAverageTrunc}</span> /
               <span class="filmpage__table--rating2">${vote_count}</span>
             </td>
           </tr>
@@ -137,7 +185,6 @@ ${starsRating}
           <span>Add to my library</span>
         </button>
       </div>`;
-
     }
     return `
   <div class="filmpage__poster">
@@ -149,7 +196,7 @@ ${starsRating}
           <tr>
             <td class="filmpage__table--subtitle">Vote / Votes</td>
             <td class="filmpage__table--information">
-              <span class="filmpage__table--rating">${vote_average}</span> /
+              <span class="filmpage__table--rating">${voteAverageTrunc}</span> /
               <span class="filmpage__table--rating2">${vote_count}</span>
             </td>
           </tr>
