@@ -2,7 +2,9 @@ import { tmdbApi } from './components/tmdbApi';
 import { trendsApi } from './components/trendsApi';
 import scrollToTop from './components/scroll-to-top';
 import intersection from './components/infinite-scroll';
+import intersectionWeekly from './components/infinite-scroll-weekly';
 import appendMovieCards from './components/append-movie-cards';
+import appendTrendsCards from './components/append-weekly-cards';
 import clearPage from './components/clear-page';
 import { CardStorage } from './classes/card-storage';
 import { refs, state } from './constants';
@@ -60,7 +62,7 @@ async function handleSearch() {
     if (tmdbApi.query === '') {
       throw new Error();
     }
-      clearPage();
+    clearPage();
 
     await appendMovieCards();
     scrollToTop();
@@ -72,22 +74,20 @@ async function handleSearch() {
 
 async function showWeeklyTrends() {
   try {
-    // if (tmdbApi.query === '') {
-    //   throw new Error();
-    // }
     clearPage();
+
     await appendMovieCards();
     intersection();
+
+
   } catch (error) {
     console.log(error.message);
   }
 }
 
 function onWeeklyTrends() {
-  //   event.preventDefault();
-
-  //   trendsApi.form = formRef;
-  trendsApi.trendsType = 'week';
-
+  trendsApi.setTrendsType = 'week';
   showWeeklyTrends();
 }
+
+onWeeklyTrends();

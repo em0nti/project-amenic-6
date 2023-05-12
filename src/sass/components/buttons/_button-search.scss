@@ -20,8 +20,7 @@
   color: var(--color-titleAll);
   background: var(--linear-gradient-2) padding-box, var(--linear-gradient-1) border-box;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background: linear-gradient(141.22deg, var(--bcgr-color-search-2), var(--bcgr-color-search-2)) padding-box,
       var(--linear-gradient-1) border-box;
 
