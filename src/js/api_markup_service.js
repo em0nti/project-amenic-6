@@ -103,9 +103,10 @@ ${starsRating}
         ' ' +
         this.getNameGenre(genres[2].id);
     }
-
+    let voteAverageTrunc = vote_average.toFixed(1);
+    // console.log(voteAverageTrunc);
     let truncatePopularity = popularity.toFixed(1);
-        if (!poster_path) {
+    if (!poster_path) {
       return `
   <div class="filmpage__poster">
         <img class="filmpage__img" src="https://placehold.co/500x750?text=Poster+not+available" alt="film" />
@@ -116,7 +117,7 @@ ${starsRating}
           <tr>
             <td class="filmpage__table--subtitle">Vote / Votes</td>
             <td class="filmpage__table--information">
-              <span class="filmpage__table--rating">${vote_average}</span> /
+              <span class="filmpage__table--rating">${voteAverageTrunc}</span> /
               <span class="filmpage__table--rating2">${vote_count}</span>
             </td>
           </tr>
@@ -137,7 +138,6 @@ ${starsRating}
           <span>Add to my library</span>
         </button>
       </div>`;
-
     }
     return `
   <div class="filmpage__poster">
@@ -149,7 +149,7 @@ ${starsRating}
           <tr>
             <td class="filmpage__table--subtitle">Vote / Votes</td>
             <td class="filmpage__table--information">
-              <span class="filmpage__table--rating">${vote_average}</span> /
+              <span class="filmpage__table--rating">${voteAverageTrunc}</span> /
               <span class="filmpage__table--rating2">${vote_count}</span>
             </td>
           </tr>
