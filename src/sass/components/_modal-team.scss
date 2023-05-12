@@ -74,4 +74,13 @@ ul {
 .modal-content {
   background-color: var(--color-body);
   border-radius: 5%;
+  box-shadow: 1px 1px 14px 4px #ff6b086b;
+  @media screen and (min-width: $container-width-tablet) {
+    padding: 20px;
+  }
+}
+.modal__cloze-icon {
+  fill: currentColor;
+  width: 7px;
+  height: 7px;
 }
