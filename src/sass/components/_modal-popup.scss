@@ -1,10 +1,18 @@
+.popup-modal-win {
+  top: 0;
+  left: 20%;
+  transform: translate(0, 0);
+}
+
 .modal__popup {
   width: 280px;
-  height: 878px;
+  max-height: 100vh;
+  height: 847px;
   background-color: var(--bagroundModal);
   padding: 55px 16px;
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   border-radius: 20px;
+  overflow: auto;
 }
 
 .filmpage__poster {
@@ -119,10 +127,17 @@
 // }
 
 @media screen and (min-width: $container-width-tablet) {
+  .popup-modal-win {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
   .modal__popup {
     width: 704px;
     height: 488px;
     padding: 44px;
+    overflow: hidden;
   }
 
   .filmpage {
@@ -154,6 +169,9 @@
 
   .filmpage__table--description {
     width: 300px;
+    max-height: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
