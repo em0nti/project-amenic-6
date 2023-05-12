@@ -10,6 +10,7 @@ import {
 import { onCardClick } from './card-handler';
 import { openModal } from './modals/open-close-modals';
 import { CardStorage } from './classes/card-storage';
+import { switchTheme } from './theme';
 
 currentPage();
 
@@ -31,3 +32,4 @@ window.addEventListener('load', () => {
 window.addEventListener('load', () => {
   onChangemarkupFilmUpcomingsByScreenWidth(refs.sectionUpcoming, 3);
 });
+switchTheme();

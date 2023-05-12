@@ -5,6 +5,7 @@ import { refs, state } from './constants';
 import { onWatchTrailerClick } from './watch-trailer';
 import { onClickAddToLibrary } from './buttons/remind-me';
 import { Notify } from 'notiflix';
+import { switchTheme } from './theme';
 
 // create instance 'apiFetchService' for using in functions
 const apiFetchService = new ApiFetchService();
@@ -64,15 +65,15 @@ export async function markUpDayTrends(posterType) {
 
     refs.sectionHeroDayTrends.innerHTML = filmMarklUp;
 
-    // let backGroundPoster = document.querySelector('.hero');
+    let backGroundPoster = document.querySelector('.hero');
 
-    // if (posterType === 'backdrop') {
-    //   let backGroundPosterPath = filmDataFormMarkup.backdrop_path;
-    //   backGroundPoster.style.backgroundImage = `linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%), url(./blak-desk.a6d97ec1.png), url('https://image.tmdb.org/t/p/original/${backGroundPosterPath}')`;
-    // } else if (posterType === 'poster') {
-    //   let backGroundBackdropPath = filmDataFormMarkup.poster_path;
-    //   backGroundPoster.style.backgroundImage = `linear-gradient(87.8deg, #0e0e0e 15.61%, rgba(14, 14, 14, 0) 60.39%), url(./blak-desk.a6d97ec1.png), url('https://image.tmdb.org/t/p/original/${backGroundBackdropPath}')`;
-    // }
+    if (posterType === 'backdrop') {
+      let backGroundPosterPath = filmDataFormMarkup.backdrop_path;
+      backGroundPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/original/${backGroundPosterPath}')`;
+    } else if (posterType === 'poster') {
+      let backGroundBackdropPath = filmDataFormMarkup.poster_path;
+      backGroundPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/original/${backGroundBackdropPath}')`;
+    }
 
     let buttonTrailer = document.querySelector('#watch-trailer-btn');
     let FilmID = filmDataFormMarkup.id;
@@ -80,7 +81,7 @@ export async function markUpDayTrends(posterType) {
     function watchTrailer(params) {
       onWatchTrailerClick(FilmID);
     }
-
+    switchTheme(1);
   } catch (error) {
     console.log(error);
   }
@@ -94,7 +95,6 @@ export async function markupFilmByID(ID) {
 
     // apiMarkupService.setFilmsForMarkup = await dataFilmFromID;
     let markupFilmByID = await apiMarkupService.markupFilmCardByID(dataFilmFromID);
-
   } catch (error) {
     console.log(error);
   }
@@ -110,7 +110,6 @@ export async function markupFilmByIDArray(arrayID) {
     let filmMarklUp = await apiMarkupService.markupGalleryByID();
 
     refs.sectionGallery.insertAdjacentHTML('beforeend', filmMarklUp);
-
   } catch (error) {
     console.log(error);
   }
@@ -128,12 +127,12 @@ export async function markupFilmUpcoming(posterType = null) {
       dataFilmUpcomingForMarkup,
       posterType,
     );
-    document.getElementById('remind-btn').addEventListener('click', (e) => {
+    document.getElementById('remind-btn').addEventListener('click', e => {
       e.preventDefault();
       const cardStorage = state.cardStorage;
       if (!cardStorage.hasCardId(dataFilmUpcomingForMarkup.id)) {
         cardStorage.addCardId(dataFilmUpcomingForMarkup.id);
-        Notify.success('The film added into your Library')
+        Notify.success('The film added into your Library');
       } else {
         Notify.info('The film already in your Library');
       }
@@ -250,7 +249,6 @@ export async function onShowPopUpModal(ID) {
     refs.popUpModal.innerHTML = markupFilmByID;
 
     return ID;
-
   } catch (error) {
     console.log(error);
   }
