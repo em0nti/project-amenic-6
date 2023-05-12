@@ -77,7 +77,6 @@ async function showWeeklyTrends() {
     // }
     clearPage();
     await appendMovieCards();
-    scrollToTop();
     intersection();
   } catch (error) {
     console.log(error.message);
