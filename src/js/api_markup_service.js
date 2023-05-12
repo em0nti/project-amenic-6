@@ -392,6 +392,7 @@ ${starsRating}
         </div>
         <p class="hero__text hero__text-width" id="textB">
        ${overview}
+      </p>
         <button type="button" class="button button-main button-home" id="watch-trailer-btn">
           <span>Watch trailer</span>
         </button>
