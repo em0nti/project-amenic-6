@@ -18,7 +18,7 @@ state.cardStorage = cardStorage;
 const cardsIds = cardStorage.getCardIds().map(Number);
 
 if (cardStorage.hasCardId) {
-  Loading.start();
+  Loading.standard();
   markupFilmByIDArray(cardsIds)
   Loading.remove();
 }
