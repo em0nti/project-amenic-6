@@ -4,6 +4,10 @@
   font-weight: 400;
 }
 
+.page--overflow-hidden {
+  overflow: hidden;
+}
+
 .page__section {
   &--margin-lg {
     margin-bottom: 40px;
