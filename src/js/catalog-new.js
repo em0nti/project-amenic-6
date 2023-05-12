@@ -1,3 +1,5 @@
+import { Loading } from 'notiflix';
+
 import { tmdbApi } from './components/tmdbApi';
 import { trendsApi } from './components/trendsApi';
 import scrollToTop from './components/scroll-to-top';
@@ -32,6 +34,9 @@ import { onWatchTrailerClick } from './watch-trailer';
 import { onCardClick } from './card-handler';
 import { openModal } from './modals/open-close-modals';
 
+
+
+
 currentPage();
 
 refs.cards.addEventListener('click', e => onCardClick(e));
@@ -64,11 +69,14 @@ async function handleSearch() {
       throw new Error(error);
     }
     clearPage();
+    Loading.pulse();
     await appendMovieCards();
     intersection();
+    Loading.remove();
   } catch (error) {
-    console.log("handleSearch error:", error.message);
+    
     renderSearchFail();
+    console.log("handleSearch error:", error.message);
   }
 }
 
@@ -89,5 +97,6 @@ function onWeeklyTrends() {
   trendsApi.setTrendsType = 'week';
   showWeeklyTrends();
 }
-
+Loading.pulse();
 onWeeklyTrends();
+Loading.remove();
