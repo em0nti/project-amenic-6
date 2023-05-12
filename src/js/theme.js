@@ -32,6 +32,9 @@ toggleBtn.addEventListener('click', function () {
   }
 });
 function heroLeftImg() {
+  if (!hero) {
+    return;
+  }
   if (localStorage.getItem('theme')) {
     hero.classList.add('hero-white');
     heroHome.classList.add('hero-white');
