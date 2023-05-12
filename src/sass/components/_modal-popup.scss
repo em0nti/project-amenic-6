@@ -146,9 +146,20 @@
     gap: 16px;
   }
 
-  .filmpage__poster {
+<<<<<<< Updated upstream
+  .filmpage__img {
     width: 295px;
     height: 403px;
+=======
+  // .filmpage__poster {
+  //   width: 295px;
+  //   height: 403px;
+  // }
+
+  .filmpage__img {
+    width: 294px;
+    height: 400px;
+>>>>>>> Stashed changes
   }
 
   .filmpage__title {
@@ -187,8 +198,8 @@
   }
 
   .filmpage__img {
-    width: 376px;
-    height: 479px;
+    width: 375px;
+    height: 478px;
   }
 
   .filmpage__table--rating {
