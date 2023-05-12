@@ -1,5 +1,5 @@
 import renderWeeklyCards from './render-weekly-cards';
-import { trendsApi } from './TrendsApi';
+import { trendsApi } from './trendsApi';
 
 export default async function appendTrendsCards() {
   try {
