@@ -1,9 +1,12 @@
+import { Loading } from 'notiflix';
+
 import { tmdbApi } from './components/tmdbApi';
 import { trendsApi } from './components/trendsApi';
 import scrollToTop from './components/scroll-to-top';
 import intersection from './components/infinite-scroll';
 import intersectionWeekly from './components/infinite-scroll-weekly';
 import appendMovieCards from './components/append-movie-cards';
+import renderSearchFail from './components/render-search-fail';
 import appendTrendsCards from './components/append-weekly-cards';
 import clearPage from './components/clear-page';
 import { CardStorage } from './classes/card-storage';
@@ -30,6 +33,9 @@ import {
 import { onWatchTrailerClick } from './watch-trailer';
 import { onCardClick } from './card-handler';
 import { openModal } from './modals/open-close-modals';
+
+
+
 
 currentPage();
 
@@ -60,24 +66,28 @@ function onSearch(event) {
 async function handleSearch() {
   try {
     if (tmdbApi.query === '') {
-      throw new Error();
+      throw new Error(error);
     }
     clearPage();
-
+    Loading.pulse();
     await appendMovieCards();
-    scrollToTop();
     intersection();
+    Loading.remove();
   } catch (error) {
-    console.log(error.message);
+    
+    renderSearchFail();
+    console.log("handleSearch error:", error.message);
   }
 }
 
 async function showWeeklyTrends() {
   try {
     clearPage();
+
     await appendTrendsCards();
-    scrollToTop();
-    intersectionWeekly();
+    // intersection();
+
+
   } catch (error) {
     console.log(error.message);
   }
@@ -87,7 +97,11 @@ function onWeeklyTrends() {
   trendsApi.setTrendsType = 'week';
   showWeeklyTrends();
 }
-
+Loading.pulse();
 onWeeklyTrends();
+
 markUpDayTrends('backdrop');
 switchTheme();
+
+Loading.remove();
+

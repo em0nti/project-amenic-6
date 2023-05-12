@@ -95,6 +95,7 @@ export function switchTheme(params) {
     });
   }
 
+
   function heroLeftImg() {
     if (!hero) {
       return;
@@ -108,6 +109,7 @@ export function switchTheme(params) {
       heroHome.classList.remove('hero-white');
       heroHom.classList.remove('hero-white');
     }
+    
   }
   function switchBtnHiden() {
     if (localStorage.getItem('theme')) {

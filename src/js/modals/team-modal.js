@@ -1,2 +1,6 @@
-const teamModalRef = document.queryselector('#team-modal');
-document.queryselector('.footer__modal-btn').addEventListener('click', () => openModal(teamModalRef));
+const teamModalRef = document.getElementById('team-modal');
+const footerBtn = document.getElementById('footer__modal-btn');
+footerBtn.addEventListener('click', openModal);
+function openModal() {
+  teamModalRef.classList.toggle('backdrop--hidden');
+}

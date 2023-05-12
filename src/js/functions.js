@@ -6,6 +6,8 @@ import { onWatchTrailerClick } from './watch-trailer';
 import { onClickAddToLibrary } from './buttons/remind-me';
 import { Notify } from 'notiflix';
 import { switchTheme } from './theme';
+import { state } from './constants';
+
 
 // create instance 'apiFetchService' for using in functions
 const apiFetchService = new ApiFetchService();
@@ -108,8 +110,14 @@ export async function markupFilmByIDArray(arrayID) {
     await apiFetchService.fetchFilmByIDArray();
     apiMarkupService.setFilmsForMarkup = apiFetchService.getFilmsArrayByID;
     let filmMarklUp = await apiMarkupService.markupGalleryByID();
+    document.querySelector('.library__movi-card-list').innerHTML = filmMarklUp;
+
 
     refs.sectionGallery.insertAdjacentHTML('beforeend', filmMarklUp);
+
+    return filmMarklUp;
+
+
   } catch (error) {
     console.log(error);
   }

@@ -1,5 +1,6 @@
 function openModal(modalElement, videoPlayer = null) {
   modalElement.classList.remove('backdrop--hidden');
+  document.body.classList.add('page--overflow-hidden');
   addEventListeners(modalElement, videoPlayer);
 }
 
@@ -10,7 +11,7 @@ function closeModal(modalElement, videoPlayer = null) {
   if (videoPlayer) {
     stopVideoPlayer(videoPlayer);
   }
-  console.log(`Modal is closed. Player is ${videoPlayer}`);
+  document.body.classList.remove('page--overflow-hidden');
 }
 
 function addEventListeners(modalElement, videoPlayer = null) {
