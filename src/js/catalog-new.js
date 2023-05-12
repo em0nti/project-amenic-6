@@ -75,9 +75,11 @@ async function handleSearch() {
 async function showWeeklyTrends() {
   try {
     clearPage();
-    await appendTrendsCards();
-    scrollToTop();
-    intersectionWeekly();
+
+    await appendMovieCards();
+    intersection();
+
+
   } catch (error) {
     console.log(error.message);
   }
