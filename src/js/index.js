@@ -13,12 +13,14 @@ currentPage();
 refs.cards.addEventListener('click', e => onCardClick(e));
 refs.mobileMenuToggler.addEventListener('click', () => openModal(refs.mobileMenu));
 
+refs.footerModalToggler.addEventListener('click', () => openModal(refs.footerModal));
+
 //Init storage for IDs on startup
 const cardStorage = new CardStorage();
 cardStorage.init();
 state.cardStorage = cardStorage;
 
-// create instance 'apiFetchService' for using in functions
+// create instance 'apiFetchService' for using in function
 const apiFetchService = new ApiFetchService();
 const apiMarkupService = new ApiMarkupService();
 

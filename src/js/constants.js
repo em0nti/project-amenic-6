@@ -18,6 +18,8 @@ export const refs = {
   sectionCatalogCardSet: document.querySelector('.catalog__movi-catalog-list'),
   mobileMenuToggler: document.querySelector('.header__menu-toggle'),
   mobileMenu: document.querySelector('.mobile-menu-backdrop'),
+  footerModalToggler: document.querySelector('.footer__modal-btn'),
+  footerModal: document.querySelector('.modal-team-footer'),
 
   //Forms
   form: document.querySelector('#search-form'),
@@ -28,5 +30,5 @@ export const state = {
   homeHero: { id: null },
   catalogHero: { id: null },
   player: null,
-  cardStorage: null
+  cardStorage: null,
 };
