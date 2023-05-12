@@ -76,8 +76,8 @@ async function showWeeklyTrends() {
   try {
     clearPage();
 
-    await appendMovieCards();
-    intersection();
+    await appendTrendsCards();
+    // intersection();
 
 
   } catch (error) {
