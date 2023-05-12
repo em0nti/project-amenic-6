@@ -67,7 +67,7 @@ async function handleSearch() {
     await appendMovieCards();
     intersection();
   } catch (error) {
-    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!", error);
+    console.log("handleSearch error:", error.message);
     renderSearchFail();
   }
 }
