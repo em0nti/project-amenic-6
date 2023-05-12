@@ -18,17 +18,14 @@ export default class TmdbApi {
         };
         try {
             const response = await axios.get(url, axiosParams);
-            // console.log(response.data.results);
             if (response.data.results.length === 0) {
-                Notify.failure("Sorry, there are no more movies available");
                 throw new Error(error.message);
                 }
             this.page += 1;            
             return response.data.results;
         } catch (error) {
-            // this.searchQuery = "";
+            renderSearchFail();
             console.log("закончились фильмы");
-            // throw "stop";
          }
     }
     get query() {
