@@ -1,8 +1,8 @@
-import appendMovieCards from './append-movie-cards';
+import appendTrendsCards from './append-weekly-cards';
 const refs = {
   cardSetRef: document.querySelector('.card-set'),
 };
-export default function intersection() {
+export default function intersectionWeekly() {
   const options = {
     rootMargin: '100px',
     threshold: 0.5,
@@ -22,7 +22,7 @@ export default function intersection() {
     try {
       observer.unobserve(target);
 
-      await appendMovieCards();
+      await appendTrendsCards();
       let newTarget = refs.cardSetRef.lastElementChild;
       console.log('new target:', newTarget.dataset);
 

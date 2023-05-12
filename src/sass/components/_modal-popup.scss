@@ -1,8 +1,10 @@
+
 // .popup-modal-win {
 //   top: 0;
 //   left: 20%;
 //   transform: translate(0, 0);
 // }
+
 
 .modal__popup {
   width: 280px;
@@ -146,9 +148,16 @@
     gap: 16px;
   }
 
+
   .filmpage__img {
     width: 294px;
     height: 400px;
+
+  // .filmpage__poster {
+  //   width: 295px;
+  //   height: 403px;
+  // }
+
   }
 
   .filmpage__title {
@@ -187,8 +196,8 @@
   }
 
   .filmpage__img {
-    width: 376px;
-    height: 479px;
+    width: 375px;
+    height: 478px;
   }
 
   .filmpage__table--rating {
