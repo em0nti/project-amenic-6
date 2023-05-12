@@ -1,8 +1,10 @@
-.popup-modal-win {
-  top: 0;
-  left: 20%;
-  transform: translate(0, 0);
-}
+
+// .popup-modal-win {
+//   top: 0;
+//   left: 20%;
+//   transform: translate(0, 0);
+// }
+
 
 .modal__popup {
   width: 280px;
@@ -146,20 +148,16 @@
     gap: 16px;
   }
 
-<<<<<<< Updated upstream
+
   .filmpage__img {
-    width: 295px;
-    height: 403px;
-=======
+    width: 294px;
+    height: 400px;
+
   // .filmpage__poster {
   //   width: 295px;
   //   height: 403px;
   // }
 
-  .filmpage__img {
-    width: 294px;
-    height: 400px;
->>>>>>> Stashed changes
   }
 
   .filmpage__title {
