@@ -58,7 +58,7 @@ ${starsRating}
     let yearOfRelease = release_date.slice(0, 4);
     console.log(vote_average);
     let starsRating = renderRating(vote_average, 'card');
-    console.log(starsRating);
+    // console.log(starsRating);
     //     return `<div class="card card__item card-set__item movi-card-general-set" data-id='${id}'>
     //   <img
     //     class="card__image"
@@ -361,7 +361,7 @@ ${starsRating}
   markupGalleryByID() {
     const markup = this.filmsForMarkupArray.filter(film => film.genres.length !== 0);
     let markUpFilmsAll = markup.map(film => this.markupFilmCardByID(film)).join('');
-    console.log('method -markupGalleryByID- in ApiMarkupService', markUpFilmsAll);
+    // console.log('method -markupGalleryByID- in ApiMarkupService', markUpFilmsAll);
 
     return markUpFilmsAll;
   }

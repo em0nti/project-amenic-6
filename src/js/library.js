@@ -9,7 +9,6 @@ import { switchTheme } from './theme';
 import { markupFilmByIDArray } from './functions';
 import { Loading } from 'notiflix';
 
-
 refs.cards.addEventListener('click', e => onCardClick(e));
 refs.mobileMenuToggler.addEventListener('click', () => openModal(refs.mobileMenu));
 
@@ -24,10 +23,8 @@ const cardsIds = cardStorage.getCardIds().map(Number);
 console.log(cardsIds);
 switchTheme();
 
-
 if (cardStorage.hasCardId) {
   Loading.standard();
-  markupFilmByIDArray(cardsIds)
+  markupFilmByIDArray(cardsIds);
   Loading.remove();
 }
-
