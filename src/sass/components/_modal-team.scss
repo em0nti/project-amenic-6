@@ -10,7 +10,7 @@ ul {
   align-content: center;
   @media screen and (min-width: $container-width-mobile) {
     margin-top: 70px;
-    width: 240px;
+    width: 300px;
     border-radius: 15px;
   }
 
@@ -65,4 +65,9 @@ ul {
 .team-modal {
   text-decoration: underline;
   cursor: pointer;
+  background-color: var(--color-body);
+  border-radius: 5px;
+}
+.light .team-modal {
+  background-color: var(--color-white);
 }
