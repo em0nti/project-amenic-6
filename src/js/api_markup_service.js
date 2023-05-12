@@ -322,18 +322,35 @@ ${starsRating}
   markupFilmHeroTrendsDay({ poster_path, title, overview, vote_average }) {
     let element = 'hero';
     let starsRating = renderRating(vote_average, element);
-    return ` <div class="container hero__container library-container">
-    <div class="hero__info">
-      <h1 class="hero__title hero__title-color"  id="titleB">${title}</h1>
-      <div>
-        <ul class="hero__star">${starsRating}</ul>
-      </div>
-      <p class="hero__text hero__text-width" id="textB">
+    //   return ` <div class="container hero__container library-container">
+    //   <div class="hero__info">
+    //     <h1 class="hero__title hero__title-color"  id="titleB">${title}</h1>
+    //     <div>
+    //       <ul class="hero__star">${starsRating}</ul>
+    //     </div>
+    //     <p class="hero__text hero__text-width" id="textB">
+    //      ${overview}
+    //     </p>
+    //     <button type="button" class="button button-main button-home" id="watch-trailer-btn">
+    //       <span>Watch trailer</span>
+    //     </button>
+    //   </div>
+    // </div>`;
+    return `  <div class="hero__bagraundTwo hero-home">
+    <div class="container hero__container library-container">
+      <div class="hero__info">
+        <h1 class="hero__title hero__title-color" id="titleB">${title}</h1>
+        <div>
+             <ul class="hero__star">${starsRating}</ul>
+        </div>
+        <p class="hero__text hero__text-width" id="textB">
        ${overview}
-      </p>
-      <button type="button" class="button button-main button-home" id="watch-trailer-btn">
-        <span>Watch trailer</span>
-      </button>
+        <button type="button" class="button button-main button-home" id="watch-trailer-btn">
+          <span>Watch trailer</span>
+        </button>
+
+        <div class="slide-home"></div>
+      </div>
     </div>
   </div>`;
   }

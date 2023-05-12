@@ -16,7 +16,7 @@ import ApiFetchService from './api_fetch_service';
 import ApiMarkupService from './api_markup_service';
 import { refs } from './constants';
 import { currentPage } from './show-current-page';
-//import { markupFilmByQuery } from '.';
+import { switchTheme } from './theme';
 
 import {
   markupFilmByQuery,
@@ -99,4 +99,9 @@ function onWeeklyTrends() {
 }
 Loading.pulse();
 onWeeklyTrends();
+
+markUpDayTrends('backdrop');
+switchTheme();
+
 Loading.remove();
+
