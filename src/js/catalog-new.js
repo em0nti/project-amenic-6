@@ -1,5 +1,5 @@
 import { tmdbApi } from './components/tmdbApi';
-import { trendsApi } from './components/TrendsApi';
+import { trendsApi } from './components/trendsApi';
 import scrollToTop from './components/scroll-to-top';
 import intersection from './components/infinite-scroll';
 import intersectionWeekly from './components/infinite-scroll-weekly';
