@@ -6,7 +6,7 @@ This repository contains the code for a test team project.
 
 The term for writing a project from receiving a layout to the final presentation of the MVP is 7 days.
 
-My own implementation of the project [here]().
+My own implementation of the project [here](https://github.com/em0nti/cinemania-site).
 
 The project is an application that allows users to browse and filter a large collection of movies. It includes features such as a homepage with trending movies, a catalog page for browsing and searching movies, and a "My Library" page where users can save movies for later viewing.
 
