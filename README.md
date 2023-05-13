@@ -1,99 +1,220 @@
-# Parcel template
+# Cinemania app
 
-Этот проект был создан при помощи Parcel. Для знакомства и настройки
-дополнительных возможностей [обратись к документации](https://parceljs.org/).
+## Description
 
-## Подготовка нового проекта
+This repository contains the code for a test team project.
 
-1. Убедись что на компьютере установлена LTS-версия Node.js.
-   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
-2. Склонируй этот репозиторий.
-3. Измени имя папки с `parcel-project-template` на имя своего проекта.
-4. Создай новый пустой репозиторий на GitHub.
-5. Открой проект в VSCode, запусти терминал и свяжи проект с GitHub-репозиторием
-   [по инструкции](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url).
-6. Установи зависимости проекта в терминале командой `npm install` .
-7. Запусти режим разработки, выполнив команду `npm start`.
-8. Перейди в браузере по адресу [http://localhost:1234](http://localhost:1234).
-   Эта страница будет автоматически перезагружаться после сохранения изменений в
-   файлах проекта.
+The term for writing a project from receiving a layout to the final presentation of the MVP is 7 days.
 
-## Файлы и папки
+My own implementation of the project [here]().
 
-- Все паршалы файлов стилей должны лежать в папке `src/sass` и импортироваться в
-  файлы стилей страниц. Например, для `index.html` файл стилей называется
-  `index.scss`.
-- Изображения добавляй в папку `src/images`. Сборщик оптимизирует их, но только
-  при деплое продакшн версии проекта. Все это происходит в облаке, чтобы не
-  нагружать твой компьютер, так как на слабых машинах это может занять много
-  времени.
+The project is an application that allows users to browse and filter a large collection of movies. It includes features such as a homepage with trending movies, a catalog page for browsing and searching movies, and a "My Library" page where users can save movies for later viewing.
 
-## Деплой
+The layout design is available in Figma. The project was built with Parcel, using the [Parcel Project Template](https://goitacademy.github.io/parcel-project-template) by GoIT Academy.
 
-Для настройки деплоя проекта необходимо выполнить несколько дополнительных шагов
-по настройке твоего репозитория. Зайди во вкладку `Settings` и в подсекции
-`Actions` выбери выбери пункт `General`.
+## Figma Layout
 
-![GitHub actions settings](./assets/actions-config-step-1.png)
+You can view the Figma layout for this project [here](https://www.figma.com/file/z7VY1GvA5xVR2ix7xeOfxx/Cinemania?type=design&t=HUuZLiZFyJAo7Idt-6).
 
-Пролистай страницу до последней секции, в которой убедись что выбраны опции как
-на следующем изображении и нажми `Save`. Без этих настроек у сборки будет
-недостаточно прав для автоматизации процесса деплоя.
+## Technical task for the MVP (Minimum Viable Product)
 
-![GitHub actions settings](./assets/actions-config-step-2.png)
+The MVP version of the project includes the following components:
 
-Продакшн версия проекта будет автоматически собираться и деплоиться на GitHub
-Pages, в ветку `gh-pages`, каждый раз когда обновляется ветка `main`. Например,
-после прямого пуша или принятого пул-реквеста. Для этого необходимо в файле
-`package.json` отредактировать поле `homepage` и скрипт `build`, заменив
-`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
+### Header
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/",
-"scripts": {
-  "build": "parcel build src/*.html --public-url /your_repo_name/"
-},
-```
+The header is displayed on all pages and includes different elements based on the device's screen size:
 
-Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
-выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
-это небыло сделано автоматически.
+- Mobile:
 
-![GitHub Pages settings](./assets/repo-settings.png)
+  - Logo
+  - Navigation menu with links to Home, Catalog, and My Library
+  - Theme switcher
 
-### Статус деплоя
+- Tablet & Desktop:
 
-Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
+- Logo
+- Navigation menu with links to Home, Catalog, and My Library
+- Theme switcher
+- Description of some behavior:
+  - Clicking on the logo or the Home link opens the homepage.
+  - Clicking on Catalog opens the page with a large collection of movies that can be filtered based on user preferences.
+  - Clicking on My Library opens the page with movies added by the user for later viewing.
+  - Clicking on the menu expands it vertically to fill the viewport's height.
+  - Clicking on the theme switcher changes the current theme of the website (default is dark theme).
 
-- **Желтый цвет** - выполняется сборка и деплой проекта.
-- **Зеленый цвет** - деплой завершился успешно.
-- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
+### Hero
 
-Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
-выпадающем окне перейти по ссылке `Details`.
+The hero section is displayed on all pages and shows information about one trending movie of the day. The movie is randomly selected from a list of movies for the current date. If no movies are found, the hero section should display default content, including a background image and a "Get started" button that redirects the user to the Catalog page.
 
-![Deployment status](./assets/status.png)
+The movie information displayed in the hero section includes:
 
-### Живая страница
+- Movie image: `https://image.tmdb.org/t/p/original/${film.backdrop_path}`
+- Title
+- Rating
+- Short description
 
-Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
-по адресу указанному в отредактированном свойстве `homepage`. Например, вот
-ссылка на живую версию для этого репозитория
-[https://goitacademy.github.io/parcel-project-template](https://goitacademy.github.io/parcel-project-template).
+Clicking on the button in the hero section will open a modal window with the movie trailer. The trailer URL is `https://api.themoviedb.org/3/movie/{idFilm}/videos?api_key=YOUR_KEY&language=en-US`. If the trailer is not available, a text message with apologies should be displayed.
 
-Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
-связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
-всего у тебя неправильное значение свойства `homepage` или скрипта `build` в
-файле `package.json`.
+### Modal Window
 
-## Как это работает
+The modal window is used on all pages and provides detailed information about a movie. It includes the following elements:
 
-![How it works](./assets/how-it-works.png)
+- Movie poster image
+- Title
+- Rating
+- Popularity
+- Short description of the movie
+- Button for adding/removing the movie from My Library
 
-1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
-   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
-2. Все файлы репозитория копируются на сервер, где проект инициализируется и
-   проходит сборку перед деплоем.
-3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
-   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
-   скрипта будет указано в чем проблема.
+Clicking on the button for adding/removing the movie should update the information in My Library, which should be stored in localStorage.
+
+Closing the modal window can be done by clicking on the backdrop, the close button (with an X icon), or pressing the ESC key. Make sure to remove event listeners appropriately.
+
+### Footer
+
+The footer is displayed on all pages and includes information about copyright, the year of project implementation, and the development team.
+
+### Home Page
+
+The Home page includes the following components:
+
+#### Hero
+
+The hero section displays the movie of the day.
+
+#### Weekly Trends
+
+This section displays cards for movies that are considered trending for the current week. It also includes a "See all" link that redirects the user to the Catalog page.
+
+Implement a template for a movie card, which should open a modal window with detailed information about the movie when clicked.
+
+#### Upcoming This Month
+
+This section displays information about one of the new movies randomly selected from a list of movies for the current date. If no movies are found, display an appropriate message to the user. The movie information displayed includes:
+
+- Movie image: `https://image.tmdb.org/t/p/original/${film.backdrop_path}`
+- Title
+- Release date
+- Rating
+- Genres
+- Short description of the movie
+
+Clicking on a button in this section should add the movie to the collection of displayed movies on page [My Library](#my-library)
+
+### Catalog
+
+The Catalog section includes the following components:
+
+#### Hero
+The hero section displays the movie of the day.
+
+#### Search Block
+The search block contains a form with a field where users can enter a keyword for searching movies, along with a submit button. Upon submitting the form, the movies matching the search results should be rendered in the movies list block. If no movies are found, an appropriate message should be displayed to the user.
+
+#### Movies List Block
+This block displays a list of movies. By default, the block shows the trending movies of the week when the user navigates to the Catalog page. If no movies are found, an appropriate message should be displayed to the user.
+
+#### Pagination Block
+Pagination should be implemented on the server side, where the server returns the results in portions or pages, rather than all at once. Users can navigate through the pages to access additional movies.
+
+### My Library
+
+The My Library section includes the following components:
+
+#### Hero
+The hero section displays the movie of the day.
+
+#### Movies List Block
+This block contains a list of movies that have been added by the user. The movies are stored in the browser's localStorage. When the user navigates to the My Library page, the movies that were added by the user should be rendered in this block. If no movies are found, an appropriate message should be displayed to the user.
+
+Please ensure that the functionality for adding, removing, and displaying movies in the My Library section is implemented correctly, along with appropriate error handling and user feedback.
+
+## API Integration
+
+This project integrates with The Movie Database (TMDb) API to fetch movie data and images. The TMDb API provides a wide range of movie-related information, including movie details, images, trailers, and more.
+
+To use the TMDb API, you'll need to sign up for an account on their website and obtain an API key. The API key is required to authenticate your requests and access the data.
+
+Once you have your API key, you can include it in your API requests by appending it as a query parameter in the URL.
+Here's an example URL:
+- for fetching movie details:
+
+  `https://api.themoviedb.org/3/movie/{movie_id}?api_key=YOUR_API_KEY&language=en-US`
+
+  Replace `{movie_id}` with the actual ID of the movie you want to fetch, and `YOUR_API_KEY` with your TMDb API key.
+
+- Similarly, you can retrieve movie images using the following URL:
+
+  `https://image.tmdb.org/t/p/original/{image_path}`
+
+  Replace `{image_path}` with the path of the movie image obtained from the API response.
+
+- For fetching movie trailers, you can use the following URL:
+
+  `https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=YOUR_API_KEY&language=en-US`
+
+  Again, replace `{movie_id}` with the ID of the movie you want to fetch, and `YOUR_API_KEY` with your TMDb API key.
+
+Please refer to the [TMDb API documentation](https://developers.themoviedb.org/3/getting-started/introduction) for more information on available endpoints and request parameters.
+
+Make sure to handle API errors and edge cases gracefully in your project, such as checking for missing data or handling rate limits imposed by the TMDb API.
+
+## Installation
+
+1. Clone the repository to your local machine.
+    ```bash
+    git clone https://github.com/yourusername/web-studio-test-project.git
+    ```
+2. Navigate into the project directory.
+    ```bash
+    cd web-studio-test-project
+    ```
+3. Install the required dependencies.
+    ```bash
+    npm install
+    ```
+4. Start the project.
+    ```bash
+    npm start
+    ```
+The project will be available at `localhost:1234`.
+
+## Project Structure
+
+The project has the following structure:
+
+- `assets/`: This directory contains all static assets which are not directly related to the project's source code.
+
+- `dist/`: This directory will contain the final, compiled version of the project. This is the code that you will deploy to your server.
+
+- `src/`: This is the source directory, it contains all the source code of the project.
+
+    - `fonts/`: This directory contains all the font files used in the project.
+
+    - `images/`: This directory contains all the image files used in the project.
+
+    - `js/`: This directory contains all the JavaScript files of the project.
+
+    - `partials/`: This directory contains HTML partials - reusable chunks of HTML code.
+
+    - `sass/`: This directory contains all the SASS files, which will be compiled into CSS. It is further organized into:
+
+        - `base/`: This directory contains the base SASS files, such as resets and typography.
+
+        - `components/`: This directory contains SASS files for each component.
+
+        - `utils/`: This directory contains utility SASS files, such as variables and mixins.
+
+    - `catalog.html`: This is the HTML file for the catalog page of the website.
+
+    - `index.html`: This is the main HTML file for the website.
+
+    - `library.html`: This is the HTML file for the library page of the website.
+
+## Contributing
+
+Pull requests are welcome.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit)
