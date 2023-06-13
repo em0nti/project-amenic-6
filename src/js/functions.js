@@ -8,7 +8,6 @@ import { Notify } from 'notiflix';
 import { switchTheme } from './theme';
 import { state } from './constants';
 
-
 // create instance 'apiFetchService' for using in functions
 const apiFetchService = new ApiFetchService();
 const apiMarkupService = new ApiMarkupService();
@@ -19,13 +18,13 @@ export async function markupFilmByQuery(searchQuery) {
     apiFetchService.setQuery = await searchQuery;
     await apiFetchService.fetchFilmGenres();
     await apiFetchService.fetchFilmByQuery();
-    let dataFromQuery = await apiFetchService.getFilmsByQuery;
-    // apiMarkupService.setFilmsForMarkup = '';
+
+    const dataFromQuery = await apiFetchService.getFilmsByQuery;
+
     apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
     apiMarkupService.setFilmsForMarkup = await dataFromQuery;
 
-    // let filmMarklUp = await apiMarkupService.markupFilmCard(apiMarkupService.getFilmsForMarkup);
-    let filmMarkUp = await apiMarkupService.markupGallery();
+    const filmMarkUp = await apiMarkupService.markupGallery();
 
     return filmMarkUp;
   } catch (error) {
@@ -38,14 +37,12 @@ export async function markUpWeeklyTrends(numOfArray) {
     apiFetchService.setTrendsType = 'week';
     await apiFetchService.fetchFilmGenres();
     await apiFetchService.fetchFilmTrends();
-    let dataFromTrends = await apiFetchService.getFilmsTrends;
+    const dataFromTrends = await apiFetchService.getFilmsTrends;
     apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
-    // apiMarkupService.setFilmsForMarkup = '';
-    apiMarkupService.setFilmsForMarkup = await dataFromTrends;
-    let filmMarkUp = await apiMarkupService.markupGallery(numOfArray);
 
-    // refs.sectionWeeklyTrends.innerHTML = filmMarklUp;
-    // refs.sectioWeeklyTrends.insertAdjacentHTML('beforeend', filmMarklUp);
+    apiMarkupService.setFilmsForMarkup = await dataFromTrends;
+    const filmMarkUp = await apiMarkupService.markupGallery(numOfArray);
+
     return filmMarkUp;
   } catch (error) {
     console.log(error);
@@ -54,35 +51,33 @@ export async function markUpWeeklyTrends(numOfArray) {
 // function to markup day trends film
 export async function markUpDayTrends(posterType) {
   try {
-    let filmArrayIDtoMarkup = getRandomInt(18);
+    const filmArrayIDtoMarkup = getRandomInt(18);
     apiFetchService.setTrendsType = 'day';
     await apiFetchService.fetchFilmGenres();
     await apiFetchService.fetchFilmTrends();
-    let dataFromTrends = await apiFetchService.getFilmsTrends;
+    const dataFromTrends = await apiFetchService.getFilmsTrends;
     apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
-    // apiMarkupService.setFilmsForMarkup = '';
     apiMarkupService.setFilmsForMarkup = await dataFromTrends[filmArrayIDtoMarkup];
-    let filmDataFormMarkup = apiMarkupService.getFilmsForMarkup;
-    let filmMarklUp = await apiMarkupService.markupFilmHeroTrendsDay(filmDataFormMarkup);
+    const filmDataFormMarkup = apiMarkupService.getFilmsForMarkup;
+    const filmMarklUp = await apiMarkupService.markupFilmHeroTrendsDay(filmDataFormMarkup);
 
     refs.sectionHeroDayTrends.innerHTML = filmMarklUp;
 
-    let backGroundPoster = document.querySelector('.hero');
+    const backGroundPoster = document.querySelector('.hero');
 
     if (posterType === 'backdrop') {
-      let backGroundPosterPath = filmDataFormMarkup.backdrop_path;
+      const backGroundPosterPath = filmDataFormMarkup.backdrop_path;
       backGroundPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/original/${backGroundPosterPath}')`;
     } else if (posterType === 'poster') {
-      let backGroundBackdropPath = filmDataFormMarkup.poster_path;
+      const backGroundBackdropPath = filmDataFormMarkup.poster_path;
       backGroundPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/original/${backGroundBackdropPath}')`;
     }
 
-    let buttonTrailer = document.querySelector('#watch-trailer-btn');
-    let FilmID = filmDataFormMarkup.id;
-    buttonTrailer.addEventListener('click', watchTrailer);
-    function watchTrailer(params) {
+    const buttonTrailer = document.querySelector('#watch-trailer-btn');
+    const FilmID = filmDataFormMarkup.id;
+    buttonTrailer.addEventListener('click', () => {
       onWatchTrailerClick(FilmID);
-    }
+    });
     switchTheme(1);
   } catch (error) {
     console.log(error);
@@ -92,11 +87,9 @@ export async function markUpDayTrends(posterType) {
 export async function markupFilmByID(ID) {
   try {
     await apiFetchService.fetchFilmGenres();
-    let dataFilmFromID = await apiFetchService.fetchFilmByID(ID);
+    const dataFilmFromID = await apiFetchService.fetchFilmByID(ID);
     apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
-
-    // apiMarkupService.setFilmsForMarkup = await dataFilmFromID;
-    let markupFilmByID = await apiMarkupService.markupFilmCardByID(dataFilmFromID);
+    const markupFilmByID = await apiMarkupService.markupFilmCardByID(dataFilmFromID);
   } catch (error) {
     console.log(error);
   }
@@ -109,15 +102,11 @@ export async function markupFilmByIDArray(arrayID) {
     apiFetchService.setFilmsIDArray = arrayID;
     await apiFetchService.fetchFilmByIDArray();
     apiMarkupService.setFilmsForMarkup = apiFetchService.getFilmsArrayByID;
-    let filmMarklUp = await apiMarkupService.markupGalleryByID();
+    const filmMarklUp = await apiMarkupService.markupGalleryByID();
     document.querySelector('.library__movi-card-list').innerHTML = filmMarklUp;
-
-
     refs.sectionGallery.insertAdjacentHTML('beforeend', filmMarklUp);
 
     return filmMarklUp;
-
-
   } catch (error) {
     console.log(error);
   }
@@ -125,11 +114,11 @@ export async function markupFilmByIDArray(arrayID) {
 //function to markup filmUpcoming with randomizer
 export async function markupFilmUpcoming(posterType = null) {
   try {
-    let filmArrayIDtoMarkup = getRandomInt(18);
+    const filmArrayIDtoMarkup = getRandomInt(18);
     await apiFetchService.fetchFilmGenres();
     apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
-    let dataFilmUpcoming = await apiFetchService.fetchFilmUpcoming();
-    let dataFilmUpcomingForMarkup = await dataFilmUpcoming[filmArrayIDtoMarkup];
+    const dataFilmUpcoming = await apiFetchService.fetchFilmUpcoming();
+    const dataFilmUpcomingForMarkup = await dataFilmUpcoming[filmArrayIDtoMarkup];
 
     refs.sectionUpcoming.innerHTML = apiMarkupService.markupFilmCardUpcoming(
       dataFilmUpcomingForMarkup,
@@ -146,8 +135,6 @@ export async function markupFilmUpcoming(posterType = null) {
       }
     });
     return dataFilmUpcomingForMarkup.id;
-
-    // refs.sectionUpcoming.insertAdjacentHTML('beforeend', markupFilmUpcoming);
   } catch (error) {
     console.log(error);
   }
@@ -157,38 +144,9 @@ export function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-// export async function onChangeWeeklyTrendsByResizeViewport(e, blockInnerHTML) {
-//   try {
-//     // console.log(e);
-//     if (e.matches) {
-//       markUpWeeklyTrends(1)
-//         .then(data => {
-//           console.log(blockInnerHTML);
-//           blockInnerHTML.innerHTML = data;
-//         })
-//         .catch(err => console.log(err));
-//       markupFilmUpcoming('poster');
-//       markUpDayTrends('poster');
-//       console.log('markUpWeeklyTrends(1)');
-//     } else {
-//       markUpWeeklyTrends(3)
-//         .then(data => {
-//           console.log(blockInnerHTML);
-//           blockInnerHTML.innerHTML = data;
-//         })
-//         .catch(err => console.log(err));
-//       markupFilmUpcoming('backdrop');
-//       markUpDayTrends('backdrop');
-//       console.log('markUpWeeklyTrends(3)');
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
 export async function onChangeWeeklyTrendsByScreenWidth(blockInnerHTML, pageNum) {
   try {
-    let screenWidth = window.innerWidth;
+    const screenWidth = window.innerWidth;
     if (screenWidth < 768 && pageNum === 3) {
       markUpWeeklyTrends(1)
         .then(data => {
@@ -204,7 +162,7 @@ export async function onChangeWeeklyTrendsByScreenWidth(blockInnerHTML, pageNum)
           blockInnerHTML.innerHTML = data;
         })
         .catch(err => console.log(err));
-      await markUpDayTrends('poster');
+      await markUpDayTrends('backdrop');
       return;
     }
     if (pageNum === 12) {
@@ -215,18 +173,6 @@ export async function onChangeWeeklyTrendsByScreenWidth(blockInnerHTML, pageNum)
         .catch(err => console.log(err));
       await markUpDayTrends('poster');
     }
-
-    // else {
-    //   markUpWeeklyTrends(pageNum)
-    //     .then(data => {
-    //       console.log(blockInnerHTML);
-    //       blockInnerHTML.innerHTML = data;
-    //     })
-    //     .catch(err => console.log(err));
-    //   markUpDayTrends('backdrop');
-    //   markupFilmUpcoming('backdrop');
-    //   return;
-    // }
   } catch (error) {
     console.log(error);
   }
@@ -234,7 +180,7 @@ export async function onChangeWeeklyTrendsByScreenWidth(blockInnerHTML, pageNum)
 
 export async function onChangemarkupFilmUpcomingsByScreenWidth(blockInnerHTML, pageNum) {
   try {
-    let screenWidth = window.innerWidth;
+    const screenWidth = window.innerWidth;
     if (screenWidth < 768) {
       await markupFilmUpcoming('poster');
       return;
@@ -249,10 +195,9 @@ export async function onChangemarkupFilmUpcomingsByScreenWidth(blockInnerHTML, p
 export async function onShowPopUpModal(ID) {
   try {
     await apiFetchService.fetchFilmGenres();
-    let dataFilmFromID = await apiFetchService.fetchFilmByID(ID);
+    const dataFilmFromID = await apiFetchService.fetchFilmByID(ID);
     apiMarkupService.setGenresAll = await apiFetchService.getGenresAll;
-    // apiMarkupService.setFilmsForMarkup = await dataFilmFromID;
-    let markupFilmByID = apiMarkupService.markupFilmCardPopUpByID(dataFilmFromID);
+    const markupFilmByID = apiMarkupService.markupFilmCardPopUpByID(dataFilmFromID);
 
     refs.popUpModal.innerHTML = markupFilmByID;
 

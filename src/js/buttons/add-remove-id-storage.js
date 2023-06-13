@@ -1,22 +1,14 @@
 import { refs, state } from '../constants';
 
 import { save, load, remove } from '../local-storage-service';
-// import ApiFetchService from '../api_fetch_service';
-
-// console.log(activeCardState);
 const STORAGE_KEY = 'movie-id';
 
 let id = state.activeCard.id;
 
 //? перевіряємо чи є фільм з таким id в локал сторадж, якщо є змінюю назву кнопки
 let storageValue = showStorageValue(STORAGE_KEY);
-// console.log(storageValue);
-// if (storageValue !== undefined && verifycontainsId(storageValue, id)) {
-//     renamBtnToRemove();
-// }
 
 function verifyIdOnCardOpen(id) {
-  // let storageValue = showStorageValue(STORAGE_KEY);
   console.log(storageValue);
   if (storageValue !== undefined && verifyContainsId(storageValue, id)) {
     renamBtnToRemove();
@@ -25,23 +17,15 @@ function verifyIdOnCardOpen(id) {
 
 verifyIdOnCardOpen(id);
 
-
 // функція яка по натисканню кнопки додає значення в масив
 
 function onClickAddRemoveFromLibrary() {
-  // id = 1555
-  // id = Number(e.currentTarget.dataset.id)
-
-  console.log('Our ID: ', id);
-
   addIdArrToStorage(id);
 }
-
 
 // ф-я яка завантажує дані в локал сторадж
 
 function addIdArrToStorage(id) {
-
   if (storageValue === undefined) {
     // створюю масив і додаю перший єл-т і додаю в локал
     const idArr = [id];
@@ -63,7 +47,7 @@ function addIdArrToStorage(id) {
 
 // ф-я перевіряє чи є id в storage
 function verifyContainsId(arr, id) {
-  return hasId = arr.includes(id);
+  return (hasId = arr.includes(id));
 }
 
 function renameBtnToRemove() {

@@ -17,11 +17,9 @@ export default class ApiMarkupService {
       listOfGenres = this.getNameGenre(genre_ids[0]) + ', ' + this.getNameGenre(genre_ids[1]);
     }
 
-    let yearOfRelease = release_date.slice(0, 4);
-    let element = 'card';
-    let starsRating = renderRating(vote_average, element);
-
-    // console.log(yearOfRelease);
+    const yearOfRelease = release_date.slice(0, 4);
+    const element = 'card';
+    const starsRating = renderRating(vote_average, element);
     return `<div class="card card__item card-set__item movi-card-general-set" data-id='${id}'>
   <img
     class="card__image"
@@ -55,31 +53,8 @@ ${starsRating}
       listOfGenres = this.getNameGenre(genres[0].id) + ', ' + this.getNameGenre(genres[1].id);
     }
 
-    let yearOfRelease = release_date.slice(0, 4);
-    console.log(vote_average);
-    let starsRating = renderRating(vote_average, 'card');
-    console.log(starsRating);
-    //     return `<div class="card card__item card-set__item movi-card-general-set" data-id='${id}'>
-    //   <img
-    //     class="card__image"
-    //     loading="lazy"
-    //     src="https://image.tmdb.org/t/p/original${poster_path}"
-    //     alt=""
-    //   />
-    //   <div class="card__footer">
-    //     <div class="card__descr">
-    //       <p class="card__name">${title}</p>
-    //       <p class="card__details">
-    //         <span>${listOfGenres}</span><span> | </span><span>${yearOfRelease}</span>
-    //       </p>
-    //     </div>
-    //     <div class="card__rate">
-    //       <ul class="card__rate--list">
-    // ${starsRating}
-    //       </ul>
-    //     </div>
-    //   </div>
-    // </div>`;
+    const yearOfRelease = release_date.slice(0, 4);
+    const starsRating = renderRating(vote_average, 'card');
 
     if (!poster_path) {
       return `<div class="card card__item card-set__item movi-card-general-set" data-id='${id}'>
@@ -150,9 +125,9 @@ ${starsRating}
         ' ' +
         this.getNameGenre(genres[2].id);
     }
-    let voteAverageTrunc = vote_average.toFixed(1);
+    const voteAverageTrunc = vote_average.toFixed(1);
     // console.log(voteAverageTrunc);
-    let truncatePopularity = popularity.toFixed(1);
+    const truncatePopularity = popularity.toFixed(1);
     if (!poster_path) {
       return `
   <div class="filmpage__poster">
@@ -243,15 +218,13 @@ ${starsRating}
       listOfGenres = this.getNameGenre(genre_ids[0]) + ', ' + this.getNameGenre(genre_ids[1]);
     }
 
-    // let yearOfRelease = release_date.slice(0, 4);
-    let truncatePopularity = popularity.toFixed(1);
+    const truncatePopularity = popularity.toFixed(1);
     let posterTypeForMarkup = '';
     if (posterType === 'backdrop') {
       posterTypeForMarkup = backdrop_path;
     } else if (posterType === 'poster') {
       posterTypeForMarkup = poster_path;
     }
-    //console.log('posterTypeForMarkup', posterTypeForMarkup);
 
     return `
    <div class="container">
@@ -342,16 +315,14 @@ ${starsRating}
     const markup = this.filmsForMarkupArray.filter(film => film.genre_ids.length !== 0);
 
     if (numOfArray) {
-      let filmsMarkupArrayReduce = this.filmsForMarkupArray.slice(0, numOfArray);
-      // console.log(filmsMarkupArrayReduce);
+      const filmsMarkupArrayReduce = this.filmsForMarkupArray.slice(0, numOfArray);
 
-      let markUpFilmsAllReduce = filmsMarkupArrayReduce
+      const markUpFilmsAllReduce = filmsMarkupArrayReduce
         .map(film => this.markupFilmCard(film))
         .join('');
-      //   console.log('VVVVVVVV', vvv);
       return markUpFilmsAllReduce;
     } else {
-      let markUpFilmsAll = markup.map(film => this.markupFilmCard(film)).join('');
+      const markUpFilmsAll = markup.map(film => this.markupFilmCard(film)).join('');
       //console.log('method -markupGallery- in ApiMarkupService', markUpFilmsAll);
 
       return markUpFilmsAll;
@@ -360,29 +331,14 @@ ${starsRating}
   // method for markup gallery from fetch by film ID
   markupGalleryByID() {
     const markup = this.filmsForMarkupArray.filter(film => film.genres.length !== 0);
-    let markUpFilmsAll = markup.map(film => this.markupFilmCardByID(film)).join('');
-    console.log('method -markupGalleryByID- in ApiMarkupService', markUpFilmsAll);
+    const markUpFilmsAll = markup.map(film => this.markupFilmCardByID(film)).join('');
 
     return markUpFilmsAll;
   }
   // method to markup day film trends in hero section
   markupFilmHeroTrendsDay({ poster_path, title, overview, vote_average }) {
-    let element = 'hero';
-    let starsRating = renderRating(vote_average, element);
-    //   return ` <div class="container hero__container library-container">
-    //   <div class="hero__info">
-    //     <h1 class="hero__title hero__title-color"  id="titleB">${title}</h1>
-    //     <div>
-    //       <ul class="hero__star">${starsRating}</ul>
-    //     </div>
-    //     <p class="hero__text hero__text-width" id="textB">
-    //      ${overview}
-    //     </p>
-    //     <button type="button" class="button button-main button-home" id="watch-trailer-btn">
-    //       <span>Watch trailer</span>
-    //     </button>
-    //   </div>
-    // </div>`;
+    const element = 'hero';
+    const starsRating = renderRating(vote_average, element);
     return `  <div class="hero__bagraundTwo hero-home">
     <div class="container hero__container library-container">
       <div class="hero__info">
@@ -404,7 +360,7 @@ ${starsRating}
   }
   // method for get genre name from ID
   getNameGenre(idGenre) {
-    let nameGenre = this.genresAll.find(genre => genre.id === idGenre);
+    const nameGenre = this.genresAll.find(genre => genre.id === idGenre);
     return nameGenre.name;
   }
   //markup error library

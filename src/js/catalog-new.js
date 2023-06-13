@@ -11,31 +11,14 @@ import appendTrendsCards from './components/append-weekly-cards';
 import clearPage from './components/clear-page';
 import { CardStorage } from './classes/card-storage';
 import { refs, state } from './constants';
-// import initChoices from './search-styling';
-import ApiFetchService from './api_fetch_service';
-import ApiMarkupService from './api_markup_service';
 import { refs } from './constants';
 import { currentPage } from './show-current-page';
 import { switchTheme } from './theme';
 
-import {
-  markupFilmByQuery,
-  markUpWeeklyTrends,
-  markUpDayTrends,
-  markupFilmByID,
-  markupFilmByIDArray,
-  markupFilmUpcoming,
-  getRandomInt,
-  onChangeWeeklyTrendsByResizeViewport,
-  onChangeWeeklyTrendsByScreenWidth,
-  onShowPopUpModal,
-} from './functions';
+import { markUpDayTrends } from './functions';
 import { onWatchTrailerClick } from './watch-trailer';
 import { onCardClick } from './card-handler';
 import { openModal } from './modals/open-close-modals';
-
-
-
 
 currentPage();
 
@@ -45,11 +28,6 @@ refs.mobileMenuToggler.addEventListener('click', () => openModal(refs.mobileMenu
 const cardStorage = new CardStorage();
 cardStorage.init();
 state.cardStorage = cardStorage;
-
-const bodyRef = document.querySelector('body');
-
-const inputRef = document.querySelector('input');
-const cardSetRef = document.querySelector('.card-set');
 
 const formRef = document.querySelector('.search-form');
 
@@ -74,9 +52,8 @@ async function handleSearch() {
     intersection();
     Loading.remove();
   } catch (error) {
-    
     renderSearchFail();
-    console.log("handleSearch error:", error.message);
+    console.log('handleSearch error:', error.message);
   }
 }
 
@@ -86,8 +63,6 @@ async function showWeeklyTrends() {
 
     await appendTrendsCards();
     // intersection();
-
-
   } catch (error) {
     console.log(error.message);
   }
@@ -102,6 +77,4 @@ onWeeklyTrends();
 
 markUpDayTrends('backdrop');
 switchTheme();
-
 Loading.remove();
-
