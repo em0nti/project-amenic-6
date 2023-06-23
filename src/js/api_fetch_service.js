@@ -23,7 +23,6 @@ export default class ApiFetchService {
     this.trends_type = '';
     // here will be stored array of genres from service
     this.genres = [];
-    // this.filmGenres = [];
     // here we have films array by Query fetch
     this.filmsByQuery = [];
     // here we have films array  by trends film fetch
@@ -37,18 +36,18 @@ export default class ApiFetchService {
     //here we have array of Upcoming films
     this.filmUpcoming = [];
   }
+
   //fetch films for search with parametres (beta, beta)
   async fetchFilmDiscoverWithCountry() {
     const urlWithParams = `${this.url}discover/movie?api_key=${this.key}&language=${this.language}&with_genres=${this.genre}&primary_release_year=${this.year}`;
-    console.log(urlWithParams);
     try {
-      let { data } = await axios.get(urlWithParams);
+      const { data } = await axios.get(urlWithParams);
       const arrayFilmsID = await data.results.map(film => film.id);
-      let ArrayFilmID = [];
+      const ArrayFilmID = [];
 
       for (let i = 0; i < arrayFilmsID.length; i++) {
-        let objectByFilmID = await this.fetchFilmByID(arrayFilmsID[i]);
-        let someArray = objectByFilmID.production_countries.some(
+        const objectByFilmID = await this.fetchFilmByID(arrayFilmsID[i]);
+        const someArray = objectByFilmID.production_countries.some(
           country => country.iso_3166_1 === this.country,
         );
 
@@ -57,98 +56,87 @@ export default class ApiFetchService {
         }
       }
 
-      console.log("log in method 'fetchFilmDiscoverWithCountry': ", ArrayFilmID);
       return ArrayFilmID;
     } catch (error) {
       console.log(error.message);
     }
   }
+
   // fetch film by Film ID
   async fetchFilmByID(filmID) {
     try {
       this.id = filmID;
       const urlByID = `${this.url}movie/${filmID}?api_key=${this.key}&language=${this.language}`;
-      let { data } = await axios.get(urlByID);
-      // console.log("log in method 'fetchFilmByID': ", data);
+      const { data } = await axios.get(urlByID);
       this.filmByID = data;
-      // console.log('filmsByID DATA', this.filmsByID);
       return data;
     } catch (error) {
       console.log(error.message);
     }
   }
+
   // fetch images posters by ID
   async fetchFilmImagesByID(filmID) {
     try {
-      // this.id = filmID;
       const urlImagesByID = `${this.url}movie/${filmID}/images?api_key=${this.key}`;
-      let { data } = await axios.get(urlImagesByID);
+      const { data } = await axios.get(urlImagesByID);
       console.log("log in method 'fetchFilmByID': ", data);
-      // this.filmByID = data;
-      // console.log('filmsByID DATA', this.filmsByID);
       return data;
     } catch (error) {
       console.log(error.message);
     }
   }
+
   //fetch film by id array, like [505,509,999]
   async fetchFilmByIDArray() {
     try {
-      let filmsArray = this.filmsIDArray;
-      // console.log('filmsArray', filmsArray);
+      const filmsArray = this.filmsIDArray;
 
-      let filmsArrayForMarkup = [];
+      const filmsArrayForMarkup = [];
       for (const film of filmsArray) {
-        // console.log(film);
         await this.fetchFilmByID(film);
         filmsArrayForMarkup.push(this.filmByID);
-        // this.filmsIDArray.push(this.filmByID);
       }
       this.filmsArrayByID = filmsArrayForMarkup;
-      // console.log('flimsArrayForMarkup', filmsArrayForMarkup);
-      // console.log('this.filmsArrayByID', this.filmsArrayByID);
     } catch (error) {
       console.log(error);
     }
   }
+
   //fetch film by query
   async fetchFilmByQuery() {
     try {
       const urlByQuery = `${this.url}search/movie?api_key=${this.key}&language=${this.language}&query=${this.query}&page=${this.page}`;
-      let { data } = await axios.get(urlByQuery);
+      const { data } = await axios.get(urlByQuery);
       console.log("log in method 'fetchFilmByQuery': ", data.results);
       this.filmsByQuery = data.results;
       return data.results;
     } catch (error) {
       console.log(error.message);
       document.querySelector('.catalog__movi-catalog-list').innerHTML =
-        await apiMarkupService.markupErrorCatalog();
+        apiMarkupService.markupErrorCatalog();
     }
   }
+
   //fetch trend films. set parametres to 'week' or 'day' in setter
   async fetchFilmTrends() {
     const urlTrends = `${this.url}trending/movie/${this.trends_type}?api_key=${this.key}&page=${this.page}`;
     try {
-      let { data } = await axios.get(urlTrends);
-      // console.log(data.production_countries);
-      //console.log("log in method 'fetchFilmTrends': ", data.results);
-      // this.filmGenres = data.results.genre_ids;
-      // console.log(this.filmGenres);
+      const { data } = await axios.get(urlTrends);
       this.filmsTrends = data.results;
       return data.results;
     } catch (error) {
       document.querySelector('.catalog__movi-catalog-list').innerHTML =
-        await apiMarkupService.markupErrorCatalog();
+        apiMarkupService.markupErrorCatalog();
       console.log(error);
     }
   }
+
   //fetch upcoming films
   async fetchFilmUpcoming() {
     const urlUpcoming = `${this.url}movie/upcoming?api_key=${this.key}&language=${this.language}&page=${this.page}`;
     try {
-      let { data } = await axios.get(urlUpcoming);
-      // console.log(data.production_countries);
-      //console.log("log in method 'fetchFilmUpcoming': ", data.results);
+      const { data } = await axios.get(urlUpcoming);
       this.filmUpcoming = data.results;
       return data.results;
     } catch (error) {
@@ -159,22 +147,19 @@ export default class ApiFetchService {
   async fetchFilmGenres() {
     const urlGengres = `${this.url}genre/movie/list?api_key=${this.key}`;
     try {
-      let { data } = await axios.get(urlGengres);
-
-      // console.log("log in method 'fetchFilmGenres': ", data.genres);
+      const { data } = await axios.get(urlGengres);
       this.genres = data.genres;
-      //console.log("log in method 'fetchFilmGenres' this.genres: ", this.genres);
-      // console.log('this.genres', this.genres);
       return data.genres;
     } catch (error) {
       console.log(error.message);
     }
   }
+
   //fetch films country data
   async fetchFilmCountries() {
     const urlCountries = `${this.url}configuration/countries?api_key=${this.key}`;
     try {
-      let { data } = await axios.get(urlCountries);
+      const { data } = await axios.get(urlCountries);
 
       console.log("log in method 'fetchFilmCountries': ", data);
 
@@ -252,9 +237,6 @@ export default class ApiFetchService {
     return this.genres;
   }
 
-  // get getFilmGenres() {
-  //   return this.filmGenres;
-  // }
   // getter for array of films by query. use only after usage 'fetchFilmByQuery' method
   get getFilmsByQuery() {
     return this.filmsByQuery;
